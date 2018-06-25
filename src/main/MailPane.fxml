@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" spacing="10.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.MailPaneController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="233.0" prefWidth="1100.0" spacing="20.0">
+         <children>
+            <Label styleClass="mainHeadingText" stylesheets="@../resources/GISAStyle.css" text="Golf in South Africa" />
+            <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Mails" />
+         </children>
+      </VBox>
+      <HBox alignment="CENTER" prefHeight="136.0" prefWidth="1100.0" spacing="30.0">
+         <children>
+            <StackPane onDragDetected="#QuotesButtonClick" prefHeight="200.0" prefWidth="230.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+               <children>
+                  <ImageView fitHeight="200.0" fitWidth="230.0" onDragDetected="#QuotesButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onDragDetected="#QuotesButtonClick" styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Quotes" />
+               </children>
+            </StackPane>
+            <StackPane onDragDetected="#PendingDepositButtonClick" prefHeight="200.0" prefWidth="230.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+               <children>
+                  <ImageView fitHeight="200.0" fitWidth="230.0" onDragDetected="#PendingDepositButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onDragDetected="#PendingDepositButtonClick" styleClass="home-button-text" text="Pending Deposit" />
+               </children>
+            </StackPane>
+            <StackPane onDragDetected="#PendingFullButtonClick" prefHeight="200.0" prefWidth="229.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+               <children>
+                  <ImageView fitHeight="200.0" fitWidth="230.0" onDragDetected="#PendingFullButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onDragDetected="#PendingFullButtonClick" styleClass="home-button-text" text="Pending Full" />
+               </children>
+            </StackPane>
+            <StackPane onDragDetected="#ConfirmedButtonClick" prefHeight="200.0" prefWidth="229.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+               <children>
+                  <ImageView fitHeight="200.0" fitWidth="230.0" onDragDetected="#ConfirmedButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onDragDetected="#ConfirmedButtonClick" styleClass="home-button-text" text="Confirmed" />
+               </children>
+            </StackPane>
+         </children>
+      </HBox>
+      <HBox alignment="BOTTOM_RIGHT" prefHeight="204.0" prefWidth="1070.0">
+         <children>
+            <StackPane onDragDetected="#BackButtonClick" prefHeight="100.0" prefWidth="112.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+               <children>
+                  <ImageView fitHeight="100.0" fitWidth="110.0" onDragDetected="#BackButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onDragDetected="#BackButtonClick" styleClass="home-button-text" text="Back" />
+               </children>
+               <HBox.margin>
+                  <Insets top="120.0" />
+               </HBox.margin>
+            </StackPane>
+         </children>
+         <VBox.margin>
+            <Insets right="30.0" />
+         </VBox.margin>
+      </HBox>
+   </children>
+</VBox>

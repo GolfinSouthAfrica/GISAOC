@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" spacing="45.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.HomePaneController">
+   <children>
+      <Label text="Golf in South Africa" />
+      <Label text="Home" />
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+         <children>
+            <StackPane onDragDetected="#newQouteButtonClick" prefHeight="110.0" prefWidth="130.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+               <children>
+                  <ImageView fitHeight="110.0" fitWidth="130.0" onDragDetected="#newQouteButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onDragDetected="#newQouteButtonClick" styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="New Qoute" />
+               </children>
+            </StackPane>
+            <StackPane onDragDetected="#suppliersButtonClick" prefHeight="110.0" prefWidth="130.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+               <children>
+                  <ImageView fitHeight="110.0" fitWidth="130.0" onDragDetected="#suppliersButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onDragDetected="#suppliersButtonClick" styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Suppliers" />
+               </children>
+            </StackPane>
+            <StackPane onDragDetected="#bookingsButtonClick" prefHeight="110.0" prefWidth="130.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+               <children>
+                  <Label onDragDetected="#bookingsButtonClick" styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Bookings" />
+                  <ImageView fitHeight="110.0" fitWidth="130.0" onDragDetected="#bookingsButtonClick" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </StackPane>
+            <StackPane onDragDetected="#mailButtonClick" prefHeight="110.0" prefWidth="130.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+               <children>
+                  <ImageView fitHeight="110.0" fitWidth="131.0" onDragDetected="#mailButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onDragDetected="#mailButtonClick" styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Mail" />
+               </children>
+            </StackPane>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+         <children>
+            <StackPane onDragDetected="#financeButtonClick" prefHeight="110.0" prefWidth="130.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+               <children>
+                  <ImageView fitHeight="110.0" fitWidth="130.0" onDragDetected="#financeButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onDragDetected="#financeButtonClick" styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Finance" />
+               </children>
+            </StackPane>
+            <StackPane onDragDetected="#passwordsButtonClick" prefHeight="110.0" prefWidth="130.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+               <children>
+                  <ImageView fitHeight="110.0" fitWidth="130.0" onDragDetected="#passwordsButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onDragDetected="#passwordsButtonClick" styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Passwords" />
+               </children>
+            </StackPane>
+            <StackPane onDragDetected="#documentsButtonClick" prefHeight="110.0" prefWidth="130.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+               <children>
+                  <ImageView fitHeight="110.0" fitWidth="130.0" onDragDetected="#documentsButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onDragDetected="#documentsButtonClick" styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Documents" />
+               </children>
+            </StackPane>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <StackPane onDragDetected="#logOutButtonClick" prefHeight="112.0" prefWidth="130.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+               <children>
+                  <ImageView fitHeight="110.0" fitWidth="130.0" onDragDetected="#logOutButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onDragDetected="#logOutButtonClick" styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Log Out" />
+               </children>
+            </StackPane>
+         </children>
+      </HBox>
+   </children>
+</VBox>

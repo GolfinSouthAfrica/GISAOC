@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="1060.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.SuppliersCardPaneController">
+   <children>
+      <VBox fx:id="nameVBox" alignment="CENTER" prefHeight="100.0" prefWidth="361.0">
+         <children>
+            <Label fx:id="supplierNameLbl" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Pinnacle Point Golf Estate" />
+            <Label fx:id="provinceLbl" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Western Cape" />
+         </children>
+      </VBox>
+      <VBox fx:id="contactVBox" alignment="CENTER" prefHeight="100.0" prefWidth="360.0">
+         <children>
+            <Label fx:id="contactNameLbl" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Piet Pompies" />
+            <Label fx:id="contactNumberLbl" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="021 554 4019" />
+            <Hyperlink fx:id="emailLbl" style="-fx-text-fill: blue;" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="info@pinaclepoint.co.za" />
+         </children>
+      </VBox>
+      <HBox fx:id="buttonHBox" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <StackPane onDragDetected="#viewButtonClick" prefHeight="80.0" prefWidth="90.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+               <children>
+                  <ImageView fx:id="viewBtn" fitHeight="80.0" fitWidth="90.0" onDragDetected="#viewButtonClick" pickOnBounds="true" preserveRatio="true">
+                     <StackPane.margin>
+                        <Insets />
+                     </StackPane.margin>
+                  </ImageView>
+                  <Label onDragDetected="#viewButtonClick" styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="View" />
+               </children>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </StackPane>
+            <StackPane onDragDetected="#editButtonClick" prefHeight="80.0" prefWidth="90.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+               <children>
+                  <ImageView fx:id="editBtn" fitHeight="80.0" fitWidth="90.0" onDragDetected="#editButtonClick" pickOnBounds="true" preserveRatio="true">
+                     <StackPane.margin>
+                        <Insets />
+                     </StackPane.margin>
+                  </ImageView>
+                  <Label onDragDetected="#editButtonClick" styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Edit" />
+               </children>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </StackPane>
+            <StackPane onDragDetected="#removeButtonClick" prefHeight="80.0" prefWidth="90.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+               <children>
+                  <ImageView fx:id="removeBtn" fitHeight="80.0" fitWidth="90.0" onDragDetected="#removeButtonClick" pickOnBounds="true" preserveRatio="true">
+                     <StackPane.margin>
+                        <Insets />
+                     </StackPane.margin>
+                  </ImageView>
+                  <Label onDragDetected="#removeButtonClick" styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Delete" />
+               </children>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </StackPane>
+         </children>
+      </HBox>
+   </children>
+</HBox>

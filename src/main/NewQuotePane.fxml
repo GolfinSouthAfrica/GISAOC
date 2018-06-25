@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" spacing="5.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.NewQuotePaneController">
+   <children>
+      <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <VBox fx:id="emailFromVBox" alignment="CENTER" prefHeight="215.0" prefWidth="360.0">
+               <children>
+                  <Label fx:id="emailFromLbl" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Mail From ():">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <TextArea fx:id="emailFromTxa" disable="true" editable="false" prefHeight="101.0" prefWidth="150.0" />
+               </children>
+               <HBox.margin>
+                  <Insets left="20.0" right="10.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox prefHeight="105.0" prefWidth="1000.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="215.0" prefWidth="729.0">
+                     <children>
+                        <Label styleClass="mainHeadingText" stylesheets="@../resources/GISAStyle.css" text="Golf in South Africa" />
+                        <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="New Qoute" />
+                        <HBox alignment="CENTER" prefHeight="110.0" prefWidth="1017.0" spacing="50.0">
+                           <children>
+                              <VBox prefHeight="100.0" prefWidth="300.0" spacing="10.0">
+                                 <children>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="28.0" prefWidth="100.0" spacing="20.0">
+                                       <children>
+                                          <Label styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Name:" />
+                                          <TextField fx:id="nameTxf" styleClass="booking-input-textfield" stylesheets="@../resources/GISAStyle.css" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="28.0" prefWidth="100.0" spacing="20.0">
+                                       <children>
+                                          <Label styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Email:" />
+                                          <TextField fx:id="emailTxf" styleClass="booking-input-textfield" stylesheets="@../resources/GISAStyle.css" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="100.0" spacing="20.0">
+                                       <children>
+                                          <Label styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Arrival:" />
+                                          <DatePicker fx:id="arrivalDP" styleClass="booking-combo-box" stylesheets="@../resources/GISAStyle.css" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="100.0" prefWidth="300.0" spacing="10.0">
+                                 <children>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="28.0" prefWidth="100.0" spacing="20.0">
+                                       <children>
+                                          <Label styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Contact Number:" />
+                                          <TextField fx:id="contactNumberTxf" prefHeight="25.0" prefWidth="150.0" styleClass="booking-input-textfield" stylesheets="@../resources/GISAStyle.css" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="28.0" prefWidth="100.0" spacing="20.0">
+                                       <children>
+                                          <Label styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="People:" />
+                                          <TextField fx:id="peopleTxf" styleClass="booking-input-textfield" stylesheets="@../resources/GISAStyle.css" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="100.0" spacing="20.0">
+                                       <children>
+                                          <Label styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Departure:" />
+                                          <DatePicker fx:id="departureDP" styleClass="booking-combo-box" stylesheets="@../resources/GISAStyle.css" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets left="-260.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <VBox alignment="CENTER" prefHeight="127.0" prefWidth="1100.0" spacing="10.0">
+         <children>
+            <Label styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Message" />
+            <TextArea fx:id="messageTxa" prefHeight="88.0" prefWidth="900.0" stylesheets="@../resources/GISAStyle.css">
+               <VBox.margin>
+                  <Insets left="100.0" right="100.0" />
+               </VBox.margin>
+            </TextArea>
+         </children>
+      </VBox>
+      <VBox fx:id="quoteTypeVBox" prefHeight="230.0" prefWidth="1100.0" />
+      <HBox alignment="CENTER" prefHeight="81.0" prefWidth="470.0" spacing="200.0">
+         <children>
+            <StackPane prefHeight="82.0" prefWidth="110.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+               <children>
+                  <ImageView fitHeight="80.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Preview" />
+               </children>
+            </StackPane>
+            <StackPane prefHeight="80.0" prefWidth="90.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+               <children>
+                  <ImageView fitHeight="80.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Back" />
+               </children>
+            </StackPane>
+         </children>
+         <VBox.margin>
+            <Insets left="300.0" right="30.0" top="10.0" />
+         </VBox.margin>
+      </HBox>
+   </children>
+</VBox>

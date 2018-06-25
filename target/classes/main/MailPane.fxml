@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" spacing="95.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox alignment="CENTER" prefHeight="82.0" prefWidth="800.0" spacing="20.0">
+         <children>
+            <Label text="Golf in South Africa" />
+            <Label text="Mails" />
+         </children>
+      </VBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+         <children>
+            <StackPane prefHeight="110.0" prefWidth="145.0">
+               <children>
+                  <ImageView fitHeight="160.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label text="Quotes" />
+               </children>
+            </StackPane>
+            <StackPane prefHeight="110.0" prefWidth="130.0">
+               <children>
+                  <ImageView fitHeight="159.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label text="Pending" />
+               </children>
+            </StackPane>
+            <StackPane prefHeight="110.0" prefWidth="130.0">
+               <children>
+                  <ImageView fitHeight="160.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label text="Confirmed" />
+               </children>
+            </StackPane>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_RIGHT" prefHeight="74.0" prefWidth="770.0">
+         <children>
+            <StackPane prefHeight="80.0" prefWidth="90.0">
+               <children>
+                  <ImageView fitHeight="80.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label text="Back" />
+               </children>
+            </StackPane>
+         </children>
+         <padding>
+            <Insets top="60.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>
