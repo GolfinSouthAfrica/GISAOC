@@ -12,6 +12,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.nio.file.Files;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class ConnectionHandler {
@@ -24,6 +26,12 @@ public class ConnectionHandler {
     public ObservableList<Mail> mails = FXCollections.observableArrayList();
     public ObservableList<Login> logins = FXCollections.observableArrayList();
     public ObservableList<DataFile> documents = FXCollections.observableArrayList();
+    public ObservableList<TripPackage> packages = FXCollections.observableArrayList();
+    public ObservableList<Integer> unreadMails = FXCollections.observableArrayList();
+    public ObservableList<ProductAccomodation> accomodation = FXCollections.observableArrayList();
+    public ObservableList<ProductGolf> golf = FXCollections.observableArrayList();
+    public ObservableList<ProductTransport> transport = FXCollections.observableArrayList();
+    public ObservableList<ProductActivity> activities = FXCollections.observableArrayList();
     public volatile ObservableList<Object> outputQueue = FXCollections.observableArrayList();
     public volatile ObservableList<Object> inputQueue = FXCollections.observableArrayList();
     private Socket socket;
@@ -73,7 +81,6 @@ public class ConnectionHandler {
 
     public void deleteFile(String fileType, String fileName) {
         new File(Main.LOCAL_CACHE + "/" + fileType + "/" + fileName).delete();
-        updateSavedFiles();
     }
 
     public Boolean sendEmail(String email, String emailSubject, String emailMessage, String documentType, String document){
@@ -84,6 +91,81 @@ public class ConnectionHandler {
     public void logOut() {
         sendData("lgt:");
         logOut = true;
+    }
+
+    public Double getTotalAmountTrip (TripPackage trip) {
+        Double x = 0.0;
+        for (BookingAccommodation a:trip.getBookingAccommodation()) {
+            x =+ a.getCost();
+        }
+        for (BookingGolf g:trip.getBookingGolf()){
+            x =+ g.getCost();
+        }
+        for (BookingTransport t:trip.getBookingTransport()){
+            x =+ t.getCost();
+        }
+        for (BookingActivity a: trip.getBookingActivities()){
+            x =+ a.getCost();
+        }
+        return x;
+    }
+
+    public String getTodaysDate(){
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate localDate = LocalDate.now();
+        return dtf.format(localDate);
+    }
+
+    public String getFullPaymentDate(String arrival){
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate localDate = LocalDate.parse(arrival).minusDays(60);
+        return dtf.format(localDate);
+    }
+
+    public void convertExceltoPDF(File excelFile){//TODO
+        /*try {
+            FileInputStream input_document = new FileInputStream(new File("C:\\excel_to_pdf.xlsx"));
+            // Read workbook into XSSFWorkbook
+            XSSFWorkbook my_xls_workbook = new XSSFWorkbook(input_document);
+            // Read worksheet into XSSFSheet
+            XSSFSheet my_worksheet = my_xls_workbook.getSheetAt(0);
+            // To iterate over the rows
+            Iterator<Row> rowIterator = my_worksheet.iterator();
+            //We will create output PDF document objects at this point
+            Document iText_xls_2_pdf = new Document();
+            PdfWriter.getInstance(iText_xls_2_pdf, new FileOutputStream("PDFOutput.pdf"));
+            iText_xls_2_pdf.open();
+            //we have two columns in the Excel sheet, so we create a PDF table with two columns
+            PdfPTable my_table = new PdfPTable(2);
+            //cell object to capture data
+            PdfPCell table_cell;
+            //Loop through rows.
+            while(rowIterator.hasNext()) {
+                Row row = rowIterator.next();
+                Iterator<Cell> cellIterator = row.cellIterator();
+                while(cellIterator.hasNext()) {
+                    Cell cell = cellIterator.next(); //Fetch CELL
+                    switch(cell.getCellType()) { //Identify CELL type
+
+                        case Cell.CELL_TYPE_STRING:
+                            //Push the data from Excel to PDF Cell
+                            table_cell=new PdfPCell(new Phrase(cell.getStringCellValue()));
+                            my_table.addCell(table_cell);
+                            break;
+                    }
+                    //next line
+                }
+
+            }
+            //Finally add the table to PDF document
+            iText_xls_2_pdf.add(my_table);
+            iText_xls_2_pdf.close();
+            //we created our pdf file..
+            input_document.close(); //close xlsx
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }*/
+
     }
 
     public void sendData(Object data) {
@@ -108,45 +190,6 @@ public class ConnectionHandler {
             }
         }
         return null;
-    }
-
-    public void updateSavedFiles() {
-        /*Boolean updated = false;
-        for (ClassResultAttendance car : user.getUser().getClassResultAttendances()) {
-            for (DataFile cf : car.getUserClass().getFiles()) {
-                File f;
-                if ((f = new File(Display.LOCAL_CACHE + "/" + cf.getFileType() + "/" + cf.getFileName())).exists() && f.length() == cf.getFileLength()) {
-                    if (cf.getValue() != 1) {
-                        cf.setValue(1);
-                        updated = true;
-                    }
-                } else if (cf.getValue() == 1) {
-                    cf.setValue(0);
-                    updated = true;
-
-                }
-            }
-            try {
-                File classFolder = new File(Display.LOCAL_CACHE + "/" + car.getStudentClass().getClassID());
-                for (File file : classFolder.listFiles()) {
-                    Boolean found = false;
-                    for (DataFile cf : car.getUserClass().getFiles()) {
-                        if (cf.getFileName().equals(file.getName()) && cf.getFileLength() == file.length()) {
-                            found = true;
-                        }
-                    }
-                    if (!found) {
-                        Files.delete(file.toPath());
-                        System.out.println("Deleted file: " + file.getName());
-                    }
-                }
-            } catch (Exception ex) {
-            }
-        }
-        if (updated) {
-            Platform.runLater(() -> user.update());
-            System.out.println("Files Updated");
-        }*/
     }
 
     public Boolean getStringReply(String startsWith) {
@@ -174,6 +217,15 @@ public class ConnectionHandler {
         return user.getUser() != null;
     }
 
+    public Boolean mailsInitialized() {
+        return mails.size() < 1;
+    }
+
+    public Boolean getMails(String category, String flag) {
+        outputQueue.add("gm:" + category + ":" + flag);
+        return true;
+    }
+
     private class InputProcessor extends Thread {
         public void run() {
             while (!logOut) {
@@ -181,7 +233,6 @@ public class ConnectionHandler {
                 if ((input = getReply()) != null) {
                     if (input instanceof User) {
                         user.setUser((User) input);
-                        updateSavedFiles();
                         user.update();
                         System.out.println("Updated User");
                     } else if (input instanceof List<?>) {
@@ -191,33 +242,81 @@ public class ConnectionHandler {
                             if (((Supplier) list.get(0)).getSupplierNumber() != -1) {
                                 suppliers.addAll(list);
                             }
-                            System.out.println("Updated Suppliers");
+                            System.out.println("Updated Suppliers (" + suppliers.size() + ")");
                         } else if (!list.isEmpty() && list.get(0) instanceof Booking) {
                             bookings.clear();
                             if (!((Booking) list.get(0)).getClientName().equals("NoBooking")) {
                                 bookings.addAll(list);
                             }
-                            System.out.println("Updated Bookings");
+                            System.out.println("Updated Bookings (" + bookings.size() + ")");
                         } else if (!list.isEmpty() && list.get(0) instanceof Mail) {
                             mails.clear();
                             if (!((Mail) list.get(0)).getMessage().equals("NoMails")) {
                                 mails.addAll(list);
                             }
-                            System.out.println("Updated Mails");
+                            System.out.println("Updated Mails (" + mails.size() + ")");
                         } else if (!list.isEmpty() && list.get(0) instanceof Login) {
                             logins.clear();
                             if (!((Login) list.get(0)).getLoginName().equals("NoLogins")) {
                                 logins.addAll(list);
                             }
-                            System.out.println("Updated Logins");
+                            System.out.println("Updated Logins (" + logins.size() + ")");
                         } else if (!list.isEmpty() && list.get(0) instanceof DataFile) {
-                            if (((DataFile) list.get(0)).getFileType().matches("Document")) {
+                            if (((DataFile) list.get(0)).getFileType().matches("Documents")) {
                                 documents.clear();
                                 if (!((DataFile) list.get(0)).getFileName().equals("NoDocuments")) {
                                     documents.addAll(list);
                                 }
-                                System.out.println("Updated Quotations (" + documents.size() + ")");
+                                System.out.println("Updated Documents (" + documents.size() + ")");
                             }
+                        } else if (!list.isEmpty() && list.get(0) instanceof TripPackage) {
+                            packages.clear();
+                            if (!((DataFile) list.get(0)).getFileName().equals("NoPackages")) {
+                                packages.addAll(list);
+                            }
+                            System.out.println("Updated Packages (" + packages.size() + ")");
+                        } else if (!list.isEmpty() && list.get(0) instanceof Integer) {
+                            if((Integer)list.get(0) > unreadMails.get(0)){
+                                UserNotification.showMessage(Main.stage, "New Booking Enquiry", "New Booking Enquiry Mails to be opened");
+                            }
+                            if((Integer)list.get(1) > unreadMails.get(1)){
+                                UserNotification.showMessage(Main.stage, "New Contact Enquiry", "New Contact Enquiry Mails to be opened");
+                            }
+                            if((Integer)list.get(2) > unreadMails.get(2)){
+                                UserNotification.showMessage(Main.stage, "New Finance Mail", "New Finance Mails to be opened");
+                            }
+                            if((Integer)list.get(3) > unreadMails.get(3)){
+                                UserNotification.showMessage(Main.stage, "New Other Mail", "New Other Mails to be opened");
+                            }
+                            unreadMails.clear();
+                            if (((Integer) list.get(0))!=-1) {
+                                unreadMails.addAll(list);
+                            }
+                            System.out.println("Updated UnreadMails (" + unreadMails.get(0) + unreadMails.get(1) + unreadMails.get(2) + unreadMails.get(3) + ")");
+                        } else if (!list.isEmpty() && list.get(0) instanceof ProductAccomodation) {
+                            accomodation.clear();
+                            if (!((ProductAccomodation) list.get(0)).getProductName().equals("NoAccomnodation")) {
+                                accomodation.addAll(list);
+                            }
+                            System.out.println("Updated Accommodation (" + accomodation.size() + ")");
+                        } else if (!list.isEmpty() && list.get(0) instanceof ProductGolf) {
+                            golf.clear();
+                            if (!((ProductGolf) list.get(0)).getProductName().equals("NoGolf")) {
+                                golf.addAll(list);
+                            }
+                            System.out.println("Updated Golf (" + golf.size() + ")");
+                        } else if (!list.isEmpty() && list.get(0) instanceof ProductTransport) {
+                            transport.clear();
+                            if (!((ProductTransport) list.get(0)).getProductName().equals("NoTransport")) {
+                                transport.addAll(list);
+                            }
+                            System.out.println("Updated Transport (" + transport.size() + ")");
+                        } else if (!list.isEmpty() && list.get(0) instanceof ProductActivity) {
+                            activities.clear();
+                            if (!((ProductActivity) list.get(0)).getProductName().equals("NoActivities")) {
+                                activities.addAll(list);
+                            }
+                            System.out.println("Updated Activities (" + activities.size() + ")");
                         }
                     } else {
                         inputQueue.add(input);
@@ -257,7 +356,7 @@ public class ConnectionHandler {
 
         @Override
         public void run() {
-            outputQueue.add("gf:" + file.getFileType() + ":" + file.getFileName());
+            outputQueue.add("gf:" + file.getFileName());
             Done:
             while (true) {
                 FilePart filePartToRemove = null;
@@ -290,7 +389,6 @@ public class ConnectionHandler {
                     f.getParentFile().mkdirs();
                     try {
                         Files.write(f.toPath(), bytes);
-                        updateSavedFiles();
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }

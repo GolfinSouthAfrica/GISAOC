@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" spacing="10.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="121.0" prefWidth="1100.0" spacing="10.0">
+         <children>
+            <Label styleClass="mainHeadingText" stylesheets="@../resources/GISAStyle.css" text="Golf in South Africa" />
+            <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Mails" />
+         </children>
+      </VBox>
+      <VBox alignment="CENTER" prefHeight="424.0" prefWidth="1100.0" spacing="30.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="46.0" prefWidth="1100.0" spacing="10.0">
+               <children>
+                  <TextField styleClass="products-searchfield" stylesheets="@../resources/GISAStyle.css" />
+                  <Button mnemonicParsing="false" styleClass="products-button" stylesheets="@../resources/GISAStyle.css" text="Button" />
+               </children>
+            </HBox>
+            <ListView prefHeight="370.0" prefWidth="1000.0" styleClass="mailsList-ListView" stylesheets="@../resources/GISAStyle.css" />
+         </children>
+      </VBox>
+      <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="1070.0" spacing="42.0">
+         <children>
+            <StackPane onDragDetected="#BackButtonClick" prefHeight="100.0" prefWidth="112.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+               <children>
+                  <ImageView fitHeight="100.0" fitWidth="110.0" onDragDetected="#BackButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onDragDetected="#BackButtonClick" styleClass="home-button-text" text="New Mail" />
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </StackPane>
+            <StackPane onDragDetected="#BackButtonClick" prefHeight="100.0" prefWidth="112.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+               <children>
+                  <ImageView fitHeight="100.0" fitWidth="110.0" onDragDetected="#BackButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onDragDetected="#BackButtonClick" styleClass="home-button-text" text="View" />
+               </children>
+            </StackPane>
+            <StackPane onDragDetected="#BackButtonClick" prefHeight="100.0" prefWidth="112.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+               <children>
+                  <ImageView fitHeight="100.0" fitWidth="110.0" onDragDetected="#BackButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onDragDetected="#BackButtonClick" styleClass="home-button-text" text="Reply" />
+               </children>
+            </StackPane>
+            <StackPane onDragDetected="#BackButtonClick" prefHeight="100.0" prefWidth="112.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+               <children>
+                  <ImageView fitHeight="100.0" fitWidth="110.0" onDragDetected="#BackButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onDragDetected="#BackButtonClick" styleClass="home-button-text" text="Forward" />
+               </children>
+            </StackPane>
+            <StackPane onDragDetected="#BackButtonClick" prefHeight="100.0" prefWidth="112.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+               <children>
+                  <ImageView fitHeight="100.0" fitWidth="110.0" onDragDetected="#BackButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onDragDetected="#BackButtonClick" styleClass="home-button-text" text="Delete" />
+               </children>
+            </StackPane>
+            <StackPane onDragDetected="#BackButtonClick" prefHeight="100.0" prefWidth="112.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+               <children>
+                  <ImageView fitHeight="100.0" fitWidth="110.0" onDragDetected="#BackButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onDragDetected="#BackButtonClick" styleClass="home-button-text" text="Read/Unread" />
+               </children>
+            </StackPane>
+            <StackPane onDragDetected="#BackButtonClick" prefHeight="100.0" prefWidth="112.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+               <children>
+                  <ImageView fitHeight="100.0" fitWidth="110.0" onDragDetected="#BackButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onDragDetected="#BackButtonClick" styleClass="home-button-text" text="Back" />
+               </children>
+            </StackPane>
+         </children>
+         <VBox.margin>
+            <Insets right="30.0" />
+         </VBox.margin>
+         <padding>
+            <Insets top="20.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>

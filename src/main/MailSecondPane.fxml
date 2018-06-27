@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" spacing="10.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.MailSecondPaneController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="233.0" prefWidth="1100.0" spacing="20.0">
+         <children>
+            <Label styleClass="mainHeadingText" stylesheets="@../resources/GISAStyle.css" text="Golf in South Africa" />
+            <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Mails" />
+         </children>
+      </VBox>
+      <HBox alignment="CENTER" prefHeight="136.0" prefWidth="1100.0" spacing="30.0">
+         <children>
+            <StackPane onMouseClicked="#unreadButtonClick" prefHeight="200.0" prefWidth="230.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+               <children>
+                  <ImageView fitHeight="200.0" fitWidth="230.0" onMouseClicked="#unreadButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onMouseClicked="#unreadButtonClick" styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Unread" />
+               </children>
+            </StackPane>
+            <StackPane onMouseClicked="#allButtonClick" prefHeight="200.0" prefWidth="230.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+               <children>
+                  <ImageView fitHeight="200.0" fitWidth="230.0" onMouseClicked="#allButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onMouseClicked="#allButtonClick" styleClass="home-button-text" text="All" />
+               </children>
+            </StackPane>
+         </children>
+      </HBox>
+      <HBox alignment="BOTTOM_RIGHT" prefHeight="204.0" prefWidth="1070.0">
+         <children>
+            <StackPane onMouseClicked="#backButtonClick" prefHeight="100.0" prefWidth="112.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+               <children>
+                  <ImageView fitHeight="100.0" fitWidth="110.0" onMouseClicked="#backButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onMouseClicked="#backButtonClick" styleClass="home-button-text" text="Back" />
+               </children>
+               <HBox.margin>
+                  <Insets top="120.0" />
+               </HBox.margin>
+            </StackPane>
+         </children>
+         <VBox.margin>
+            <Insets right="30.0" />
+         </VBox.margin>
+      </HBox>
+   </children>
+</VBox>

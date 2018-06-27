@@ -32,7 +32,7 @@
       </HBox>
       <ScrollPane fx:id="suppliersScrollPane" prefHeight="400.0" prefWidth="1100.0">
          <content>
-            <VBox fx:id="suppliersList" prefHeight="340.0" prefWidth="1037.0" />
+            <VBox fx:id="suppliersList" prefHeight="340.0" prefWidth="1020.0" />
          </content>
          <VBox.margin>
             <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
@@ -40,16 +40,16 @@
       </ScrollPane>
       <HBox alignment="CENTER" prefHeight="80.0" prefWidth="794.0" spacing="820.0">
          <children>
-            <StackPane onDragDetected="#addButtonClick" prefHeight="80.0" prefWidth="90.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+            <StackPane onMouseClicked="#addButtonClick" prefHeight="80.0" prefWidth="90.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
                <children>
-                  <ImageView fitHeight="80.0" fitWidth="90.0" onDragDetected="#addButtonClick" pickOnBounds="true" preserveRatio="true" />
-                  <Label onDragDetected="#addButtonClick" styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Add" />
+                  <ImageView fitHeight="80.0" fitWidth="90.0" onMouseClicked="#addButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onMouseClicked="#addButtonClick" styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Add" />
                </children>
             </StackPane>
-            <StackPane prefHeight="80.0" prefWidth="90.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+            <StackPane onMouseClicked="#backButtonClick" prefHeight="80.0" prefWidth="90.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
                <children>
-                  <ImageView fitHeight="80.0" fitWidth="90.0" onDragDetected="#backButtonClick" pickOnBounds="true" preserveRatio="true" />
-                  <Label styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Back" />
+                  <ImageView fitHeight="80.0" fitWidth="90.0" onMouseClicked="#backButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onMouseClicked="#backButtonClick" styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Back" />
                </children>
             </StackPane>
          </children>

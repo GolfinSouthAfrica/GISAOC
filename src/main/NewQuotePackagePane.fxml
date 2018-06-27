@@ -9,53 +9,44 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="190.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.NewQuotePackagePaneController">
    <children>
       <HBox alignment="TOP_CENTER" prefHeight="40.0" prefWidth="1100.0" spacing="30.0">
          <children>
             <HBox alignment="CENTER" prefHeight="40.0" prefWidth="230.0" spacing="10.0">
                <children>
                   <Label styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Province:" />
-                  <ComboBox prefWidth="150.0" styleClass="booking-combo-box" stylesheets="@../resources/GISAStyle.css" />
+                  <ComboBox fx:id="provinceCmb" prefWidth="150.0" styleClass="booking-combo-box" stylesheets="@../resources/GISAStyle.css" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="40.0" prefWidth="230.0" spacing="10.0">
                <children>
-                  <TextField styleClass="booking-input-textfield" stylesheets="@../resources/GISAStyle.css" />
+                  <TextField fx:id="searchTxf" styleClass="booking-input-textfield" stylesheets="@../resources/GISAStyle.css" />
                   <Button mnemonicParsing="false" styleClass="dialog-button" stylesheets="@../resources/GISAStyle.css" text="Search" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="40.0" prefWidth="230.0" spacing="10.0">
                <children>
                   <Label styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Sort By:" />
-                  <ComboBox prefWidth="150.0" styleClass="booking-combo-box" stylesheets="@../resources/GISAStyle.css" />
+                  <ComboBox fx:id="sortByCmb" prefWidth="150.0" styleClass="booking-combo-box" stylesheets="@../resources/GISAStyle.css" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="40.0" prefWidth="230.0" spacing="10.0">
                <children>
                   <Label styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Quantity:" />
-                  <ComboBox prefWidth="150.0" styleClass="booking-combo-box" stylesheets="@../resources/GISAStyle.css" />
+                  <ComboBox fx:id="quantityCmb" prefWidth="150.0" styleClass="booking-combo-box" stylesheets="@../resources/GISAStyle.css" />
                </children>
             </HBox>
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="150.0" prefWidth="1100.0" spacing="20.0">
+      <VBox alignment="TOP_CENTER" prefHeight="181.0" prefWidth="1023.0" spacing="10.0">
          <children>
-            <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="906.0">
-               <children>
-                  <Label styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Packages Available:" />
-                  <ListView prefHeight="128.0" prefWidth="562.0" styleClass="bookingPackage-listView" stylesheets="@../resources/GISAStyle.css" />
-               </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="150.0" prefWidth="60.0" spacing="20.0">
-               <children>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="n" />
-               </children>
-               <padding>
-                  <Insets top="20.0" />
-               </padding>
-            </VBox>
+            <Label styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Packages Available:" />
+            <ListView fx:id="packagesListView" maxWidth="998.0" prefHeight="128.0" prefWidth="998.0" styleClass="bookingPackage-listView" stylesheets="@../resources/GISAStyle.css" />
          </children>
-      </HBox>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </VBox>
    </children>
 </VBox>

@@ -23,7 +23,7 @@ public class SuppliersPaneController implements Initializable{
     @FXML private TextField searchTxf;
     @FXML private ScrollPane suppliersScrollPane;
     @FXML private VBox suppliersList;
-    @FXML private ComboBox sortBy;//TODO
+    @FXML private ComboBox sortBy;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -31,6 +31,9 @@ public class SuppliersPaneController implements Initializable{
             populateSuppliers();
         });
         populateSuppliers();
+        sortBy.getItems().clear();
+        sortBy.getItems().addAll("Name", "Province");
+        sortBy.getSelectionModel().select(0);
     }
 
     private void populateSuppliers(){
@@ -59,7 +62,7 @@ public class SuppliersPaneController implements Initializable{
         ObservableList<Supplier> displayList = FXCollections.observableArrayList();
         if (!searchTxf.getText().matches("")) {
             for (Supplier s: Main.connectionHandler.suppliers) {
-                if (s.getSupplierName().contains(searchTxf.getText())||s.getContactNumber().contains(searchTxf.getText())||s.getProvince().contains(searchTxf.getText())||s.getEmail().contains(searchTxf.getText())) {
+                if (s.getSupplierName().contains(searchTxf.getText())||s.getProvince().contains(searchTxf.getText())||s.getCategory().contains(searchTxf.getText())||s.getAddress().contains(searchTxf.getText())) {
                     displayList.add(s);
                 }
             }
@@ -85,9 +88,9 @@ public class SuppliersPaneController implements Initializable{
         suppliersList.getChildren().addAll(supplierCards);
     }
 
-    public void addButtonClick(){//TODO add
+    public void addButtonClick(){
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("AddSupplierPane.fxml"));
+        loader.setLocation(getClass().getResource("NewSupplierPane.fxml"));
         try {
             Main.setStage(loader.load());
         } catch (IOException e) {

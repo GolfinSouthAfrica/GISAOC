@@ -2,8 +2,10 @@ package main;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ListView;
+import models.Booking;
+import models.TripPackage;
 
-import javax.swing.text.html.ListView;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -13,14 +15,34 @@ public class NewQuoteBespokePaneController implements Initializable {
     @FXML ListView golfListView;
     @FXML ListView activitiesListView;
     @FXML ListView transportListView;
+    private TripPackage selectedPackage;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
 
-    public void initData(){
+    public void initData(TripPackage selectedPackage){
+        this.selectedPackage = selectedPackage;
+        accommodationListView.getItems().clear();
+        accommodationListView.getItems().addAll(this.selectedPackage.getBookingAccommodation());
+        golfListView.getItems().clear();
+        golfListView.getItems().addAll(this.selectedPackage.getBookingGolf());
+        activitiesListView.getItems().clear();
+        activitiesListView.getItems().addAll(this.selectedPackage.getBookingActivities());
+        transportListView.getItems().clear();
+        transportListView.getItems().addAll(this.selectedPackage.getBookingTransport());
+    }
 
+    public void editData(Booking booking){
+        accommodationListView.getItems().clear();
+        accommodationListView.getItems().addAll(booking.getBookingAccommodation());
+        golfListView.getItems().clear();
+        golfListView.getItems().addAll(booking.getBookingGolf());
+        transportListView.getItems().clear();
+        transportListView.getItems().addAll(booking.getBookingTransport());
+        activitiesListView.getItems().clear();
+        activitiesListView.getItems().addAll(booking.getBookingActivities());
     }
 
     public void accommodationAddButtonClick(){
@@ -69,5 +91,9 @@ public class NewQuoteBespokePaneController implements Initializable {
 
     public void transportRemoveButtonClick(){
 
+    }
+
+    public TripPackage getCompletedPackage(){
+        return selectedPackage;
     }
 }

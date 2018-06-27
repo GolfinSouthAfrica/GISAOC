@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import models.Supplier;
@@ -15,31 +16,29 @@ import java.io.IOException;
 public class SuppliersCardPaneController {
 
     @FXML Label supplierNameLbl;
+    @FXML Label categoryLbl;
     @FXML Label provinceLbl;
-    @FXML Label contactNameLbl;
-    @FXML Label contactNumberLbl;
-    @FXML Hyperlink emailLbl;
+    @FXML Label addressLbl;
     @FXML VBox nameVBox;
-    @FXML VBox contactVBox;
+    @FXML VBox whereVBox;
     @FXML HBox buttonHBox;
-    @FXML Button viewBtn;
-    @FXML Button editBtn;
-    @FXML Button removeBtn;
+    @FXML ImageView viewBtn;
+    @FXML ImageView editBtn;
+    @FXML ImageView removeBtn;
     private Supplier supplier;
 
     public void initData(Supplier supplier, Double width){
         this.supplier = supplier;
         supplierNameLbl.setText(supplier.getSupplierName());
+        categoryLbl.setText(supplier.getCategory());
         provinceLbl.setText(supplier.getProvince());
-        contactNameLbl.setText(supplier.getContactPerson());
-        contactNumberLbl.setText(supplier.getContactNumber());
-        emailLbl.setText(supplier.getEmail());
+        addressLbl.setText(supplier.getAddress());
         nameVBox.setPrefWidth(width);
-        contactVBox.setPrefWidth(width);
+        whereVBox.setPrefWidth(width);
         buttonHBox.setPrefWidth(width);
-        viewBtn.setTooltip(new Tooltip("View"));
-        editBtn.setTooltip(new Tooltip("Edit"));;
-        removeBtn.setTooltip(new Tooltip("Remove"));;
+        /*viewBtn.setTooltip(new Tooltip("View"));
+        editBtn.setTooltip(new Tooltip("Edit"));
+        removeBtn.setTooltip(new Tooltip("Remove"));*/
     }
 
     public void viewButtonClick(){//TODO

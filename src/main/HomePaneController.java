@@ -1,8 +1,5 @@
 package main;
-
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
 
 import java.io.IOException;
 
@@ -16,6 +13,8 @@ public class HomePaneController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        NewQuotePaneController nqpc = loader.getController();
+        nqpc.initNoMailData("HomePane");
     }
 
     public void suppliersButtonClick(){
@@ -70,7 +69,7 @@ public class HomePaneController {
 
     public void documentsButtonClick(){
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("DocumentsPane.fxml"));
+        loader.setLocation(getClass().getResource("DocumentPane.fxml"));
         try {
             Main.setStage(loader.load());
         } catch (IOException e) {

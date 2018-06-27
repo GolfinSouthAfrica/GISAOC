@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
@@ -17,41 +18,52 @@
       </VBox>
       <HBox alignment="CENTER" prefHeight="136.0" prefWidth="1100.0" spacing="30.0">
          <children>
-            <StackPane onDragDetected="#QuotesButtonClick" prefHeight="200.0" prefWidth="230.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+            <StackPane onMouseClicked="#quotesButtonClick" prefHeight="200.0" prefWidth="230.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
                <children>
-                  <ImageView fitHeight="200.0" fitWidth="230.0" onDragDetected="#QuotesButtonClick" pickOnBounds="true" preserveRatio="true" />
-                  <Label onDragDetected="#QuotesButtonClick" styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Quotes" />
+                  <ImageView fitHeight="200.0" fitWidth="230.0" onMouseClicked="#quotesButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onMouseClicked="#quotesButtonClick" styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Quotes" />
                </children>
             </StackPane>
-            <StackPane onDragDetected="#PendingDepositButtonClick" prefHeight="200.0" prefWidth="230.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+            <StackPane onMouseClicked="#contactButtonClick" prefHeight="200.0" prefWidth="229.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
                <children>
-                  <ImageView fitHeight="200.0" fitWidth="230.0" onDragDetected="#PendingDepositButtonClick" pickOnBounds="true" preserveRatio="true" />
-                  <Label onDragDetected="#PendingDepositButtonClick" styleClass="home-button-text" text="Pending Deposit" />
+                  <ImageView fitHeight="200.0" fitWidth="230.0" onMouseClicked="#contactButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onMouseClicked="#contactButtonClick" styleClass="home-button-text" text="Contact Page" />
                </children>
             </StackPane>
-            <StackPane onDragDetected="#PendingFullButtonClick" prefHeight="200.0" prefWidth="229.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+            <StackPane onMouseClicked="#financeButtonClick" prefHeight="200.0" prefWidth="229.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
                <children>
-                  <ImageView fitHeight="200.0" fitWidth="230.0" onDragDetected="#PendingFullButtonClick" pickOnBounds="true" preserveRatio="true" />
-                  <Label onDragDetected="#PendingFullButtonClick" styleClass="home-button-text" text="Pending Full" />
+                  <ImageView fitHeight="200.0" fitWidth="230.0" onMouseClicked="#financeButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onMouseClicked="#financeButtonClick" styleClass="home-button-text" text="Finance" />
                </children>
             </StackPane>
-            <StackPane onDragDetected="#ConfirmedButtonClick" prefHeight="200.0" prefWidth="229.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+            <StackPane onMouseClicked="#otherButtonClick" prefHeight="200.0" prefWidth="229.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
                <children>
-                  <ImageView fitHeight="200.0" fitWidth="230.0" onDragDetected="#ConfirmedButtonClick" pickOnBounds="true" preserveRatio="true" />
-                  <Label onDragDetected="#ConfirmedButtonClick" styleClass="home-button-text" text="Confirmed" />
+                  <ImageView fitHeight="200.0" fitWidth="230.0" onMouseClicked="#otherButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onMouseClicked="#otherButtonClick" styleClass="home-button-text" text="Other" />
                </children>
             </StackPane>
          </children>
       </HBox>
-      <HBox alignment="BOTTOM_RIGHT" prefHeight="204.0" prefWidth="1070.0">
+      <HBox alignment="CENTER" prefHeight="57.0" prefWidth="874.0" spacing="213.0">
          <children>
-            <StackPane onDragDetected="#BackButtonClick" prefHeight="100.0" prefWidth="112.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+            <Button mnemonicParsing="false" styleClass="mailNotification-Button" stylesheets="@../resources/GISAStyle.css" text="0" />
+            <Button mnemonicParsing="false" styleClass="mailNotification-Button" stylesheets="@../resources/GISAStyle.css" text="0" />
+            <Button mnemonicParsing="false" styleClass="mailNotification-Button" stylesheets="@../resources/GISAStyle.css" text="0" />
+            <Button mnemonicParsing="false" styleClass="mailNotification-Button" stylesheets="@../resources/GISAStyle.css" text="0" />
+         </children>
+         <VBox.margin>
+            <Insets left="225.0" top="-40.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="BOTTOM_RIGHT" prefHeight="190.0" prefWidth="1070.0">
+         <children>
+            <StackPane onMouseClicked="#backButtonClick" prefHeight="100.0" prefWidth="112.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
                <children>
-                  <ImageView fitHeight="100.0" fitWidth="110.0" onDragDetected="#BackButtonClick" pickOnBounds="true" preserveRatio="true" />
-                  <Label onDragDetected="#BackButtonClick" styleClass="home-button-text" text="Back" />
+                  <ImageView fitHeight="100.0" fitWidth="110.0" onMouseClicked="#backButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onMouseClicked="#backButtonClick" styleClass="home-button-text" text="Back" />
                </children>
                <HBox.margin>
-                  <Insets top="120.0" />
+                  <Insets top="80.0" />
                </HBox.margin>
             </StackPane>
          </children>

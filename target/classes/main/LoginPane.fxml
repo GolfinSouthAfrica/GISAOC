@@ -10,7 +10,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" focusTraversable="true" prefHeight="400.0" prefWidth="640.0" spacing="20.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.LoginPaneController">
+<VBox alignment="CENTER" focusTraversable="true" prefHeight="700.0" prefWidth="1100.0" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.LoginPaneController">
    <children>
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -19,7 +19,7 @@
       <Label styleClass="heading-text" stylesheets="@../resources/GISAStyle.css" text="Golf in South Africa" />
       <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Providing Quality" />
       <TextField fx:id="emailTxf" promptText="Username" styleClass="login-fields" stylesheets="@../resources/GISAStyle.css" text="Ronnie28" />
-      <TextField fx:id="passwordTxf" promptText="Password" styleClass="login-fields" stylesheets="@../resources/GISAStyle.css" text="password" />
+      <TextField fx:id="passwordTxf" promptText="Password" styleClass="login-fields" stylesheets="@../resources/GISAStyle.css" text="Ronald#28" />
       <Button mnemonicParsing="false" onAction="#loginButtonClick" styleClass="login-button" stylesheets="@../resources/GISAStyle.css" text="Login" />
       <Hyperlink onAction="#forgotPasswordHLClicked" style="-fx-text-fill: #28bbff;" text="Forgot Password?" />
    </children>

@@ -64,16 +64,19 @@
 .mainHeadingText {
     -fx-font-weight: bold;
     -fx-font-size: 400%;
+    -fx-text-fill: white;
 }
 
 .secondaryHeadingText {
     -fx-font-weight: bold;
-    -fx-font-size: 200%;
+    -fx-font-size: 180%;
+    -fx-text-fill: white;
 }
 
 .tertiaryHeadingText {
     -fx-font-weight: bold;
-    -fx-font-size: 120%;
+    -fx-font-size: 100%;
+    -fx-text-fill: white;
 }
 
 .home-button-text {
@@ -348,6 +351,41 @@
     -fx-font-size: 22;
     -fx-max-width: 950;
     -fx-min-width: 100;
+}
+
+.mailsList-ListView {
+    -fx-background-color: #196e96;
+    -fx-control-inner-background: rgba(66, 135, 167, 0);
+    -fx-background-radius: 15;
+    -fx-background-insets: -10;
+    -fx-border-color: black;
+    -fx-border-radius: 15;
+    -fx-border-insets: -10;
+    -fx-border-width: 2;
+    -fx-font-size: 22;
+    -fx-max-width: 1000;
+    -fx-min-width: 1000;
+}
+
+.mailMessage-TextArea {
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-max-width: 1000;
+    -fx-min-width: 1000;
+    -fx-max-height: 260;
+    -fx-min-height: 260;
+}
+
+.mailNotification-Button {
+    -fx-max-width: 50;
+    -fx-min-width: 50;
+    -fx-max-height: 50;
+    -fx-min-height: 50;
+    -fx-background-color: #ffb81c;
+    -fx-background-radius: 25;
+    -fx-border-radius: 25;
+    -fx-font-size: 12;
+    -fx-font-weight: bold;
 }
 
 .products-list-view {

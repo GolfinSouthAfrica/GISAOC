@@ -9,49 +9,48 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" spacing="40.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" spacing="40.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.BookingsPaneController">
    <children>
-      <VBox alignment="CENTER" prefHeight="111.0" prefWidth="800.0" spacing="10.0">
+      <VBox alignment="TOP_CENTER" prefHeight="111.0" prefWidth="800.0" spacing="10.0">
          <children>
-            <Label text="Golf in South Africa" />
-            <Label text="Bookings" />
+            <Label styleClass="mainHeadingText" stylesheets="@../resources/GISAStyle.css" text="Golf in South Africa" />
+            <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Bookings" />
          </children>
       </VBox>
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="600.0" spacing="20.0">
          <children>
-            <TextField />
-            <Button mnemonicParsing="false" text="Search" />
+            <TextField styleClass="products-searchfield" stylesheets="@../resources/GISAStyle.css" />
+            <Button mnemonicParsing="false" styleClass="dialog-button" stylesheets="@../resources/GISAStyle.css" text="Search" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+      <HBox alignment="CENTER" prefHeight="200.0" prefWidth="1100.0" spacing="30.0">
          <children>
-            <StackPane prefHeight="110.0" prefWidth="145.0">
+            <StackPane prefHeight="203.0" prefWidth="233.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
                <children>
-                  <ImageView fitHeight="160.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label text="Quotes" />
+                  <ImageView fitHeight="201.0" fitWidth="231.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Quotes" />
                </children>
             </StackPane>
-            <StackPane prefHeight="110.0" prefWidth="130.0">
+            <StackPane prefHeight="218.0" prefWidth="232.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
                <children>
-                  <ImageView fitHeight="159.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label text="Pending" />
+                  <ImageView fitHeight="200.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Pending" />
                </children>
             </StackPane>
-            <StackPane prefHeight="110.0" prefWidth="130.0">
+            <StackPane prefHeight="200.0" prefWidth="230.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
                <children>
-                  <ImageView fitHeight="160.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label text="Confirmed" />
+                  <ImageView fitHeight="200.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Confirmed" />
                </children>
             </StackPane>
          </children>
       </HBox>
-      <HBox alignment="CENTER_RIGHT" prefHeight="74.0" prefWidth="770.0">
+      <HBox alignment="CENTER_RIGHT" prefHeight="160.0" prefWidth="1070.0">
          <children>
-            <StackPane prefHeight="80.0" prefWidth="90.0">
+            <StackPane prefHeight="100.0" prefWidth="110.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
                <children>
-                  <ImageView fitHeight="80.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label text="Back" />
+                  <ImageView fitHeight="100.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Back" />
                </children>
             </StackPane>
          </children>

@@ -1,55 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" spacing="95.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" spacing="10.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.MailPaneController">
    <children>
-      <VBox alignment="CENTER" prefHeight="82.0" prefWidth="800.0" spacing="20.0">
+      <VBox alignment="TOP_CENTER" prefHeight="233.0" prefWidth="1100.0" spacing="20.0">
          <children>
-            <Label text="Golf in South Africa" />
-            <Label text="Mails" />
+            <Label styleClass="mainHeadingText" stylesheets="@../resources/GISAStyle.css" text="Golf in South Africa" />
+            <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Mails" />
          </children>
       </VBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+      <HBox alignment="CENTER" prefHeight="136.0" prefWidth="1100.0" spacing="30.0">
          <children>
-            <StackPane prefHeight="110.0" prefWidth="145.0">
+            <StackPane onMouseClicked="#quotesButtonClick" prefHeight="200.0" prefWidth="230.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
                <children>
-                  <ImageView fitHeight="160.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label text="Quotes" />
+                  <ImageView fitHeight="200.0" fitWidth="230.0" onMouseClicked="#quotesButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onMouseClicked="#quotesButtonClick" styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Quotes" />
                </children>
             </StackPane>
-            <StackPane prefHeight="110.0" prefWidth="130.0">
+            <StackPane onMouseClicked="#contactButtonClick" prefHeight="200.0" prefWidth="229.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
                <children>
-                  <ImageView fitHeight="159.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label text="Pending" />
+                  <ImageView fitHeight="200.0" fitWidth="230.0" onMouseClicked="#contactButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onMouseClicked="#contactButtonClick" styleClass="home-button-text" text="Contact Page" />
                </children>
             </StackPane>
-            <StackPane prefHeight="110.0" prefWidth="130.0">
+            <StackPane onMouseClicked="#financeButtonClick" prefHeight="200.0" prefWidth="229.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
                <children>
-                  <ImageView fitHeight="160.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label text="Confirmed" />
+                  <ImageView fitHeight="200.0" fitWidth="230.0" onMouseClicked="#financeButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onMouseClicked="#financeButtonClick" styleClass="home-button-text" text="Finance" />
+               </children>
+            </StackPane>
+            <StackPane onMouseClicked="#otherButtonClick" prefHeight="200.0" prefWidth="229.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+               <children>
+                  <ImageView fitHeight="200.0" fitWidth="230.0" onMouseClicked="#otherButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onMouseClicked="#otherButtonClick" styleClass="home-button-text" text="Other" />
                </children>
             </StackPane>
          </children>
       </HBox>
-      <HBox alignment="CENTER_RIGHT" prefHeight="74.0" prefWidth="770.0">
+      <HBox alignment="CENTER" prefHeight="57.0" prefWidth="874.0" spacing="213.0">
          <children>
-            <StackPane prefHeight="80.0" prefWidth="90.0">
+            <Button mnemonicParsing="false" styleClass="mailNotification-Button" stylesheets="@../resources/GISAStyle.css" text="0" />
+            <Button mnemonicParsing="false" styleClass="mailNotification-Button" stylesheets="@../resources/GISAStyle.css" text="0" />
+            <Button mnemonicParsing="false" styleClass="mailNotification-Button" stylesheets="@../resources/GISAStyle.css" text="0" />
+            <Button mnemonicParsing="false" styleClass="mailNotification-Button" stylesheets="@../resources/GISAStyle.css" text="0" />
+         </children>
+         <VBox.margin>
+            <Insets left="225.0" top="-40.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="BOTTOM_RIGHT" prefHeight="190.0" prefWidth="1070.0">
+         <children>
+            <StackPane onMouseClicked="#backButtonClick" prefHeight="100.0" prefWidth="112.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
                <children>
-                  <ImageView fitHeight="80.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label text="Back" />
+                  <ImageView fitHeight="100.0" fitWidth="110.0" onMouseClicked="#backButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onMouseClicked="#backButtonClick" styleClass="home-button-text" text="Back" />
                </children>
+               <HBox.margin>
+                  <Insets top="80.0" />
+               </HBox.margin>
             </StackPane>
          </children>
-         <padding>
-            <Insets top="60.0" />
-         </padding>
+         <VBox.margin>
+            <Insets right="30.0" />
+         </VBox.margin>
       </HBox>
    </children>
 </VBox>

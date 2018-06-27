@@ -43,4 +43,3 @@ public class User implements Serializable {
         return "First Name: " + firstName + "\nLast Name: " + lastName + "\nUsername: " + username + "\nEmail: " + email + "\nContact Number: " + contactNumber;
     }
 }
-
