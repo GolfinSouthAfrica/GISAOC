@@ -5,9 +5,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
 <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" spacing="10.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
@@ -29,60 +29,110 @@
             <ListView prefHeight="370.0" prefWidth="1000.0" styleClass="mailsList-ListView" stylesheets="@../resources/GISAStyle.css" />
          </children>
       </VBox>
-      <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="1070.0" spacing="42.0">
+      <HBox alignment="CENTER" prefHeight="135.0" prefWidth="1100.0">
          <children>
-            <StackPane onDragDetected="#BackButtonClick" prefHeight="100.0" prefWidth="112.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <ImageView fitHeight="100.0" fitWidth="110.0" onDragDetected="#BackButtonClick" pickOnBounds="true" preserveRatio="true" />
-                  <Label onDragDetected="#BackButtonClick" styleClass="home-button-text" text="New Mail" />
+                  <Button mnemonicParsing="false" onAction="#packagesButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label styleClass="home-text" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css" text="New Mail" />
                </children>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </StackPane>
-            <StackPane onDragDetected="#BackButtonClick" prefHeight="100.0" prefWidth="112.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <ImageView fitHeight="100.0" fitWidth="110.0" onDragDetected="#BackButtonClick" pickOnBounds="true" preserveRatio="true" />
-                  <Label onDragDetected="#BackButtonClick" styleClass="home-button-text" text="View" />
+                  <Button mnemonicParsing="false" onAction="#financeButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label styleClass="home-text" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css" text="View" />
                </children>
-            </StackPane>
-            <StackPane onDragDetected="#BackButtonClick" prefHeight="100.0" prefWidth="112.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <ImageView fitHeight="100.0" fitWidth="110.0" onDragDetected="#BackButtonClick" pickOnBounds="true" preserveRatio="true" />
-                  <Label onDragDetected="#BackButtonClick" styleClass="home-button-text" text="Reply" />
+                  <Button mnemonicParsing="false" onAction="#passwordsButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label styleClass="home-text" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css" text="Reply" />
                </children>
-            </StackPane>
-            <StackPane onDragDetected="#BackButtonClick" prefHeight="100.0" prefWidth="112.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <ImageView fitHeight="100.0" fitWidth="110.0" onDragDetected="#BackButtonClick" pickOnBounds="true" preserveRatio="true" />
-                  <Label onDragDetected="#BackButtonClick" styleClass="home-button-text" text="Forward" />
+                  <Button mnemonicParsing="false" onAction="#documentsButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label styleClass="home-text" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css" text="Forward" />
                </children>
-            </StackPane>
-            <StackPane onDragDetected="#BackButtonClick" prefHeight="100.0" prefWidth="112.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <ImageView fitHeight="100.0" fitWidth="110.0" onDragDetected="#BackButtonClick" pickOnBounds="true" preserveRatio="true" />
-                  <Label onDragDetected="#BackButtonClick" styleClass="home-button-text" text="Delete" />
+                  <Button mnemonicParsing="false" onAction="#documentsButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label styleClass="home-text" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css" text="Delete" />
                </children>
-            </StackPane>
-            <StackPane onDragDetected="#BackButtonClick" prefHeight="100.0" prefWidth="112.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <ImageView fitHeight="100.0" fitWidth="110.0" onDragDetected="#BackButtonClick" pickOnBounds="true" preserveRatio="true" />
-                  <Label onDragDetected="#BackButtonClick" styleClass="home-button-text" text="Read/Unread" />
+                  <Button mnemonicParsing="false" onAction="#documentsButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label styleClass="home-text" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css" text="Read/Unread" />
                </children>
-            </StackPane>
-            <StackPane onDragDetected="#BackButtonClick" prefHeight="100.0" prefWidth="112.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <ImageView fitHeight="100.0" fitWidth="110.0" onDragDetected="#BackButtonClick" pickOnBounds="true" preserveRatio="true" />
-                  <Label onDragDetected="#BackButtonClick" styleClass="home-button-text" text="Back" />
+                  <Button mnemonicParsing="false" onAction="#documentsButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label styleClass="home-text" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css" text="Back" />
                </children>
-            </StackPane>
+            </VBox>
          </children>
          <VBox.margin>
-            <Insets right="30.0" />
+            <Insets left="20.0" right="20.0" />
          </VBox.margin>
-         <padding>
-            <Insets top="20.0" />
-         </padding>
       </HBox>
    </children>
 </VBox>

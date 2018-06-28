@@ -19,50 +19,44 @@ public class SuppliersCardPaneController {
     @FXML Label categoryLbl;
     @FXML Label provinceLbl;
     @FXML Label addressLbl;
-    @FXML VBox nameVBox;
-    @FXML VBox whereVBox;
-    @FXML HBox buttonHBox;
-    @FXML ImageView viewBtn;
-    @FXML ImageView editBtn;
-    @FXML ImageView removeBtn;
+    @FXML Button viewBtn;
+    @FXML Button editBtn;
+    @FXML Button removeBtn;
     private Supplier supplier;
 
-    public void initData(Supplier supplier, Double width){
+    public void initData(Supplier supplier){
         this.supplier = supplier;
         supplierNameLbl.setText(supplier.getSupplierName());
         categoryLbl.setText(supplier.getCategory());
         provinceLbl.setText(supplier.getProvince());
         addressLbl.setText(supplier.getAddress());
-        nameVBox.setPrefWidth(width);
-        whereVBox.setPrefWidth(width);
-        buttonHBox.setPrefWidth(width);
-        /*viewBtn.setTooltip(new Tooltip("View"));
+        viewBtn.setTooltip(new Tooltip("View"));
         editBtn.setTooltip(new Tooltip("Edit"));
-        removeBtn.setTooltip(new Tooltip("Remove"));*/
+        removeBtn.setTooltip(new Tooltip("Remove"));
     }
 
-    public void viewButtonClick(){//TODO
-        /*FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("ViewSupplierPane.fxml"));
+    public void viewButtonClick(){
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ViewSuppliersPane.fxml"));
         try {
             Main.setStage(loader.load());
         } catch (IOException e) {
             e.printStackTrace();
         }
-        ViewSupplierPaneController vsc = loader.getController();
-        vsc.initData(supplier);*/
+        ViewSuppliersPaneController vspc = loader.getController();
+        vspc.initData(supplier);
     }
 
-    public void editButtonClick(){//TODO
-        /*FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("AddSupplierPane.fxml"));
+    public void editButtonClick(){
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("NewSupplierPane.fxml"));
         try {
             Main.setStage(loader.load());
         } catch (IOException e) {
             e.printStackTrace();
         }
-        AddSupplierPaneController asc = loader.getController();
-        asc.initData(supplier);*/
+        NewSupplierPaneController nspc = loader.getController();
+        nspc.initData(supplier);
     }
 
     public void removeButtonClick(){

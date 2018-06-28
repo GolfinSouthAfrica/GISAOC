@@ -4,33 +4,50 @@ import javafx.beans.InvalidationListener;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MailPaneController implements Initializable{
 
-    @FXML Button newQuoteNotificationBtn;
-    @FXML Button contactNotificationBtn;
-    @FXML Button financeNotificationBtn;
-    @FXML Button otherNotificationBtn;
+    @FXML Label newQuoteNotificationBtn;
+    @FXML Label contactNotificationBtn;
+    @FXML Label financeNotificationBtn;
+    @FXML Label otherNotificationBtn;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        newQuoteNotificationBtn.setVisible(false);
+        contactNotificationBtn.setVisible(false);
+        financeNotificationBtn.setVisible(false);
+        otherNotificationBtn.setVisible(false);
         if(Main.connectionHandler.unreadMails.size() == 4){
-            newQuoteNotificationBtn.setLabel(Main.connectionHandler.unreadMails.get(0).toString());
-            contactNotificationBtn.setLabel(Main.connectionHandler.unreadMails.get(1).toString());
-            financeNotificationBtn.setLabel(Main.connectionHandler.unreadMails.get(2).toString());
-            otherNotificationBtn.setLabel(Main.connectionHandler.unreadMails.get(3).toString());
+            if(Main.connectionHandler.unreadMails.get(0) > 0) {
+                newQuoteNotificationBtn.setVisible(true);
+                newQuoteNotificationBtn.setText(Main.connectionHandler.unreadMails.get(0).toString());
+            }
+            if(Main.connectionHandler.unreadMails.get(1) > 0) {
+                contactNotificationBtn.setVisible(true);
+                contactNotificationBtn.setText(Main.connectionHandler.unreadMails.get(1).toString());
+            }
+            if(Main.connectionHandler.unreadMails.get(2) > 0) {
+                financeNotificationBtn.setVisible(true);
+                financeNotificationBtn.setText(Main.connectionHandler.unreadMails.get(2).toString());
+            }
+            if(Main.connectionHandler.unreadMails.get(3) > 0) {
+                otherNotificationBtn.setVisible(true);
+                otherNotificationBtn.setText(Main.connectionHandler.unreadMails.get(3).toString());
+            }
         }
         Main.connectionHandler.unreadMails.addListener((InvalidationListener) e -> {
             if(Main.connectionHandler.unreadMails.size() == 4){
-                newQuoteNotificationBtn.setLabel(Main.connectionHandler.unreadMails.get(0).toString());
-                contactNotificationBtn.setLabel(Main.connectionHandler.unreadMails.get(1).toString());
-                financeNotificationBtn.setLabel(Main.connectionHandler.unreadMails.get(2).toString());
-                otherNotificationBtn.setLabel(Main.connectionHandler.unreadMails.get(3).toString());
+                newQuoteNotificationBtn.setText(Main.connectionHandler.unreadMails.get(0).toString());
+                contactNotificationBtn.setText(Main.connectionHandler.unreadMails.get(1).toString());
+                financeNotificationBtn.setText(Main.connectionHandler.unreadMails.get(2).toString());
+                otherNotificationBtn.setText(Main.connectionHandler.unreadMails.get(3).toString());
             }
         });
     }

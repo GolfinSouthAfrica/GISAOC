@@ -47,6 +47,16 @@ public class HomePaneController {
         }
     }
 
+    public void packagesButtonClick(){
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("PackagesPane.fxml"));
+        try {
+            Main.setStage(loader.load());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void financeButtonClick(){
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("FinancePane.fxml"));
@@ -59,7 +69,7 @@ public class HomePaneController {
 
     public void passwordsButtonClick(){
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("PasswordPane.fxml"));
+        loader.setLocation(getClass().getResource("LoginsPane.fxml"));
         try {
             Main.setStage(loader.load());
         } catch (IOException e) {

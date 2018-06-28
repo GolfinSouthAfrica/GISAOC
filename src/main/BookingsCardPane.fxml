@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="1060.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.BookingsCardPaneController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="100.0" prefWidth="250.0">
+         <children>
+            <Label fx:id="clientNameLbl" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Piet Pompies" />
+            <Label fx:id="gsNumberLbl" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="GS00001" />
+            <Label fx:id="processLbl" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Quote" />
+         </children>
+      </VBox>
+      <VBox alignment="CENTER" prefHeight="100.0" prefWidth="249.0">
+         <children>
+            <Label fx:id="arrivalDateLbl" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="2018-09-12" />
+            <Label fx:id="contactNumberLbl" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="0710834355" />
+            <Hyperlink fx:id="emailHL" text="pietpompies@gmail.com" />
+         </children>
+      </VBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="550.0" spacing="10.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Button fx:id="viewBtn" mnemonicParsing="false" onAction="#viewButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Button fx:id="editBtn" mnemonicParsing="false" onAction="#editButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Button fx:id="removeBtn" mnemonicParsing="false" onAction="#removeButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Button fx:id="processBtn" mnemonicParsing="false" onAction="#processButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="130.0">
+               <children>
+                  <Button fx:id="mailsBtn" mnemonicParsing="false" onAction="#mailsButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</HBox>

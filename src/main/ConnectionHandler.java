@@ -38,6 +38,7 @@ public class ConnectionHandler {
     private ObjectOutputStream objectOutputStream;
     private ObjectInputStream objectInputStream;
     private Boolean logOut = false;
+    volatile BooleanProperty gotMails = new SimpleBooleanProperty(false);
 
     public ConnectionHandler() {
         connect();
@@ -61,6 +62,8 @@ public class ConnectionHandler {
             System.out.println("Exiting..");
             System.exit(0);
         }
+        unreadMails.clear();
+        unreadMails.addAll(0, 0, 0, 0);
     }
     //</editor-fold>
 
@@ -122,51 +125,6 @@ public class ConnectionHandler {
         return dtf.format(localDate);
     }
 
-    public void convertExceltoPDF(File excelFile){//TODO
-        /*try {
-            FileInputStream input_document = new FileInputStream(new File("C:\\excel_to_pdf.xlsx"));
-            // Read workbook into XSSFWorkbook
-            XSSFWorkbook my_xls_workbook = new XSSFWorkbook(input_document);
-            // Read worksheet into XSSFSheet
-            XSSFSheet my_worksheet = my_xls_workbook.getSheetAt(0);
-            // To iterate over the rows
-            Iterator<Row> rowIterator = my_worksheet.iterator();
-            //We will create output PDF document objects at this point
-            Document iText_xls_2_pdf = new Document();
-            PdfWriter.getInstance(iText_xls_2_pdf, new FileOutputStream("PDFOutput.pdf"));
-            iText_xls_2_pdf.open();
-            //we have two columns in the Excel sheet, so we create a PDF table with two columns
-            PdfPTable my_table = new PdfPTable(2);
-            //cell object to capture data
-            PdfPCell table_cell;
-            //Loop through rows.
-            while(rowIterator.hasNext()) {
-                Row row = rowIterator.next();
-                Iterator<Cell> cellIterator = row.cellIterator();
-                while(cellIterator.hasNext()) {
-                    Cell cell = cellIterator.next(); //Fetch CELL
-                    switch(cell.getCellType()) { //Identify CELL type
-
-                        case Cell.CELL_TYPE_STRING:
-                            //Push the data from Excel to PDF Cell
-                            table_cell=new PdfPCell(new Phrase(cell.getStringCellValue()));
-                            my_table.addCell(table_cell);
-                            break;
-                    }
-                    //next line
-                }
-
-            }
-            //Finally add the table to PDF document
-            iText_xls_2_pdf.add(my_table);
-            iText_xls_2_pdf.close();
-            //we created our pdf file..
-            input_document.close(); //close xlsx
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }*/
-
-    }
 
     public void sendData(Object data) {
         try {
@@ -221,9 +179,9 @@ public class ConnectionHandler {
         return mails.size() < 1;
     }
 
-    public Boolean getMails(String category, String flag) {
+    public void getMails(String category, String flag) {
         outputQueue.add("gm:" + category + ":" + flag);
-        return true;
+        gotMails.setValue(false);
     }
 
     private class InputProcessor extends Thread {
@@ -271,25 +229,13 @@ public class ConnectionHandler {
                             }
                         } else if (!list.isEmpty() && list.get(0) instanceof TripPackage) {
                             packages.clear();
-                            if (!((DataFile) list.get(0)).getFileName().equals("NoPackages")) {
+                            if (!((TripPackage) list.get(0)).getPackageName().equals("NoPackages")) {
                                 packages.addAll(list);
                             }
                             System.out.println("Updated Packages (" + packages.size() + ")");
                         } else if (!list.isEmpty() && list.get(0) instanceof Integer) {
-                            if((Integer)list.get(0) > unreadMails.get(0)){
-                                UserNotification.showMessage(Main.stage, "New Booking Enquiry", "New Booking Enquiry Mails to be opened");
-                            }
-                            if((Integer)list.get(1) > unreadMails.get(1)){
-                                UserNotification.showMessage(Main.stage, "New Contact Enquiry", "New Contact Enquiry Mails to be opened");
-                            }
-                            if((Integer)list.get(2) > unreadMails.get(2)){
-                                UserNotification.showMessage(Main.stage, "New Finance Mail", "New Finance Mails to be opened");
-                            }
-                            if((Integer)list.get(3) > unreadMails.get(3)){
-                                UserNotification.showMessage(Main.stage, "New Other Mail", "New Other Mails to be opened");
-                            }
                             unreadMails.clear();
-                            if (((Integer) list.get(0))!=-1) {
+                            if (((Integer) list.get(0)) != -1) {
                                 unreadMails.addAll(list);
                             }
                             System.out.println("Updated UnreadMails (" + unreadMails.get(0) + unreadMails.get(1) + unreadMails.get(2) + unreadMails.get(3) + ")");
@@ -317,6 +263,13 @@ public class ConnectionHandler {
                                 activities.addAll(list);
                             }
                             System.out.println("Updated Activities (" + activities.size() + ")");
+                        } else if (!list.isEmpty() && list.get(0) instanceof Mail) {
+                            mails.clear();
+                            if (!((Mail) list.get(0)).getFromMailAddress().equals("NoMails")) {
+                                mails.addAll(list);
+                            }
+                            System.out.println("Updated Mails (" + activities.size() + ")");
+                            gotMails.setValue(true);
                         }
                     } else {
                         inputQueue.add(input);

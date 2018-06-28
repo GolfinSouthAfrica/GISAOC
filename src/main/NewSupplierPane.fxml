@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
 <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.NewSupplierPaneController">
@@ -17,7 +18,7 @@
             <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="New Suppliers" />
          </children>
       </VBox>
-      <VBox alignment="TOP_CENTER" prefHeight="458.0" prefWidth="1100.0" spacing="10.0">
+      <VBox alignment="TOP_CENTER" prefHeight="441.0" prefWidth="1100.0" spacing="10.0">
          <children>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1100.0" spacing="10.0">
                <children>
@@ -54,24 +55,40 @@
             <Insets top="30.0" />
          </VBox.margin>
       </VBox>
-      <HBox alignment="CENTER" onMouseClicked="#addButtonClick" prefHeight="80.0" prefWidth="794.0" spacing="350.0">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="300.0">
          <children>
-            <StackPane prefHeight="80.0" prefWidth="90.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <ImageView fitHeight="80.0" fitWidth="90.0" onMouseClicked="#addButtonClick" pickOnBounds="true" preserveRatio="true" />
-                  <Label onMouseClicked="#addButtonClick" styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Add" />
+                  <Button mnemonicParsing="false" onAction="#addButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label styleClass="home-text" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css" text="Add" />
                </children>
-            </StackPane>
-            <StackPane prefHeight="80.0" prefWidth="90.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <ImageView fitHeight="80.0" fitWidth="90.0" onDragDetected="#backButtonClick" pickOnBounds="true" preserveRatio="true" />
-                  <Label styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Back" />
+                  <Button mnemonicParsing="false" onAction="#backButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label styleClass="home-text" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css" text="Back" />
                </children>
-            </StackPane>
+            </VBox>
          </children>
-         <VBox.margin>
-            <Insets bottom="30.0" left="500.0" right="30.0" top="30.0" />
-         </VBox.margin>
+         <padding>
+            <Insets left="450.0" />
+         </padding>
       </HBox>
    </children>
    <padding>

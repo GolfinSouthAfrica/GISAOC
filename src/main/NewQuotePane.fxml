@@ -6,9 +6,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
 <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" spacing="5.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.NewQuotePaneController">
@@ -53,16 +53,16 @@
                                     <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="100.0" spacing="20.0">
                                        <children>
                                           <Label styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Arrival:" />
-                                          <DatePicker fx:id="arrivalDP" styleClass="booking-combo-box" stylesheets="@../resources/GISAStyle.css" />
+                                          <DatePicker fx:id="arrivalDP" styleClass="booking-datePicker" stylesheets="@../resources/GISAStyle.css" />
                                        </children>
                                     </HBox>
                                  </children>
                               </VBox>
-                              <VBox prefHeight="100.0" prefWidth="300.0" spacing="10.0">
+                              <VBox prefHeight="125.0" prefWidth="343.0" spacing="10.0">
                                  <children>
                                     <HBox alignment="CENTER_RIGHT" prefHeight="28.0" prefWidth="100.0" spacing="20.0">
                                        <children>
-                                          <Label styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Contact Number:" />
+                                          <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="17.0" prefWidth="121.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Contact Number:" />
                                           <TextField fx:id="contactNumberTxf" prefHeight="25.0" prefWidth="150.0" styleClass="booking-input-textfield" stylesheets="@../resources/GISAStyle.css" />
                                        </children>
                                     </HBox>
@@ -75,7 +75,7 @@
                                     <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="100.0" spacing="20.0">
                                        <children>
                                           <Label styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Departure:" />
-                                          <DatePicker fx:id="departureDP" styleClass="booking-combo-box" stylesheets="@../resources/GISAStyle.css" />
+                                          <DatePicker fx:id="departureDP" styleClass="booking-datePicker" stylesheets="@../resources/GISAStyle.css" />
                                        </children>
                                     </HBox>
                                  </children>
@@ -87,7 +87,7 @@
                         </HBox>
                      </children>
                      <padding>
-                        <Insets left="-260.0" />
+                        <Insets left="-250.0" />
                      </padding>
                   </VBox>
                </children>
@@ -109,29 +109,45 @@
             <VBox fx:id="quoteTypeVBox" prefHeight="232.0" prefWidth="1100.0" />
             <VBox alignment="CENTER_LEFT" prefHeight="232.0" prefWidth="138.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="n" />
+                  <Button fx:id="npBtn" mnemonicParsing="false" onAction="#npButtonClickClick" prefHeight="40.0" prefWidth="50.0" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="n" />
                </children>
             </VBox>
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="81.0" prefWidth="470.0" spacing="200.0">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="300.0">
          <children>
-            <StackPane prefHeight="82.0" prefWidth="110.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <ImageView fitHeight="80.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Preview" />
+                  <Button mnemonicParsing="false" onAction="#previewButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label styleClass="home-text" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css" text="Preview" />
                </children>
-            </StackPane>
-            <StackPane prefHeight="80.0" prefWidth="90.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <ImageView fitHeight="80.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Back" />
+                  <Button mnemonicParsing="false" onAction="#backButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label styleClass="home-text" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css" text="Back" />
                </children>
-            </StackPane>
+            </VBox>
          </children>
-         <VBox.margin>
-            <Insets left="300.0" right="30.0" top="10.0" />
-         </VBox.margin>
+         <padding>
+            <Insets left="450.0" />
+         </padding>
       </HBox>
    </children>
 </VBox>

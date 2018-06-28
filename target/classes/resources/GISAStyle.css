@@ -56,6 +56,18 @@
     -fx-font-weight: bold;
     -fx-text-fill: white;
 }
+.dialog-product-button {
+    -fx-background-color: #28bbff;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-min-width: 100;
+    -fx-min-height: 40;
+    -fx-background-insets: 0;
+    -fx-border-width: 1;
+    -fx-border-color: white;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
 
 .settingsButton:hover {
     -fx-background-color: #262626;
@@ -127,8 +139,21 @@
 }
 
 .login-password {
-    -fx-background-position: 5, 5, 5, 15;
+    -fx-prompt-text-fill: derive(-fx-control-inner-background, -45%);
+    -fx-font-size: 12pt;
+    -fx-font-weight: bold;
+    -fx-background-color: linear-gradient(#ffffff, #d3d3d3);
+    -fx-background-radius: 20, 20, 20, 20;
     -fx-background-image: url("Password.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: auto 50%;
+    -fx-background-position: 5, 5, 5, 15;
+    -fx-max-width: 250;
+    -fx-min-width: 250;
+    -fx-max-height: 40;
+    -fx-min-height: 40;
+    -fx-padding: 5 5 5 30;
+    -fx-accent: #28bbff;
 }
 
 .login-button {
@@ -269,6 +294,19 @@
     -fx-accent: #28bbff ;
 }
 
+.booking-datePicker {
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-background-color: linear-gradient(#ffffff, #d3d3d3);
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: auto 50%;
+    -fx-max-width: 200;
+    -fx-min-width: 200;
+    -fx-max-height: 35;
+    -fx-min-height: 35;
+    -fx-accent: #28bbff ;
+}
+
 .booking-input-textfield {
     -fx-prompt-text-fill: derive(-fx-control-inner-background, -45%);
     -fx-font-size: 20;
@@ -277,21 +315,49 @@
     -fx-background-repeat: no-repeat;
     -fx-background-size: auto 50%;
     -fx-background-position: 5, 5, 5, 5;
-    -fx-max-width: 150;
-    -fx-min-width: 150;
-    -fx-max-height: 30;
-    -fx-min-height: 30;
+    -fx-max-width: 200;
+    -fx-min-width: 200;
+    -fx-max-height: 35;
+    -fx-min-height: 35;
+
+    -fx-accent: #28bbff ;
+}
+
+.booking-search-textfield {
+    -fx-prompt-text-fill: derive(-fx-control-inner-background, -45%);
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-background-color: linear-gradient(#ffffff, #d3d3d3);
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: auto 50%;
+    -fx-background-position: 5, 5, 5, 5;
+    -fx-max-width: 250;
+    -fx-min-width: 250;
+    -fx-max-height: 35;
+    -fx-min-height: 35;
     -fx-padding: 5 5 5 15;
     -fx-accent: #28bbff ;
 }
 
-.booking-combo-box {
+.booking-province-combo-box {
+     -fx-background-color: white;
+     -fx-font-size: 17;
+     -fx-min-width: 200;
+     -fx-max-width: 200;
+     -fx-min-height: 35;
+     -fx-max-height: 35;
+     -fx-text-fill: white;
+     -fx-font-weight: bold;
+     -fx-prompt-text-fill: white;
+}
+
+.booking-sortby-combo-box {
     -fx-background-color: white;
     -fx-font-size: 17;
     -fx-min-width: 150;
     -fx-max-width: 150;
-    -fx-min-height: 30;
-    -fx-max-height: 30;
+    -fx-min-height: 35;
+    -fx-max-height: 35;
     -fx-text-fill: white;
     -fx-font-weight: bold;
     -fx-prompt-text-fill: white;
@@ -336,7 +402,21 @@
     -fx-border-width: 0;
     -fx-font-size: 22;
     -fx-max-width: 230;
-    -fx-min-width: 100;
+    -fx-min-width: 230;
+}
+
+.dialog-products-ListView {
+    -fx-background-color: #196e96;
+    -fx-control-inner-background: rgba(66, 135, 167, 0);
+    -fx-background-radius: 15;
+    -fx-background-insets: -2;
+    -fx-border-color: black;
+    -fx-border-radius: 15;
+    -fx-border-insets: -2;
+    -fx-border-width: 0;
+    -fx-font-size: 22;
+    -fx-max-width: 600;
+    -fx-min-width: 600;
 }
 
 .bookingPackage-listView {
@@ -350,7 +430,7 @@
     -fx-border-width: 0;
     -fx-font-size: 22;
     -fx-max-width: 950;
-    -fx-min-width: 100;
+    -fx-min-width: 950;
 }
 
 .mailsList-ListView {

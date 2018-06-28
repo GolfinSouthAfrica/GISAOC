@@ -3,8 +3,7 @@ package main;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
-import models.Booking;
-import models.TripPackage;
+import models.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,15 +22,17 @@ public class NewQuoteBespokePaneController implements Initializable {
     }
 
     public void initData(TripPackage selectedPackage){
-        this.selectedPackage = selectedPackage;
-        accommodationListView.getItems().clear();
-        accommodationListView.getItems().addAll(this.selectedPackage.getBookingAccommodation());
-        golfListView.getItems().clear();
-        golfListView.getItems().addAll(this.selectedPackage.getBookingGolf());
-        activitiesListView.getItems().clear();
-        activitiesListView.getItems().addAll(this.selectedPackage.getBookingActivities());
-        transportListView.getItems().clear();
-        transportListView.getItems().addAll(this.selectedPackage.getBookingTransport());
+        if(!selectedPackage.getPackageName().matches("Bespoke")) {
+            this.selectedPackage = selectedPackage;
+            accommodationListView.getItems().clear();
+            accommodationListView.getItems().addAll(this.selectedPackage.getBookingAccommodation());
+            golfListView.getItems().clear();
+            golfListView.getItems().addAll(this.selectedPackage.getBookingGolf());
+            activitiesListView.getItems().clear();
+            activitiesListView.getItems().addAll(this.selectedPackage.getBookingActivities());
+            transportListView.getItems().clear();
+            transportListView.getItems().addAll(this.selectedPackage.getBookingTransport());
+        }
     }
 
     public void editData(Booking booking){
@@ -46,7 +47,10 @@ public class NewQuoteBespokePaneController implements Initializable {
     }
 
     public void accommodationAddButtonClick(){
+        BespokePackageSelectDialog bDialog = new BespokePackageSelectDialog();
+        Product x = bDialog.BespokePackageSelectDialog(Main.stage, "Accommodation", null);
 
+        System.out.println(((ProductAccomodation)x).getProductName());
     }
 
     public void accommodationEditButtonClick(){
@@ -58,7 +62,10 @@ public class NewQuoteBespokePaneController implements Initializable {
     }
 
     public void golfAddButtonClick(){
+        BespokePackageSelectDialog bDialog = new BespokePackageSelectDialog();
+        Product x = bDialog.BespokePackageSelectDialog(Main.stage, "Accommodation", null);
 
+        System.out.println(((ProductAccomodation)x).getProductName());
     }
 
     public void golfEditButtonClick(){
@@ -70,7 +77,10 @@ public class NewQuoteBespokePaneController implements Initializable {
     }
 
     public void activityAddButtonClick(){
+        BespokePackageSelectDialog bDialog = new BespokePackageSelectDialog();
+        Product x = bDialog.BespokePackageSelectDialog(Main.stage, "Accommodation", null);
 
+        System.out.println(((ProductAccomodation)x).getProductName());
     }
 
     public void activityEditButtonClick(){
@@ -82,7 +92,10 @@ public class NewQuoteBespokePaneController implements Initializable {
     }
 
     public void tranportAddButtonClick(){
+        BespokePackageSelectDialog bDialog = new BespokePackageSelectDialog();
+        Product x = bDialog.BespokePackageSelectDialog(Main.stage, "Accommodation", null);
 
+        System.out.println(((ProductAccomodation)x).getProductName());
     }
 
     public void tranportEditButtonClick(){

@@ -1,23 +1,14 @@
 package main;
 
 import com.jfoenix.controls.JFXButton;
-import javafx.collections.FXCollections;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Dialog;
-import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import javafx.stage.Window;
-import models.DataFile;
 
-import java.util.List;
 import java.util.Optional;
 
-public class UserNotification {
+public class UserNotification extends CustomDialogSkin{
 
 
     public static void showErrorMessage(String title, String message) {

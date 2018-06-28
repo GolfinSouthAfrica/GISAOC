@@ -47,9 +47,8 @@ public class SuppliersPaneController implements Initializable{
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            root.setPrefWidth(suppliersScrollPane.getPrefWidth() - 10);
             SuppliersCardPaneController scc = loader.getController();
-            scc.initData(s, suppliersScrollPane.getPrefWidth() / 3);
+            scc.initData(s);
             supplierCards.add(root);
         }
         Platform.runLater(() -> {
@@ -79,9 +78,8 @@ public class SuppliersPaneController implements Initializable{
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            root.setPrefWidth(suppliersScrollPane.getPrefWidth() - 10);
             SuppliersCardPaneController scc = loader.getController();
-            scc.initData(s, suppliersScrollPane.getPrefWidth() / 3);
+            scc.initData(s);
             supplierCards.add(root);
         }
         suppliersList.getChildren().clear();

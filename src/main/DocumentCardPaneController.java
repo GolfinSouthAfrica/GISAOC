@@ -59,7 +59,7 @@ public class DocumentCardPaneController {
     public void removeButtonClick(){
         boolean rc = UserNotification.confirmationDialog(Main.stage, "Delete Document", "Are you sure you want to delete Document: " + dataFile.getFileName() + "?");
         if (rc) {
-            Main.connectionHandler.outputQueue.add("rd:Documents:" + dataFile.getFileName() + dataFile.getFileExtension());
+            Main.connectionHandler.outputQueue.add("rd:" + dataFile.getFileName() + dataFile.getFileExtension());
         }
     }
 

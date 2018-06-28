@@ -6,17 +6,17 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.NewQuoteBespokePaneController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="190.0" prefWidth="366.0">
          <children>
             <Label styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Accommodation:" />
-            <ListView prefHeight="160.0" prefWidth="245.0" styleClass="bookingBespoke-listView" stylesheets="@../resources/GISAStyle.css" />
+            <ListView fx:id="accommodationListView" prefHeight="160.0" prefWidth="245.0" styleClass="bookingBespoke-listView" stylesheets="@../resources/GISAStyle.css" />
             <HBox alignment="CENTER" prefHeight="48.0" prefWidth="266.0" spacing="30.0">
                <children>
-                  <Button mnemonicParsing="false" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="a" />
-                  <Button mnemonicParsing="false" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="d" />
-                  <Button mnemonicParsing="false" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="e" />
+                  <Button mnemonicParsing="false" onAction="#accommodationAddButtonClick" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="a" />
+                  <Button mnemonicParsing="false" onAction="#accommodationRemoveButtonClick" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="d" />
+                  <Button mnemonicParsing="false" onAction="#accommodationEditButtonClick" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="e" />
                </children>
             </HBox>
          </children>
@@ -24,12 +24,12 @@
       <VBox alignment="TOP_CENTER" prefHeight="190.0" prefWidth="366.0">
          <children>
             <Label styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Golf" />
-            <ListView prefHeight="160.0" prefWidth="250.0" styleClass="bookingBespoke-listView" stylesheets="@../resources/GISAStyle.css" />
+            <ListView fx:id="golfListView" prefHeight="160.0" prefWidth="250.0" styleClass="bookingBespoke-listView" stylesheets="@../resources/GISAStyle.css" />
             <HBox alignment="CENTER" prefHeight="48.0" prefWidth="266.0" spacing="30.0">
                <children>
-                  <Button mnemonicParsing="false" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="a" />
-                  <Button mnemonicParsing="false" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="d" />
-                  <Button mnemonicParsing="false" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="e" />
+                  <Button mnemonicParsing="false" onAction="#golfAddButtonClick" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="a" />
+                  <Button mnemonicParsing="false" onAction="#golfRemoveButtonClick" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="d" />
+                  <Button mnemonicParsing="false" onAction="#golfEditButtonClick" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="e" />
                </children>
             </HBox>
          </children>
@@ -37,12 +37,12 @@
       <VBox alignment="TOP_CENTER" prefHeight="190.0" prefWidth="366.0">
          <children>
             <Label styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Activity" />
-            <ListView prefHeight="160.0" prefWidth="250.0" styleClass="bookingBespoke-listView" stylesheets="@../resources/GISAStyle.css" />
+            <ListView fx:id="transportListView" prefHeight="160.0" prefWidth="250.0" styleClass="bookingBespoke-listView" stylesheets="@../resources/GISAStyle.css" />
             <HBox alignment="CENTER" prefHeight="48.0" prefWidth="266.0" spacing="30.0">
                <children>
-                  <Button mnemonicParsing="false" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="a" />
-                  <Button mnemonicParsing="false" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="d" />
-                  <Button mnemonicParsing="false" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="e" />
+                  <Button mnemonicParsing="false" onAction="#tranportAddButtonClick" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="a" />
+                  <Button mnemonicParsing="false" onAction="#transportRemoveButtonClick" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="d" />
+                  <Button mnemonicParsing="false" onAction="#tranportEditButtonClick" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="e" />
                </children>
             </HBox>
          </children>
@@ -50,12 +50,12 @@
       <VBox alignment="TOP_CENTER" prefHeight="190.0" prefWidth="366.0">
          <children>
             <Label styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Transport" />
-            <ListView prefHeight="160.0" prefWidth="250.0" styleClass="bookingBespoke-listView" stylesheets="@../resources/GISAStyle.css" />
+            <ListView fx:id="activitiesListView" prefHeight="160.0" prefWidth="250.0" styleClass="bookingBespoke-listView" stylesheets="@../resources/GISAStyle.css" />
             <HBox alignment="CENTER" prefHeight="48.0" prefWidth="266.0" spacing="30.0">
                <children>
-                  <Button mnemonicParsing="false" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="a" />
-                  <Button mnemonicParsing="false" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="d" />
-                  <Button mnemonicParsing="false" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="e" />
+                  <Button mnemonicParsing="false" onAction="#activityAddButtonClick" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="a" />
+                  <Button mnemonicParsing="false" onAction="#activityRemoveButtonClick" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="d" />
+                  <Button mnemonicParsing="false" onAction="#activityEditButtonClick" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="e" />
                </children>
             </HBox>
          </children>

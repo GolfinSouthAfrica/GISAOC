@@ -35,26 +35,9 @@ public class MailSecondPaneController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        BooleanProperty waitingForAuthorisation = new SimpleBooleanProperty(true);
-        BooleanProperty authoriseResult = new SimpleBooleanProperty(false);
-        Thread loginThread = new Thread(() -> {
-            if (Main.connectionHandler.getMails(category, flag)) {
-                while (!Main.connectionHandler.mailsInitialized()) {
-                    try {
-                        Thread.sleep(10);
-                    } catch (InterruptedException e1) {
-                        e1.printStackTrace();
-                    }
-                }
-                authoriseResult.setValue(true);
-            } else {
-                authoriseResult.setValue(false);
-            }
-            waitingForAuthorisation.set(false);
-        });
-        loginThread.start();
-        waitingForAuthorisation.addListener(al -> {
-            if (authoriseResult.getValue()) {
+        Main.connectionHandler.getMails(category, flag);
+        Main.connectionHandler.gotMails.addListener(al -> {
+            if(Main.connectionHandler.gotMails.getValue()) {
                 Platform.runLater(() -> {
                     loader[0] = new FXMLLoader();
                     loader[0].setLocation(getClass().getResource("MailListPane.fxml"));

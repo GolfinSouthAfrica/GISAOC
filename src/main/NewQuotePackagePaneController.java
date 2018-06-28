@@ -19,7 +19,6 @@ public class NewQuotePackagePaneController implements Initializable{
     @FXML ListView packagesListView;
     @FXML ComboBox provinceCmb;
     @FXML ComboBox sortByCmb;
-    @FXML ComboBox quantityCmb;
     @FXML TextField searchTxf;
 
     @Override
@@ -36,12 +35,11 @@ public class NewQuotePackagePaneController implements Initializable{
     public void populateComboBoxes(){
         provinceCmb.getItems().clear();
         provinceCmb.getItems().addAll("All", "Western Cape", "Eastern Cape", "Northern Cape", "Gauteng", "Kwa-zulu Natal", "North West", "Mpumulanga", "Limpopo", "Free-State", "South Africa", "World");
+        provinceCmb.getSelectionModel().select("All");
         sortByCmb.getItems().clear();
         sortByCmb.getItems().addAll("Name", "Province");
-        quantityCmb.getItems().clear();
-        for (int i = 0; i < 500; i++) {
-            quantityCmb.getItems().add(i);
-        }
+        sortByCmb.getSelectionModel().select("Name");
+
     }
 
     public void searchButtonClick(){
@@ -58,7 +56,7 @@ public class NewQuotePackagePaneController implements Initializable{
         packagesListView.setItems(displayList);
     }
 
-    public TripPackage getPackage(){//TODO
+    public TripPackage getPackage(){
         if(packagesListView.getSelectionModel().getSelectedItem() != null){
             return (TripPackage) packagesListView.getSelectionModel().getSelectedItem();
         } else {

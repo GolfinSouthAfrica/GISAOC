@@ -72,7 +72,7 @@ public class Main extends Application {
         //<editor-fold desc="Setup Stage">
         stage = primaryStage;
         stage.setTitle("Golf In South Africa Office System " + getBuild());
-        stage.getIcons().add(new Image("/resources/NELogo.png"));//TODO GISALogo
+        stage.getIcons().add(new Image("/resources/GISALogo.png"));
         stage.setMaxWidth(1920);
         stage.setMaxHeight(1080);
         stage.setMinWidth(1280);

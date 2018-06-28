@@ -13,28 +13,22 @@
    <children>
       <HBox alignment="TOP_CENTER" prefHeight="40.0" prefWidth="1100.0" spacing="30.0">
          <children>
-            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="230.0" spacing="10.0">
+            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="292.0" spacing="10.0">
                <children>
                   <Label styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Province:" />
-                  <ComboBox fx:id="provinceCmb" prefWidth="150.0" styleClass="booking-combo-box" stylesheets="@../resources/GISAStyle.css" />
+                  <ComboBox fx:id="provinceCmb" prefWidth="150.0" styleClass="booking-province-combo-box" stylesheets="@../resources/GISAStyle.css" />
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="230.0" spacing="10.0">
+            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="366.0" spacing="10.0">
                <children>
-                  <TextField fx:id="searchTxf" styleClass="booking-input-textfield" stylesheets="@../resources/GISAStyle.css" />
+                  <TextField fx:id="searchTxf" maxWidth="300.0" prefHeight="35.0" prefWidth="300.0" styleClass="booking-search-textfield" stylesheets="@../resources/GISAStyle.css" />
                   <Button mnemonicParsing="false" styleClass="dialog-button" stylesheets="@../resources/GISAStyle.css" text="Search" />
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="230.0" spacing="10.0">
+            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="244.0" spacing="10.0">
                <children>
                   <Label styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Sort By:" />
-                  <ComboBox fx:id="sortByCmb" prefWidth="150.0" styleClass="booking-combo-box" stylesheets="@../resources/GISAStyle.css" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="230.0" spacing="10.0">
-               <children>
-                  <Label styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Quantity:" />
-                  <ComboBox fx:id="quantityCmb" prefWidth="150.0" styleClass="booking-combo-box" stylesheets="@../resources/GISAStyle.css" />
+                  <ComboBox fx:id="sortByCmb" prefWidth="150.0" styleClass="booking-sortby-combo-box" stylesheets="@../resources/GISAStyle.css" />
                </children>
             </HBox>
          </children>
