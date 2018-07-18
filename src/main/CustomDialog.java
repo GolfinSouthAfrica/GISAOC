@@ -36,7 +36,7 @@ public class CustomDialog extends CustomDialogSkin {
         innerPane.setMinWidth(600);
         innerPane.setMaxWidth(600);
         innerPane.setAlignment(Pos.CENTER);
-        innerPane.setStyle("-fx-background-color: #007FA3;" +
+        innerPane.setStyle("-fx-background-color: #595959;" +
                 "-fx-border-color: black;" +
                 "-fx-border-width: 2;" +
                 "-fx-background-radius: 15;" +

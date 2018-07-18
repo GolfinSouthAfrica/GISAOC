@@ -6,11 +6,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import models.*;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import javax.net.ssl.SSLSocketFactory;
+import java.io.*;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.net.URL;
 import java.nio.file.Files;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -19,7 +20,8 @@ import java.util.List;
 public class ConnectionHandler {
 
     public static final int PORT = 1521;
-    public static String LOCAL_ADDRESS = "127.0.0.1"; //TODO "golfinsouthafrica.ddns.net"
+    public static String LOCAL_ADDRESS = "127.0.0.1";
+    public static String INTERNET_ADDRESS = "127.0.0.1";
     public UserObservable user = new UserObservable(null);
     public ObservableList<Supplier> suppliers = FXCollections.observableArrayList();
     public ObservableList<Booking> bookings = FXCollections.observableArrayList();
@@ -28,7 +30,7 @@ public class ConnectionHandler {
     public ObservableList<DataFile> documents = FXCollections.observableArrayList();
     public ObservableList<TripPackage> packages = FXCollections.observableArrayList();
     public ObservableList<Integer> unreadMails = FXCollections.observableArrayList();
-    public ObservableList<ProductAccomodation> accomodation = FXCollections.observableArrayList();
+    public ObservableList<ProductAccommodation> accomodation = FXCollections.observableArrayList();
     public ObservableList<ProductGolf> golf = FXCollections.observableArrayList();
     public ObservableList<ProductTransport> transport = FXCollections.observableArrayList();
     public ObservableList<ProductActivity> activities = FXCollections.observableArrayList();
@@ -41,29 +43,62 @@ public class ConnectionHandler {
     volatile BooleanProperty gotMails = new SimpleBooleanProperty(false);
 
     public ConnectionHandler() {
-        connect();
+        try {
+            FileReader fr = new FileReader(new File("G:/My Drive/e. Office/OfficeAppServerData/GolfInSouthAfricaOfficeServerIP.txt"));
+            BufferedReader br = new BufferedReader(fr);
+            LOCAL_ADDRESS = br.readLine().substring(17);
+            INTERNET_ADDRESS = br.readLine().substring(20);
+            br.close();
+            fr.close();
+            connect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     //<editor-fold desc="Connection">
     private void connect() {
+        if (!connectLocal()) {
+            if (!connectInternet()) {
+                UserNotification.showErrorMessage("Connection Error", "Failed to connect to GISA Office Server! (" + LOCAL_ADDRESS + ")\nPlease check your network connection and try again!");
+                System.out.println("Exiting..");
+                System.exit(0);
+            }
+        }
+        new InputProcessor().start();
+        new OutputProcessor().start();
+        unreadMails.clear();
+        unreadMails.addAll(0, 0, 0, 0);
+    }
+
+    private Boolean connectLocal() {
         System.out.println("Trying to connect to local server...");
         try {
-            //System.setProperty("javax.net.ssl.trustStore", Display.APPLICATION_FOLDER + "/studentlive.store");//TODO
-            /*socket = SSLSocketFactory.getDefault().createSocket();
-            socket.connect(new InetSocketAddress(LOCAL_ADDRESS, PORT), 1000);*/
-            socket = new Socket(LOCAL_ADDRESS, PORT);
+            socket = new Socket();
+            socket.connect(new InetSocketAddress(LOCAL_ADDRESS, PORT), 1000);
             objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
             objectInputStream = new ObjectInputStream(socket.getInputStream());
             System.out.println("Socket is connected");
-            new InputProcessor().start();
-            new OutputProcessor().start();
+            return true;
         } catch (Exception ex) {
-            UserNotification.showErrorMessage("Connection Error", "Failed to connect to Golf in South Africa Servers! (" + LOCAL_ADDRESS + ")\nPlease check your network connection and try again!");
-            System.out.println("Exiting..");
-            System.exit(0);
+            System.out.println("Could not connect to local server");
         }
-        unreadMails.clear();
-        unreadMails.addAll(0, 0, 0, 0);
+        return false;
+    }
+
+    private Boolean connectInternet() {
+        System.out.println("Trying to connect to internet server...");
+        try {
+            socket = new Socket();
+            socket.connect(new InetSocketAddress(INTERNET_ADDRESS, PORT), 1000);
+            objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+            objectInputStream = new ObjectInputStream(socket.getInputStream());
+            System.out.println("Socket is connected");
+            return true;
+        } catch (Exception ex) {
+            System.out.println("Could not connect to internet server");
+        }
+        return false;
     }
     //</editor-fold>
 
@@ -96,31 +131,35 @@ public class ConnectionHandler {
         logOut = true;
     }
 
-    public Double getTotalAmountTrip (TripPackage trip) {
-        Double x = 0.0;
-        for (BookingAccommodation a:trip.getBookingAccommodation()) {
-            x =+ a.getCost();
-        }
-        for (BookingGolf g:trip.getBookingGolf()){
-            x =+ g.getCost();
-        }
-        for (BookingTransport t:trip.getBookingTransport()){
-            x =+ t.getCost();
-        }
-        for (BookingActivity a: trip.getBookingActivities()){
-            x =+ a.getCost();
+    public double getTotalAmountTrip (TripPackage trip) {
+        double x = 0;
+        try {
+            for (BookingAccommodation a : trip.getBookingAccommodation()) {
+                x = +a.getSellPricePerUnit();
+            }
+            for (BookingGolf g : trip.getBookingGolf()) {
+                x = +g.getSellPricePerUnit();
+            }
+            for (BookingTransport t : trip.getBookingTransport()) {
+                x = +t.getSellPricePerUnit();
+            }
+            for (BookingActivity at : trip.getBookingActivities()) {
+                x = +at.getSellPricePerUnit();
+            }
+        } catch (NullPointerException ex) {
+
         }
         return x;
     }
 
     public String getTodaysDate(){
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate localDate = LocalDate.now();
         return dtf.format(localDate);
     }
 
     public String getFullPaymentDate(String arrival){
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyy");
         LocalDate localDate = LocalDate.parse(arrival).minusDays(60);
         return dtf.format(localDate);
     }
@@ -171,6 +210,27 @@ public class ConnectionHandler {
         return result;
     }
 
+    public String getGSNumber() {
+        String result;
+        Object objectToRemove;
+        ReturnResult:
+        while (true) {
+            for (int i = 0; i < inputQueue.size(); i++) {
+                Object object = inputQueue.get(i);
+                if (object instanceof String) {
+                    String in = (String) object;
+                    if (in.startsWith("nbgs:")) {
+                        objectToRemove = object;
+                        result = in.substring(5);
+                        break ReturnResult;
+                    }
+                }
+            }
+        }
+        inputQueue.remove(objectToRemove);
+        return result;
+    }
+
     public Boolean userInitialized() {
         return user.getUser() != null;
     }
@@ -197,13 +257,13 @@ public class ConnectionHandler {
                         List list = (List) input;
                         if (!list.isEmpty() && list.get(0) instanceof Supplier) {
                             suppliers.clear();
-                            if (((Supplier) list.get(0)).getSupplierNumber() != -1) {
+                            if (((Supplier) list.get(0)).getSupplierNumber() != -10) {
                                 suppliers.addAll(list);
                             }
                             System.out.println("Updated Suppliers (" + suppliers.size() + ")");
                         } else if (!list.isEmpty() && list.get(0) instanceof Booking) {
                             bookings.clear();
-                            if (!((Booking) list.get(0)).getClientName().equals("NoBooking")) {
+                            if (!((Booking) list.get(0)).getClientName().equals("NoBookings")) {
                                 bookings.addAll(list);
                             }
                             System.out.println("Updated Bookings (" + bookings.size() + ")");
@@ -224,6 +284,7 @@ public class ConnectionHandler {
                                 documents.clear();
                                 if (!((DataFile) list.get(0)).getFileName().equals("NoDocuments")) {
                                     documents.addAll(list);
+                                    System.out.println(documents.get(0).getFileName());
                                 }
                                 System.out.println("Updated Documents (" + documents.size() + ")");
                             }
@@ -239,9 +300,9 @@ public class ConnectionHandler {
                                 unreadMails.addAll(list);
                             }
                             System.out.println("Updated UnreadMails (" + unreadMails.get(0) + unreadMails.get(1) + unreadMails.get(2) + unreadMails.get(3) + ")");
-                        } else if (!list.isEmpty() && list.get(0) instanceof ProductAccomodation) {
+                        } else if (!list.isEmpty() && list.get(0) instanceof ProductAccommodation) {
                             accomodation.clear();
-                            if (!((ProductAccomodation) list.get(0)).getProductName().equals("NoAccomnodation")) {
+                            if (!((ProductAccommodation) list.get(0)).getProductName().equals("NoAccommodation")) {
                                 accomodation.addAll(list);
                             }
                             System.out.println("Updated Accommodation (" + accomodation.size() + ")");
@@ -309,7 +370,11 @@ public class ConnectionHandler {
 
         @Override
         public void run() {
-            outputQueue.add("gf:" + file.getFileName());
+            if(file.getFileType().matches("Documents")) {
+                outputQueue.add("gf:" + file.getFileName());
+            } else if (file.getFileType().matches("Quote")){
+                outputQueue.add("gq:" + file.getFileName());
+            }
             Done:
             while (true) {
                 FilePart filePartToRemove = null;
@@ -338,7 +403,13 @@ public class ConnectionHandler {
                 }
                 if (size.get() == file.getFileLength()) {
                     System.out.println("File successfully downloaded!");
-                    File f = new File(Main.LOCAL_CACHE + "/" + file.getFileType() + "/" + file.getFileName());
+                    File f = null;
+                    if(file.getFileType().matches("Documents")) {
+                        f = new File(Main.LOCAL_CACHE + "/" + file.getFileType() + "/" + file.getFileName());
+                    }else if(file.getFileType().matches("Quote")){
+                        f = new File(Main.LOCAL_CACHE + "/" + file.getFileType() + "/" + file.getFileName() + ".xls");
+                    }
+                    System.out.println(f.getAbsolutePath());
                     f.getParentFile().mkdirs();
                     try {
                         Files.write(f.toPath(), bytes);

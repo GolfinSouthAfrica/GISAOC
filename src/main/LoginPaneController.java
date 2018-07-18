@@ -5,22 +5,32 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import main.ForgotPasswordDialog;
-import main.Main;
-import java.io.IOException;
 
-public class LoginPaneController {
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class LoginPaneController implements Initializable {
 
     FXMLLoader loader;
 
     @FXML private TextField emailTxf;
     @FXML private TextField passwordTxf;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
+
+    public void start(){
+        Platform.runLater(()-> emailTxf.requestFocus());
+    }
 
     public void loginButtonClick() {
         if (emailTxf.getText().length() < 8) {
@@ -28,11 +38,13 @@ public class LoginPaneController {
             Tooltip studentNumberShortTooltip = new Tooltip("Username too short");
             studentNumberShortTooltip.getStyleClass().add("login-tooltip");
             emailTxf.setTooltip(studentNumberShortTooltip);
+            Platform.runLater(()-> emailTxf.requestFocus());
         } else if (passwordTxf.getText().length() < 8) {
             passwordTxf.setBorder(new Border(new BorderStroke(Color.RED, BorderStrokeStyle.SOLID, new CornerRadii(20), BorderWidths.DEFAULT)));
             Tooltip passwordShortTooltip = new Tooltip("Password too short");
             passwordShortTooltip.getStyleClass().add("login-tooltip");
             passwordTxf.setTooltip(passwordShortTooltip);
+            Platform.runLater(()-> passwordTxf.requestFocus());
         } else {
             loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("LoadingPane.fxml"));

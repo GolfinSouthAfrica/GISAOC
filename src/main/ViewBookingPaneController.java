@@ -46,8 +46,8 @@ public class ViewBookingPaneController implements Initializable {
             gsNumberLbl.setText(booking.getGsNumber());
             contactNumberLbl.setText(booking.getContactNumber());
             emailHL.setText(booking.getEmail());
-            peopleLbl.setText(booking.getPeople());
-            bookingAmountLbl.setText(booking.getBookingAmount());
+            //peopleLbl.setText(booking.getPeople());TODO
+            bookingAmountLbl.setText(booking.getBookingAmount() + "");
             arrivalLbl.setText(booking.getArrival());
             departureLbl.setText(booking.getDeparture());
             consultantLbl.setText(booking.getConsultant());
@@ -76,8 +76,8 @@ public class ViewBookingPaneController implements Initializable {
         gsNumberLbl.setText(booking.getGsNumber());
         contactNumberLbl.setText(booking.getContactNumber());
         emailHL.setText(booking.getEmail());
-        peopleLbl.setText(booking.getPeople());
-        bookingAmountLbl.setText(booking.getBookingAmount());
+        //peopleLbl.setText(booking.getPeople());TODO
+        bookingAmountLbl.setText(booking.getBookingAmount() + "");
         arrivalLbl.setText(booking.getArrival());
         departureLbl.setText(booking.getDeparture());
         consultantLbl.setText(booking.getConsultant());
@@ -112,7 +112,7 @@ public class ViewBookingPaneController implements Initializable {
             e.printStackTrace();
         }
         NewQuotePaneController nqpc = loader.getController();
-        nqpc.initEditData("ViewBookingsPane", booking);
+        nqpc.initEditData("ViewBookingsPane", booking, false);
     }
 
     public void processButtonClick(){//TODO

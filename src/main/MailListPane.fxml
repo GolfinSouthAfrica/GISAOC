@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" spacing="10.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" spacing="10.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.MailListPaneController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="121.0" prefWidth="1100.0" spacing="10.0">
          <children>
@@ -22,111 +22,111 @@
          <children>
             <HBox alignment="CENTER" prefHeight="46.0" prefWidth="1100.0" spacing="10.0">
                <children>
-                  <TextField styleClass="products-searchfield" stylesheets="@../resources/GISAStyle.css" />
-                  <Button mnemonicParsing="false" styleClass="products-button" stylesheets="@../resources/GISAStyle.css" text="Button" />
+                  <TextField fx:id="searchTxf" styleClass="products-searchfield" stylesheets="@../resources/GISAStyle.css" />
+                  <Button mnemonicParsing="false" onAction="#searchButtonClick" styleClass="products-button" stylesheets="@../resources/GISAStyle.css" text="Button" />
                </children>
             </HBox>
-            <ListView prefHeight="370.0" prefWidth="1000.0" styleClass="mailsList-ListView" stylesheets="@../resources/GISAStyle.css" />
+            <ListView fx:id="mailListView" prefHeight="370.0" prefWidth="1000.0" styleClass="mailsList-ListView" stylesheets="@../resources/GISAStyle.css" />
          </children>
       </VBox>
       <HBox alignment="CENTER" prefHeight="135.0" prefWidth="1100.0">
          <children>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#packagesButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                  <Button mnemonicParsing="false" onAction="#newMailButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
                      <graphic>
                         <ImageView>
                            <image>
-                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                              <Image url="@../resources/Send.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label styleClass="home-text" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css" text="New Mail" />
+                  <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="New Mail" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#financeButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                  <Button mnemonicParsing="false" onAction="#viewButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
                      <graphic>
                         <ImageView>
                            <image>
-                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                              <Image url="@../resources/View.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label styleClass="home-text" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css" text="View" />
+                  <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="View" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#passwordsButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                  <Button mnemonicParsing="false" onAction="#replyButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
                      <graphic>
                         <ImageView>
                            <image>
-                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                              <Image url="@../resources/Suppliers.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label styleClass="home-text" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css" text="Reply" />
+                  <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Reply" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#documentsButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                  <Button mnemonicParsing="false" onAction="#forwardButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
                      <graphic>
                         <ImageView>
                            <image>
-                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                              <Image url="@../resources/Suppliers.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label styleClass="home-text" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css" text="Forward" />
+                  <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Forward" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#documentsButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                  <Button mnemonicParsing="false" onAction="#deleteButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
                      <graphic>
                         <ImageView>
                            <image>
-                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                              <Image url="@../resources/Remove.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label styleClass="home-text" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css" text="Delete" />
+                  <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Delete" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#documentsButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                  <Button mnemonicParsing="false" onAction="#readUnreadButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
                      <graphic>
                         <ImageView>
                            <image>
-                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                              <Image url="@../resources/Suppliers.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label styleClass="home-text" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css" text="Read/Unread" />
+                  <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Read/Unread" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#documentsButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                  <Button mnemonicParsing="false" onAction="#backButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
                      <graphic>
                         <ImageView>
                            <image>
-                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                              <Image url="@../resources/Back.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label styleClass="home-text" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css" text="Back" />
+                  <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Back" />
                </children>
             </VBox>
          </children>

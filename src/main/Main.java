@@ -59,6 +59,8 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("LoginPane.fxml"));
         loginPane = loader.load();
+        LoginPaneController lpc = loader.getController();
+        lpc.start();
         FadeTransition fadeTransition = new FadeTransition(Duration.millis(2000), loginPane);
         fadeTransition.setFromValue(0);
         fadeTransition.setToValue(1);

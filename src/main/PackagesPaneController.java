@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class PackagePaneController implements Initializable {
+public class PackagesPaneController implements Initializable {
 
     @FXML private TextField searchTxf;
     @FXML private ScrollPane packagesScrollPane;
@@ -40,17 +40,19 @@ public class PackagePaneController implements Initializable {
     private void populatePackages(){
         ObservableList<HBox> packageCards = FXCollections.observableArrayList();
         for (TripPackage tp: Main.connectionHandler.packages) {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("PackagesCardPane.fxml"));
-            HBox root = null;
-            try {
-                root = loader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
+            if(!tp.getPackageName().contains("Bespoke")) {
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("PackagesCardPane.fxml"));
+                HBox root = null;
+                try {
+                    root = loader.load();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                PackagesCardPaneController pcpc = loader.getController();
+                pcpc.initData(tp);
+                packageCards.add(root);
             }
-            PackagesCardPaneController pcpc = loader.getController();
-            pcpc.initData(tp);
-            packageCards.add(root);
         }
         Platform.runLater(() -> {
             packagesList.getChildren().clear();
@@ -62,7 +64,7 @@ public class PackagePaneController implements Initializable {
         ObservableList<TripPackage> displayList = FXCollections.observableArrayList();
         if (!searchTxf.getText().matches("")) {
             for (TripPackage tp: Main.connectionHandler.packages) {
-                if (tp.getPackageName().contains(searchTxf.getText())||tp.getProvince().contains(searchTxf.getText())||tp.getCategory().contains(searchTxf.getText())) {
+                if (tp.getPackageName().toLowerCase().contains(searchTxf.getText().toLowerCase())||tp.getProvince().toLowerCase().contains(searchTxf.getText().toLowerCase())||tp.getCategory().toLowerCase().contains(searchTxf.getText().toLowerCase())) {
                     displayList.add(tp);
                 }
             }
@@ -72,7 +74,7 @@ public class PackagePaneController implements Initializable {
         ObservableList<HBox> packagesCards = FXCollections.observableArrayList();
         for (TripPackage tp: displayList) {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("SuppliersCardPane.fxml"));
+            loader.setLocation(getClass().getResource("PackagesCardPane.fxml"));
             HBox root = null;
             try {
                 root = loader.load();

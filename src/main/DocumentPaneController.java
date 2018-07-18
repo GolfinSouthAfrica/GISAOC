@@ -38,25 +38,29 @@ public class DocumentPaneController implements Initializable {
     }
 
     private void populateDocuments(){
-        ObservableList<HBox> documentCards = FXCollections.observableArrayList();
-        for (DataFile df: Main.connectionHandler.documents) {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("DocumentCardPane.fxml"));
-            HBox root = null;
-            try {
-                root = loader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
+        if(!Main.connectionHandler.documents.isEmpty()) {
+            ObservableList<HBox> documentCards = FXCollections.observableArrayList();
+            for (DataFile df : Main.connectionHandler.documents) {
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("DocumentCardPane.fxml"));
+                HBox root = null;
+                try {
+                    root = loader.load();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                DocumentCardPaneController dcc = loader.getController();
+                dcc.initData(df);
+                documentCards.add(root);
             }
-            root.setPrefWidth(documentsScrollPane.getPrefWidth() - 10);
-            DocumentCardPaneController dcc = loader.getController();
-            dcc.initData(df, documentsScrollPane.getPrefWidth() / 3);
-            documentCards.add(root);
+            Platform.runLater(() -> {
+                documentsList.getChildren().clear();
+                documentsList.getChildren().addAll(documentCards);
+            });
+        } else {
+            Platform.runLater(() -> documentsList.getChildren().clear());
         }
-        Platform.runLater(() -> {
-            documentsList.getChildren().clear();
-            documentsList.getChildren().addAll(documentCards);
-        });
+
     }
 
     public void searchButtonClick(){
@@ -80,13 +84,14 @@ public class DocumentPaneController implements Initializable {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            root.setPrefWidth(documentsScrollPane.getPrefWidth() - 10);
             DocumentCardPaneController dcc = loader.getController();
-            dcc.initData(df, documentsScrollPane.getPrefWidth() / 3);
+            dcc.initData(df);
             documentCards.add(root);
         }
-        documentsList.getChildren().clear();
-        documentsList.getChildren().addAll(documentCards);
+        Platform.runLater(() -> {
+            documentsList.getChildren().clear();
+            documentsList.getChildren().addAll(documentCards);
+        });
     }
 
     public void addButtonClick(){

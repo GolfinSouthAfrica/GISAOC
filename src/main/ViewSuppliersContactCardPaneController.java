@@ -11,6 +11,8 @@ import javafx.scene.layout.HBox;
 import models.ContactDetails;
 import models.Supplier;
 
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -53,13 +55,17 @@ public class ViewSuppliersContactCardPaneController implements Initializable {
             e.printStackTrace();
         }
         NewSupplierContactPaneController nscpc = loader.getController();
-        nscpc.initData(supplier);
+        nscpc.initEditData(cd, supplier);
     }
 
     public void removeButtonClick(){
         if (UserNotification.confirmationDialog(Main.stage, "Are you sure you want to remove " + cd.getPersonName() + "?", "Emails with this contact will still be in emails.")) {
-            Main.connectionHandler.outputQueue.add("rs:" + cd.getContactDetailsID());
+            Main.connectionHandler.outputQueue.add("rcd:" + cd.getContactDetailsID());
         }
+    }
+
+    public void emailHLClicked(){
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(new StringSelection(emailHL.getText()), null);
     }
 
 }

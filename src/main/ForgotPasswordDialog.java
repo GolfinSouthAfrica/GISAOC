@@ -14,7 +14,9 @@ public class ForgotPasswordDialog extends CustomDialogSkin {
     public ForgotPasswordDialog(Window parent, ConnectionHandler connectionHandler) {
         initOwner(parent);
         Text forgotPasswordText = new Text("Forgot Password");
-        forgotPasswordText.getStyleClass().add("heading-text");
+        forgotPasswordText.setStyle("-fx-font-size: 300%;" +
+                "    -fx-font-weight: bold;" +
+                "    -fx-text-fill: white;");
         TextField usernameTextField = new TextField();
         usernameTextField.setPromptText("Email");
         usernameTextField.setStyle("-fx-prompt-text-fill: derive(-fx-control-inner-background, -45%);");

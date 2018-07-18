@@ -12,20 +12,20 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.NewSupplierPaneController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.NewPackagePaneController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="78.0" prefWidth="1100.0">
          <children>
-            <Label styleClass="mainHeadingText" stylesheets="@../resources/GISAStyle.css" text="Golf in South Africa" />
-            <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="New Suppliers" />
+            <Label styleClass="heading-text" stylesheets="@../resources/GISAStyle.css" text="Golf in South Africa" />
+            <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="New Package" />
          </children>
       </VBox>
-      <VBox alignment="TOP_CENTER" prefHeight="209.0" prefWidth="1100.0">
+      <VBox alignment="TOP_CENTER" prefHeight="268.0" prefWidth="1100.0">
          <children>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1100.0" spacing="10.0">
                <children>
-                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="33.0" prefWidth="250.0" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Supplier Name: " />
-                  <TextField fx:id="supplierNameTxf" prefHeight="35.0" prefWidth="350.0" styleClass="new" stylesheets="@../resources/GISAStyle.css" />
+                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="33.0" prefWidth="250.0" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Package Name: " />
+                  <TextField fx:id="packageNameTxf" prefHeight="35.0" prefWidth="350.0" styleClass="new" stylesheets="@../resources/GISAStyle.css" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1100.0" spacing="10.0">
@@ -42,26 +42,50 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1100.0" spacing="10.0">
                <children>
-                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="33.0" prefWidth="250.0" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Address:" />
-                  <DatePicker styleClass="newPackage-DatePicker" stylesheets="@../resources/GISAStyle.css" />
+                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="33.0" prefWidth="250.0" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Expiry Date:" />
+                  <DatePicker fx:id="expiryDateDP" styleClass="newPackage-DatePicker" stylesheets="@../resources/GISAStyle.css" />
                </children>
             </HBox>
          </children>
          <VBox.margin>
-            <Insets top="10.0" />
+            <Insets top="20.0" />
          </VBox.margin>
       </VBox>
-      <HBox prefHeight="252.0" prefWidth="1080.0" spacing="20.0">
+      <HBox prefHeight="333.0" prefWidth="1080.0" spacing="20.0">
          <children>
             <VBox alignment="TOP_CENTER" prefHeight="264.0" prefWidth="250.0">
                <children>
                   <Label alignment="CENTER" prefHeight="33.0" prefWidth="250.0" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Accomodation:" />
-                  <ListView prefHeight="240.0" prefWidth="250.0" styleClass="bookingBespoke-listView" stylesheets="@../resources/GISAStyle.css" />
+                  <ListView fx:id="accommodationListView" prefHeight="240.0" prefWidth="250.0" styleClass="bookingBespoke-listView" stylesheets="@../resources/GISAStyle.css" />
                   <HBox alignment="CENTER" prefHeight="126.0" prefWidth="100.0" spacing="15.0">
                      <children>
-                        <Button mnemonicParsing="false" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="a" />
-                        <Button mnemonicParsing="false" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="e" />
-                        <Button mnemonicParsing="false" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="d" />
+                        <Button mnemonicParsing="false" onAction="#addAccommodationButtonClick" prefHeight="40.0" prefWidth="41.0" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css">
+                           <graphic>
+                              <ImageView>
+                                 <image>
+                                    <Image url="@../resources/AddSmall.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#removeAccommodationButtonClick" prefHeight="40.0" prefWidth="41.0" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css">
+                           <graphic>
+                              <ImageView>
+                                 <image>
+                                    <Image url="@../resources/RemoveSmall.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#editAccommodationButtonClick" prefHeight="40.0" prefWidth="41.0" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css">
+                           <graphic>
+                              <ImageView>
+                                 <image>
+                                    <Image url="@../resources/EditSmall.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
                      </children>
                   </HBox>
                </children>
@@ -69,12 +93,36 @@
             <VBox alignment="TOP_CENTER" prefHeight="264.0" prefWidth="250.0">
                <children>
                   <Label alignment="CENTER" prefHeight="33.0" prefWidth="250.0" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Golf:" />
-                  <ListView prefHeight="240.0" prefWidth="250.0" styleClass="bookingBespoke-listView" stylesheets="@../resources/GISAStyle.css" />
+                  <ListView fx:id="golfListView" prefHeight="240.0" prefWidth="250.0" styleClass="bookingBespoke-listView" stylesheets="@../resources/GISAStyle.css" />
                   <HBox alignment="CENTER" prefHeight="126.0" prefWidth="100.0" spacing="15.0">
                      <children>
-                        <Button mnemonicParsing="false" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="a" />
-                        <Button mnemonicParsing="false" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="e" />
-                        <Button mnemonicParsing="false" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="d" />
+                        <Button mnemonicParsing="false" onAction="#addGolfButtonClick" prefHeight="40.0" prefWidth="41.0" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css">
+                           <graphic>
+                              <ImageView>
+                                 <image>
+                                    <Image url="@../resources/AddSmall.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#removeGolfButtonClick" prefHeight="40.0" prefWidth="41.0" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css">
+                           <graphic>
+                              <ImageView>
+                                 <image>
+                                    <Image url="@../resources/RemoveSmall.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#editGolfButtonClick" prefHeight="40.0" prefWidth="41.0" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css">
+                           <graphic>
+                              <ImageView>
+                                 <image>
+                                    <Image url="@../resources/EditSmall.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
                      </children>
                   </HBox>
                </children>
@@ -82,12 +130,36 @@
             <VBox alignment="TOP_CENTER" prefHeight="264.0" prefWidth="250.0">
                <children>
                   <Label alignment="CENTER" prefHeight="33.0" prefWidth="250.0" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Transport:" />
-                  <ListView prefHeight="240.0" prefWidth="250.0" styleClass="bookingBespoke-listView" stylesheets="@../resources/GISAStyle.css" />
+                  <ListView fx:id="transportListView" prefHeight="240.0" prefWidth="250.0" styleClass="bookingBespoke-listView" stylesheets="@../resources/GISAStyle.css" />
                   <HBox alignment="CENTER" prefHeight="126.0" prefWidth="100.0" spacing="15.0">
                      <children>
-                        <Button mnemonicParsing="false" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="a" />
-                        <Button mnemonicParsing="false" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="e" />
-                        <Button mnemonicParsing="false" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="d" />
+                        <Button mnemonicParsing="false" onAction="#addTransportButtonClick" prefHeight="40.0" prefWidth="41.0" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css">
+                           <graphic>
+                              <ImageView>
+                                 <image>
+                                    <Image url="@../resources/AddSmall.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#removeTransportButtonClick" prefHeight="40.0" prefWidth="41.0" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css">
+                           <graphic>
+                              <ImageView>
+                                 <image>
+                                    <Image url="@../resources/RemoveSmall.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#editTransportButtonClick" prefHeight="40.0" prefWidth="41.0" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css">
+                           <graphic>
+                              <ImageView>
+                                 <image>
+                                    <Image url="@../resources/EditSmall.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
                      </children>
                   </HBox>
                </children>
@@ -95,12 +167,36 @@
             <VBox alignment="TOP_CENTER" prefHeight="264.0" prefWidth="250.0">
                <children>
                   <Label alignment="CENTER" prefHeight="33.0" prefWidth="250.0" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Activities:" />
-                  <ListView prefHeight="240.0" prefWidth="250.0" styleClass="bookingBespoke-listView" stylesheets="@../resources/GISAStyle.css" />
+                  <ListView fx:id="activitiesListView" prefHeight="240.0" prefWidth="250.0" styleClass="bookingBespoke-listView" stylesheets="@../resources/GISAStyle.css" />
                   <HBox alignment="CENTER" prefHeight="126.0" prefWidth="100.0" spacing="15.0">
                      <children>
-                        <Button mnemonicParsing="false" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="a" />
-                        <Button mnemonicParsing="false" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="e" />
-                        <Button mnemonicParsing="false" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css" text="d" />
+                        <Button mnemonicParsing="false" onAction="#addActivitiesButtonClick" prefHeight="40.0" prefWidth="41.0" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css">
+                           <graphic>
+                              <ImageView>
+                                 <image>
+                                    <Image url="@../resources/AddSmall.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#removeActivitiesButtonClick" prefHeight="40.0" prefWidth="41.0" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css">
+                           <graphic>
+                              <ImageView>
+                                 <image>
+                                    <Image url="@../resources/RemoveSmall.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#editActivitiesButtonClick" prefHeight="40.0" prefWidth="41.0" styleClass="bookingBespoke-button" stylesheets="@../resources/GISAStyle.css">
+                           <graphic>
+                              <ImageView>
+                                 <image>
+                                    <Image url="@../resources/EditSmall.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
                      </children>
                   </HBox>
                </children>
@@ -114,30 +210,30 @@
          <children>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#addButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                  <Button defaultButton="true" mnemonicParsing="false" onAction="#addButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
                      <graphic>
                         <ImageView>
                            <image>
-                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                              <Image url="@../resources/Add.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label styleClass="home-text" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css" text="Add" />
+                  <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Add" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#backButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                  <Button mnemonicParsing="false" onAction="#backButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
                      <graphic>
                         <ImageView>
                            <image>
-                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                              <Image url="@../resources/Back.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label styleClass="home-text" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css" text="Back" />
+                  <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Back" />
                </children>
             </VBox>
          </children>

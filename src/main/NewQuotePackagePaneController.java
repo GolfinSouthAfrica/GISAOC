@@ -1,5 +1,6 @@
 package main;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -34,7 +35,7 @@ public class NewQuotePackagePaneController implements Initializable{
 
     public void populateComboBoxes(){
         provinceCmb.getItems().clear();
-        provinceCmb.getItems().addAll("All", "Western Cape", "Eastern Cape", "Northern Cape", "Gauteng", "Kwa-zulu Natal", "North West", "Mpumulanga", "Limpopo", "Free-State", "South Africa", "World");
+        provinceCmb.getItems().addAll("All", "Western Cape", "Eastern Cape", "Northern Cape", "Gauteng", "Kwa-zulu Natal", "North West", "Mpumalanga", "Limpopo", "Free-State", "South Africa", "World");
         provinceCmb.getSelectionModel().select("All");
         sortByCmb.getItems().clear();
         sortByCmb.getItems().addAll("Name", "Province");
@@ -46,14 +47,16 @@ public class NewQuotePackagePaneController implements Initializable{
         ObservableList displayList = FXCollections.observableArrayList();
         if (!searchTxf.getText().matches("")) {
             for (TripPackage p: Main.connectionHandler.packages) {
-                if (p.getPackageName().contains(searchTxf.getText())||p.getCategory().contains(searchTxf.getText())||p.getProvince().contains(searchTxf.getText())) {
+                if (p.getPackageName().toLowerCase().contains(searchTxf.getText().toLowerCase())||p.getCategory().toLowerCase().contains(searchTxf.getText().toLowerCase())||p.getProvince().toLowerCase().contains(searchTxf.getText().toLowerCase())) {
                     displayList.add(p);
                 }
             }
         } else {
             displayList.addAll(Main.connectionHandler.packages);
         }
-        packagesListView.setItems(displayList);
+        Platform.runLater(() -> {
+            packagesListView.setItems(displayList);
+        });
     }
 
     public TripPackage getPackage(){

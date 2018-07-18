@@ -8,16 +8,16 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="79.0" prefWidth="642.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.DocumentCardPaneController">
+<HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.DocumentCardPaneController">
    <children>
-      <VBox fx:id="documentNameVBox" alignment="CENTER" prefHeight="79.0" prefWidth="407.0">
+      <VBox fx:id="documentNameVBox" alignment="CENTER" prefHeight="80.0" prefWidth="580.0">
          <children>
             <Label fx:id="documentNameLbl" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Document Name:" />
          </children>
       </VBox>
-      <HBox fx:id="buttonHBox" alignment="CENTER" prefHeight="79.0" prefWidth="270.0" spacing="10.0">
+      <HBox fx:id="buttonHBox" alignment="CENTER" prefHeight="80.0" prefWidth="301.0" spacing="10.0">
          <children>
-            <Button fx:id="viewBtn" mnemonicParsing="false" onAction="#openButtonClick" prefHeight="45.0" prefWidth="45.0">
+            <Button fx:id="viewBtn" mnemonicParsing="false" onAction="#openButtonClick" prefHeight="58.0" prefWidth="59.0">
                <graphic>
                   <ImageView>
                      <image>
@@ -26,7 +26,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="removeBtn" mnemonicParsing="false" onAction="#removeButtonClick" prefHeight="45.0" prefWidth="45.0">
+            <Button fx:id="removeBtn" mnemonicParsing="false" onAction="#removeButtonClick" prefHeight="58.0" prefWidth="59.0">
                 <graphic>
                     <ImageView>
                         <image>
@@ -35,7 +35,7 @@
                     </ImageView>
                 </graphic>
             </Button>
-            <Button fx:id="sendBtn" mnemonicParsing="false" onAction="#sendButtonClick" prefHeight="45.0" prefWidth="45.0">
+            <Button fx:id="sendBtn" mnemonicParsing="false" onAction="#sendButtonClick" prefHeight="58.0" prefWidth="59.0">
                 <graphic>
                     <ImageView>
                         <image>
@@ -44,7 +44,7 @@
                     </ImageView>
                 </graphic>
             </Button>
-            <Button fx:id="exportBtn" mnemonicParsing="false" onAction="#exportButtonClick" prefHeight="45.0" prefWidth="45.0">
+            <Button fx:id="exportBtn" mnemonicParsing="false" onAction="#exportButtonClick" prefHeight="58.0" prefWidth="59.0">
                 <graphic>
                     <ImageView>
                         <image>

@@ -13,7 +13,7 @@
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="78.0" prefWidth="1100.0">
          <children>
-            <Label styleClass="mainHeadingText" stylesheets="@../resources/GISAStyle.css" text="Golf in South Africa" />
+            <Label styleClass="heading-text" stylesheets="@../resources/GISAStyle.css" text="Golf in South Africa" />
             <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="View Supplier" />
          </children>
       </VBox>
@@ -24,31 +24,31 @@
                   <Insets top="15.0" />
                </VBox.margin>
                <children>
-                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Supplier Name:" />
+                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Supplier Name:" />
                   <Label fx:id="supplierNameTxf" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Pinnacle Point Golf Estate">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
                   </Label>
-                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Province: " />
+                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Province: " />
                   <Label fx:id="provinceTxf" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Western Cape" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1100.0" spacing="20.0">
                <children>
-                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Address: " />
+                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Address: " />
                   <Label fx:id="addressTxf" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Mosselbay">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
                   </Label>
-                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Co-Ordinates:" />
+                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Co-Ordinates:" />
                   <Label fx:id="coOrdinatesTxf" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="N/A" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1100.0" spacing="20.0">
                <children>
-                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Category:" />
+                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Category:" />
                   <Label fx:id="categoryTxf" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Accomodation">
                      <HBox.margin>
                         <Insets />
@@ -58,12 +58,12 @@
             </HBox>
          </children>
       </VBox>
-      <VBox alignment="TOP_CENTER" prefHeight="267.0" prefWidth="1100.0">
+      <VBox alignment="TOP_CENTER" prefHeight="319.0" prefWidth="1100.0">
          <children>
-            <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Contact Details:" />
-            <ScrollPane fx:id="contactsScrollPane" prefHeight="214.0" prefWidth="1040.0">
+            <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Contact Details:" />
+            <ScrollPane fx:id="contactsScrollPane" prefHeight="260.0" prefWidth="1040.0">
                <content>
-                  <VBox fx:id="contactsList" prefHeight="184.0" prefWidth="1020.0" />
+                  <VBox fx:id="contactsList" alignment="TOP_CENTER" prefHeight="184.0" prefWidth="1020.0" />
                </content>
                <VBox.margin>
                   <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
@@ -74,34 +74,48 @@
             <Insets top="10.0" />
          </padding>
       </VBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="800.0">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="350.0">
          <children>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#addButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                  <Button mnemonicParsing="false" onAction="#addButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
                      <graphic>
                         <ImageView>
                            <image>
-                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                              <Image url="@../resources/Add.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label styleClass="home-text" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css" text="Add Contact" />
+                  <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Add Contact" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#backButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                  <Button mnemonicParsing="false" onAction="#editButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
                      <graphic>
                         <ImageView>
                            <image>
-                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                              <Image url="@../resources/Edit.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label styleClass="home-text" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css" text="Back" />
+                  <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Edit Supplier" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#backButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../resources/Back.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Back" />
                </children>
             </VBox>
          </children>

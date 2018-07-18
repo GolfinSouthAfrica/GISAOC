@@ -56,7 +56,7 @@ public class SuppliersCardPaneController {
             e.printStackTrace();
         }
         NewSupplierPaneController nspc = loader.getController();
-        nspc.initData(supplier);
+        nspc.initData(supplier, "SuppliersPane");
     }
 
     public void removeButtonClick(){

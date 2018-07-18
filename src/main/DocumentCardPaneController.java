@@ -26,11 +26,9 @@ public class DocumentCardPaneController {
     @FXML HBox buttonHBox;
     private DataFile dataFile;
 
-    public void initData(DataFile dataFile, Double width){
+    public void initData(DataFile dataFile){
         this.dataFile = dataFile;
         documentNameLbl.setText(dataFile.getFileName());
-        documentNameVBox.setPrefWidth(width * 2);
-        buttonHBox.setPrefWidth(width);
         viewBtn.setTooltip(new Tooltip("View"));
         removeBtn.setTooltip(new Tooltip("Remove"));
         sendBtn.setTooltip(new Tooltip("Email"));
@@ -38,22 +36,14 @@ public class DocumentCardPaneController {
     }
 
     public void openButtonClick(){
-        DataFile dataFile2 = new DataFile(dataFile.getFileType(), dataFile.getFileName() + dataFile.getFileExtension(), dataFile.getFileExtension(), dataFile.getFileLength());
-        dataFile2.setValue(2);
-        ConnectionHandler.FileDownloader fileDownloader = Main.connectionHandler.new FileDownloader(dataFile2);
-        fileDownloader.start();
-        dataFile2.setFileDownloader(fileDownloader);
-        Main.connectionHandler.user.update();
-        fileDownloader.done.addListener((InvalidationListener) e -> {
-            File openFile;
-            if ((openFile = new File(Main.LOCAL_CACHE.getAbsolutePath() + "/" + dataFile2.getFileType() + "/" + dataFile2.getFileName())).exists() && openFile.length() == dataFile2.getFileLength()) {
-                try {
-                    java.awt.Desktop.getDesktop().open(openFile);
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
+        File openFile;
+        if ((openFile = new File("G:/My Drive/d. Documents/" + dataFile.getFileName() + dataFile.getFileExtension())).exists()) {
+            try {
+                java.awt.Desktop.getDesktop().open(openFile);
+            } catch (Exception ex) {
+                ex.printStackTrace();
             }
-        });
+        }
     }
 
     public void removeButtonClick(){
@@ -72,24 +62,16 @@ public class DocumentCardPaneController {
         dc.setTitle("Choose Directory to export to..");
         File f = dc.showDialog(Main.stage);
         if (f != null) {
-            DataFile dataFile2 = new DataFile(dataFile.getFileType(), dataFile.getFileName() + dataFile.getFileExtension(), dataFile.getFileExtension(), dataFile.getFileLength());
-            dataFile2.setValue(2);
-            ConnectionHandler.FileDownloader fileDownloader = Main.connectionHandler.new FileDownloader(dataFile2);
-            fileDownloader.start();
-            dataFile2.setFileDownloader(fileDownloader);
-            Main.connectionHandler.user.update();
-            fileDownloader.done.addListener((InvalidationListener) e -> {
-                File source = new File(Main.LOCAL_CACHE.getAbsolutePath() + "/" + dataFile2.getFileType() + "/" + dataFile2.getFileName());
-                File target = new File(f.getAbsolutePath() + "/" + dataFile2.getFileName());
-                target.mkdirs();
-                try {
-                    Files.copy(source.toPath(), target.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                    new CustomDialog(Main.stage, "Export Successful", "You successfully exported your " + dataFile2.getFileType()).showDialog();
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                    new CustomDialog(Main.stage, "Export Failed", "The export of your " + dataFile2.getFileType() + " failed.").showDialog();
-                }
-            });
+            File source = new File("G:/My Drive/d. Documents/" + dataFile.getFileName() + dataFile.getFileExtension());
+            File target = new File(f.getAbsolutePath() + "/" + dataFile.getFileName() + dataFile.getFileExtension());
+            target.mkdirs();
+            try {
+                Files.copy(source.toPath(), target.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                new CustomDialog(Main.stage, "Export Successful", "You successfully exported your " + dataFile.getFileType()).showDialog();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+                new CustomDialog(Main.stage, "Export Failed", "The export of your " + dataFile.getFileType() + " failed.").showDialog();
+            }
         }
     }
 

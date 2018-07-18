@@ -14,7 +14,7 @@
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="78.0" prefWidth="1100.0">
          <children>
-            <Label styleClass="mainHeadingText" stylesheets="@../resources/GISAStyle.css" text="Golf in South Africa" />
+            <Label styleClass="heading-text" stylesheets="@../resources/GISAStyle.css" text="Golf in South Africa" />
             <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="View Booking" />
          </children>
       </VBox>
@@ -25,74 +25,74 @@
                   <Insets />
                </VBox.margin>
                <children>
-                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Client Name:" />
-                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Piet Pompies">
+                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Client Name:" />
+                  <Label fx:id="clientNameLbl" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Piet Pompies">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
                   </Label>
-                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="GSNumber:" />
-                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="GS000001" />
+                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="GSNumber:" />
+                  <Label fx:id="gsNumberLbl" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="GS000001" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1100.0" spacing="20.0">
                <children>
-                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Contact Number" />
-                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="074 582 6589">
+                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Contact Number" />
+                  <Label fx:id="contactNumberLbl" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="074 582 6589">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
                   </Label>
-                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Email:" />
-                  <Hyperlink stylesheets="@../resources/GISAStyle.css" text="pietpompies@gmail.com" />
+                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Email:" />
+                  <Hyperlink fx:id="emailHL" style="-fx-text-fill: #1a6331;" stylesheets="@../resources/GISAStyle.css" text="pietpompies@gmail.com" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1100.0" spacing="20.0">
                <children>
-                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="People:" />
-                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Adult: 2 Children: 2">
+                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="People:" />
+                  <Label fx:id="peopleLbl" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Adult: 2 Children: 2">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                   </Label>
-                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Booking Amount:" />
-                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="R 1 000 000" />
+                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Booking Amount:" />
+                  <Label fx:id="bookingAmountLbl" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="R 1 000 000" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1100.0" spacing="20.0">
                <children>
-                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Arrival:" />
-                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="2018-06-28">
+                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Arrival:" />
+                  <Label fx:id="arrivalLbl" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="2018-06-28">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                   </Label>
-                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Departure:" />
-                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="2018-06-29" />
+                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Departure:" />
+                  <Label fx:id="departureLbl" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="2018-06-29" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1100.0" spacing="20.0">
                <children>
-                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Consultant:" />
-                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Marle O'Reilly">
+                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Consultant:" />
+                  <Label fx:id="consultantLbl" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Marle O'Reilly">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                   </Label>
-                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Process:" />
-                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Quote" />
+                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Process:" />
+                  <Label fx:id="processLbl" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Quote" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1100.0" spacing="20.0">
                <children>
-                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Full Deposit Paid:" />
-                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="No">
+                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Full Deposit Paid:" />
+                  <Label fx:id="fullDepositPaidLbl" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="No">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                   </Label>
-                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Full Payment Paid:" />
-                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="No" />
+                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Full Payment Paid:" />
+                  <Label fx:id="fullPaymentLbl" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="No" />
                </children>
             </HBox>
          </children>
@@ -102,25 +102,25 @@
             <VBox alignment="TOP_CENTER" prefHeight="202.0" prefWidth="230.0">
                <children>
                   <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Accommodation:" />
-                  <ListView maxWidth="249.0" prefHeight="200.0" prefWidth="249.0" styleClass="bookingBespoke-listView" stylesheets="@../resources/GISAStyle.css" />
+                  <ListView fx:id="accommodationListView" maxWidth="249.0" prefHeight="200.0" prefWidth="249.0" styleClass="bookingBespoke-listView" stylesheets="@../resources/GISAStyle.css" />
                </children>
             </VBox>
             <VBox alignment="TOP_CENTER" prefHeight="202.0" prefWidth="230.0">
                <children>
                   <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Golf:" />
-                  <ListView prefHeight="200.0" prefWidth="200.0" styleClass="bookingBespoke-listView" stylesheets="@../resources/GISAStyle.css" />
+                  <ListView fx:id="golfListView" prefHeight="200.0" prefWidth="200.0" styleClass="bookingBespoke-listView" stylesheets="@../resources/GISAStyle.css" />
                </children>
             </VBox>
             <VBox alignment="TOP_CENTER" prefHeight="202.0" prefWidth="230.0">
                <children>
                   <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Transport:" />
-                  <ListView prefHeight="200.0" prefWidth="200.0" styleClass="bookingBespoke-listView" stylesheets="@../resources/GISAStyle.css" />
+                  <ListView fx:id="transportListView" prefHeight="200.0" prefWidth="200.0" styleClass="bookingBespoke-listView" stylesheets="@../resources/GISAStyle.css" />
                </children>
             </VBox>
             <VBox alignment="TOP_CENTER" prefHeight="202.0" prefWidth="230.0">
                <children>
                   <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Activities:" />
-                  <ListView prefHeight="200.0" prefWidth="200.0" styleClass="bookingBespoke-listView" stylesheets="@../resources/GISAStyle.css" />
+                  <ListView fx:id="activitiesListView" prefHeight="200.0" prefWidth="200.0" styleClass="bookingBespoke-listView" stylesheets="@../resources/GISAStyle.css" />
                </children>
             </VBox>
          </children>
@@ -132,58 +132,58 @@
          <children>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#editButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                  <Button mnemonicParsing="false" onAction="#editButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
                      <graphic>
                         <ImageView>
                            <image>
-                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                              <Image url="@../resources/Edit.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label styleClass="home-text" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css" text="Edit" />
+                  <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Edit" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#processButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                  <Button mnemonicParsing="false" onAction="#processButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
                      <graphic>
                         <ImageView>
                            <image>
-                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                              <Image url="@../resources/Process.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label styleClass="home-text" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css" text="Process" />
+                  <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Process" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#mailsButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                  <Button mnemonicParsing="false" onAction="#mailsButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
                      <graphic>
                         <ImageView>
                            <image>
-                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                              <Image url="@../resources/Send.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label styleClass="home-text" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css" text="Mails" />
+                  <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Mails" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#backButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                  <Button mnemonicParsing="false" onAction="#backButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
                      <graphic>
                         <ImageView>
                            <image>
-                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                              <Image url="@../resources/Back.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label styleClass="home-text" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css" text="Back" />
+                  <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Back" />
                </children>
             </VBox>
          </children>

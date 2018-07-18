@@ -38,7 +38,7 @@ public class BookingsCardPaneController implements Initializable {
     public void initData(Booking booking){
         this.booking = booking;
         clientNameLbl.setText(booking.getClientName());
-        gsNumberLbl.setText(booking.getGsNumber());
+        gsNumberLbl.setText("GS" + booking.getGsNumber());
         processLbl.setText(booking.getProcess());
         arrivalDateLbl.setText(booking.getArrival());
         contactNumberLbl.setText(booking.getContactNumber());
@@ -71,11 +71,11 @@ public class BookingsCardPaneController implements Initializable {
             e.printStackTrace();
         }
         NewQuotePaneController nqpc = loader.getController();
-        nqpc.initEditData("BookingsPane", booking);
+        nqpc.initEditData("BookingsPane", booking, false);
     }
 
     public void removeButtonClick(){
-        Main.connectionHandler.outputQueue.add("rbk:" + booking.getGsNumber());
+        Main.connectionHandler.outputQueue.add("rb:" + booking.getGsNumber());
     }
 
     public void processButtonClick(){//TODO

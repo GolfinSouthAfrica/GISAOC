@@ -34,6 +34,9 @@ public class SuppliersPaneController implements Initializable{
         sortBy.getItems().clear();
         sortBy.getItems().addAll("Name", "Province");
         sortBy.getSelectionModel().select(0);
+        /*sortBy.addEventHandler( e -> {
+            populateSuppliers();
+        });;*/
     }
 
     private void populateSuppliers(){
@@ -61,7 +64,7 @@ public class SuppliersPaneController implements Initializable{
         ObservableList<Supplier> displayList = FXCollections.observableArrayList();
         if (!searchTxf.getText().matches("")) {
             for (Supplier s: Main.connectionHandler.suppliers) {
-                if (s.getSupplierName().contains(searchTxf.getText())||s.getProvince().contains(searchTxf.getText())||s.getCategory().contains(searchTxf.getText())||s.getAddress().contains(searchTxf.getText())) {
+                if (s.getSupplierName().toLowerCase().contains(searchTxf.getText().toLowerCase())||s.getProvince().toLowerCase().contains(searchTxf.getText().toLowerCase())||s.getCategory().toLowerCase().contains(searchTxf.getText().toLowerCase())||s.getAddress().toLowerCase().contains(searchTxf.getText().toLowerCase())) {
                     displayList.add(s);
                 }
             }

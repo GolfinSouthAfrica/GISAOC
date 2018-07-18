@@ -45,7 +45,7 @@
 }
 
 .dialog-button {
-    -fx-background-color: #28bbff;
+    -fx-background-color: #1a6331;
     -fx-background-radius: 15;
     -fx-border-radius: 15;
     -fx-min-width: 100;
@@ -57,7 +57,7 @@
     -fx-text-fill: white;
 }
 .dialog-product-button {
-    -fx-background-color: #28bbff;
+    -fx-background-color: #1a6331;
     -fx-background-radius: 15;
     -fx-border-radius: 15;
     -fx-min-width: 100;
@@ -75,40 +75,44 @@
 
 .mainHeadingText {
     -fx-font-weight: bold;
-    -fx-font-size: 400%;
+    -fx-font-size: 300%;
     -fx-text-fill: white;
 }
 
 .secondaryHeadingText {
     -fx-font-weight: bold;
-    -fx-font-size: 180%;
+    -fx-font-size: 150%;
     -fx-text-fill: white;
 }
 
 .tertiaryHeadingText {
     -fx-font-weight: bold;
-    -fx-font-size: 100%;
+    -fx-font-size: 80%;
     -fx-text-fill: white;
 }
 
 .home-button-text {
     -fx-font-weight: bold;
-    -fx-font-size: 200%;
+    -fx-font-size: 25;
+    -fx-text-fill: white;
 }
 
 .home-button {
-    -fx-border-color: #262626;
+    -fx-border-color: black;
+    -fx-border-width: 3;
+    -fx-font-weight: bold;
+    -fx-font-size: 20;
 }
 
 .home-button:hover {
-    -fx-background-color: black;
+    -fx-background-color: #103d1e;
 }
 
 .headingPane {
     -fx-background-size: auto 100%;
     -fx-background-position: center;
     -fx-background-repeat: no-repeat;
-    -fx-background-color:#28bbff;
+    -fx-background-color:#1a6331;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 4);
 }
 
@@ -135,7 +139,7 @@
     -fx-max-height: 40;
     -fx-min-height: 40;
     -fx-padding: 5 5 5 30;
-    -fx-accent: #28bbff;
+    -fx-accent: #1a6331;
 }
 
 .login-password {
@@ -153,13 +157,13 @@
     -fx-max-height: 40;
     -fx-min-height: 40;
     -fx-padding: 5 5 5 30;
-    -fx-accent: #28bbff;
+    -fx-accent: #1a6331;
 }
 
 .login-button {
     -fx-text-fill: white;
     -fx-font-weight: bold;
-    -fx-background-color: #28bbff;
+    -fx-background-color: #1a6331;
     -fx-background-radius: 20, 20, 20, 20;
     -fx-max-width: 250;
     -fx-min-width: 250;
@@ -170,7 +174,7 @@
 }
 
 .login-tooltip {
-    -fx-background-color: #28bbff;
+    -fx-background-color: #1a6331;
     -fx-background-radius: 10;
     -fx-border-radius: 10;
     -fx-border-color: white;
@@ -198,35 +202,6 @@
     -fx-text-fill: white;
 }
 
-.home-icon-image {
-    -fx-background-radius: 5em;
-    -fx-min-width: 120px;
-    -fx-min-height: 120px;
-    -fx-max-width: 120px;
-    -fx-max-height: 120px;
-    -fx-background-color: -fx-body-color;
-    -fx-background-size: auto 100%;
-    -fx-border-color: transparent;
-    -fx-border-width: 0;
-    -fx-background-radius: 0;
-    -fx-background-color: transparent;
-    -fx-font-family:"Segoe UI", Helvetica, Arial, sans-serif;
-    -fx-font-size: 1em; /* 12 */
-    -fx-text-fill: #828282;
-}
-
-.home-icon-image:focused {
-    -fx-border-color: transparent, black;
-    -fx-border-width: 1, 1;
-    -fx-border-radius: 0, 0;
-    -fx-border-insets: 1 1 1 1, 0;
-}
-
-.home-icon-image:pressed {
-    -fx-background-color: black;
-    -fx-text-fill: white;
-}
-
 .home-text {
     -fx-font-size: 150%;
     -fx-font-weight: bold;
@@ -249,7 +224,7 @@
 .products-button {
     -fx-text-fill: white;
     -fx-font-weight: bold;
-    -fx-background-color: #28bbff;
+    -fx-background-color: #1a6331;
     -fx-background-radius: 20, 20, 20, 20;
     -fx-max-width: 100;
     -fx-min-width: 100;
@@ -274,7 +249,7 @@
     -fx-max-height: 35;
     -fx-min-height: 35;
     -fx-padding: 5 5 5 30;
-    -fx-accent: #28bbff ;
+    -fx-accent: #1a6331 ;
 }
 
 .input-textfield {
@@ -291,20 +266,31 @@
     -fx-max-height: 40;
     -fx-min-height: 40;
     -fx-padding: 5 5 5 15;
-    -fx-accent: #28bbff ;
+    -fx-accent: #1a6331 ;
 }
 
 .booking-datePicker {
     -fx-font-size: 20;
     -fx-font-weight: bold;
-    -fx-background-color: linear-gradient(#ffffff, #d3d3d3);
     -fx-background-repeat: no-repeat;
     -fx-background-size: auto 50%;
-    -fx-max-width: 200;
-    -fx-min-width: 200;
+    -fx-max-width: 150;
+    -fx-min-width: 150;
     -fx-max-height: 35;
     -fx-min-height: 35;
-    -fx-accent: #28bbff ;
+    -fx-accent: #1a6331 ;
+}
+
+.newPackage-DatePicker {
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: auto 50%;
+    -fx-max-width: 350;
+    -fx-min-width: 350;
+    -fx-max-height: 35;
+    -fx-min-height: 35;
+    -fx-accent: #1a6331 ;
 }
 
 .booking-input-textfield {
@@ -319,8 +305,7 @@
     -fx-min-width: 200;
     -fx-max-height: 35;
     -fx-min-height: 35;
-
-    -fx-accent: #28bbff ;
+    -fx-accent: #1a6331 ;
 }
 
 .booking-search-textfield {
@@ -336,7 +321,7 @@
     -fx-max-height: 35;
     -fx-min-height: 35;
     -fx-padding: 5 5 5 15;
-    -fx-accent: #28bbff ;
+    -fx-accent: #1a6331 ;
 }
 
 .booking-province-combo-box {
@@ -376,13 +361,13 @@
     -fx-max-height: 80;
     -fx-min-height: 80;
     -fx-padding: 5 5 5 15;
-    -fx-accent: #28bbff ;
+    -fx-accent: #1a6331 ;
 }
 
 .bookingBespoke-button {
     -fx-text-fill: white;
     -fx-font-weight: bold;
-    -fx-background-color: #28bbff;
+    -fx-background-color: #1a6331;
     -fx-max-width: 50;
     -fx-min-width: 50;
     -fx-max-height: 35;
@@ -392,7 +377,7 @@
 }
 
 .bookingBespoke-listView {
-    -fx-background-color: #196e96;
+    -fx-background-color: #1a6331;
     -fx-control-inner-background: rgba(66, 135, 167, 0);
     -fx-background-radius: 15;
     -fx-background-insets: -2;
@@ -406,7 +391,7 @@
 }
 
 .dialog-products-ListView {
-    -fx-background-color: #196e96;
+    -fx-background-color: #1a6331;
     -fx-control-inner-background: rgba(66, 135, 167, 0);
     -fx-background-radius: 15;
     -fx-background-insets: -2;
@@ -414,13 +399,13 @@
     -fx-border-radius: 15;
     -fx-border-insets: -2;
     -fx-border-width: 0;
-    -fx-font-size: 22;
     -fx-max-width: 600;
     -fx-min-width: 600;
+    -fx-font-size: 16;
 }
 
 .bookingPackage-listView {
-    -fx-background-color: #196e96;
+    -fx-background-color: #1a6331;
     -fx-control-inner-background: rgba(66, 135, 167, 0);
     -fx-background-radius: 15;
     -fx-background-insets: -2;
@@ -434,7 +419,7 @@
 }
 
 .mailsList-ListView {
-    -fx-background-color: #196e96;
+    -fx-background-color: #1a6331;
     -fx-control-inner-background: rgba(66, 135, 167, 0);
     -fx-background-radius: 15;
     -fx-background-insets: -10;
@@ -461,7 +446,7 @@
     -fx-min-width: 50;
     -fx-max-height: 50;
     -fx-min-height: 50;
-    -fx-background-color: #ffb81c;
+    -fx-background-color: #1a6331;
     -fx-background-radius: 25;
     -fx-border-radius: 25;
     -fx-font-size: 12;
@@ -469,7 +454,7 @@
 }
 
 .products-list-view {
-    -fx-background-color: #196e96;
+    -fx-background-color: #1a6331;
     -fx-control-inner-background: rgba(66, 135, 167, 0);
     -fx-background-radius: 15;
     -fx-background-insets: -10;
@@ -490,22 +475,12 @@
     -fx-text-fill: white;
 }
 
-.products-list-view .list-cell:filled:hover {
-    -fx-background-color: #28bbff;
-}
-
-.products-list-view .list-cell:filled:focused:selected {
-    -fx-background-color: -fx-focus-color, -fx-cell-focus-inner-border, -fx-selection-bar;
-    -fx-background-insets: 0, 1, 2;
-    -fx-background: -fx-accent;
-    -fx-text-fill: -fx-selection-bar-text;
-}
 .product-context-menu {
     -fx-font-size: 18;
 }
 
 .download-progress-bar {
-    -fx-progress-color: #28bbff;
+    -fx-progress-color: #1a6331;
     -fx-max-width: 50;
     -fx-min-width: 50;
     -fx-max-height: 30;

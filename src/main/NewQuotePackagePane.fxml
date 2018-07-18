@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.NewQuotePackagePaneController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.NewQuotePackagePaneController">
    <children>
       <HBox alignment="TOP_CENTER" prefHeight="40.0" prefWidth="1100.0" spacing="30.0">
          <children>
@@ -33,14 +33,17 @@
             </HBox>
          </children>
       </HBox>
-      <VBox alignment="TOP_CENTER" prefHeight="181.0" prefWidth="1023.0" spacing="10.0">
+      <VBox alignment="TOP_CENTER" prefHeight="264.0" prefWidth="1100.0">
          <children>
-            <Label styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Packages Available:" />
-            <ListView fx:id="packagesListView" maxWidth="998.0" prefHeight="128.0" prefWidth="998.0" styleClass="bookingPackage-listView" stylesheets="@../resources/GISAStyle.css" />
+            <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Packages Available:" />
+            <ListView fx:id="packagesListView" maxWidth="998.0" prefHeight="136.0" prefWidth="950.0" styleClass="bookingPackage-listView" stylesheets="@../resources/GISAStyle.css" />
          </children>
          <padding>
-            <Insets top="10.0" />
+            <Insets top="5.0" />
          </padding>
       </VBox>
    </children>
+   <padding>
+      <Insets top="10.0" />
+   </padding>
 </VBox>

@@ -44,7 +44,7 @@ public class BookingsPaneController implements Initializable {
             e.printStackTrace();
         }
         BookingsListPaneController blpc = loader.getController();
-        blpc.initData("Quotes");
+        blpc.initData("Quote");
     }
 
     public void pendingButtonClick(){

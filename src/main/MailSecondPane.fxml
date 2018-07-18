@@ -11,21 +11,24 @@
 
 <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" spacing="10.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.MailSecondPaneController">
    <children>
-      <VBox alignment="TOP_CENTER" prefHeight="233.0" prefWidth="1100.0" spacing="20.0">
+      <VBox alignment="TOP_CENTER" prefHeight="174.0" prefWidth="1100.0" spacing="20.0">
          <children>
             <Label styleClass="mainHeadingText" stylesheets="@../resources/GISAStyle.css" text="Golf in South Africa" />
             <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Mails" />
          </children>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
       </VBox>
       <HBox alignment="CENTER" prefHeight="136.0" prefWidth="1100.0" spacing="30.0">
          <children>
-            <StackPane onMouseClicked="#unreadButtonClick" prefHeight="200.0" prefWidth="230.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+            <StackPane prefHeight="200.0" prefWidth="230.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
                <children>
                   <ImageView fitHeight="200.0" fitWidth="230.0" onMouseClicked="#unreadButtonClick" pickOnBounds="true" preserveRatio="true" />
                   <Label onMouseClicked="#unreadButtonClick" styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Unread" />
                </children>
             </StackPane>
-            <StackPane onMouseClicked="#allButtonClick" prefHeight="200.0" prefWidth="230.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+            <StackPane prefHeight="200.0" prefWidth="230.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
                <children>
                   <ImageView fitHeight="200.0" fitWidth="230.0" onMouseClicked="#allButtonClick" pickOnBounds="true" preserveRatio="true" />
                   <Label onMouseClicked="#allButtonClick" styleClass="home-button-text" text="All" />
@@ -33,20 +36,20 @@
             </StackPane>
          </children>
       </HBox>
-      <HBox alignment="BOTTOM_RIGHT" prefHeight="216.0" prefWidth="1070.0" spacing="30.0">
+      <HBox alignment="BOTTOM_RIGHT" prefHeight="273.0" prefWidth="1070.0" spacing="30.0">
          <children>
             <VBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#backButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                  <Button mnemonicParsing="false" onAction="#backButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
                      <graphic>
                         <ImageView>
                            <image>
-                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                              <Image url="@../resources/Back.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label styleClass="home-text" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css" text="Back" />
+                  <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Back" />
                </children>
             </VBox>
          </children>

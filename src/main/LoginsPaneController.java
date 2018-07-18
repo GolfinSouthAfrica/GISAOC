@@ -46,7 +46,6 @@ public class LoginsPaneController implements Initializable {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            root.setPrefWidth(loginsScrollPane.getPrefWidth() - 10);
             LoginsCardPaneController lcpc = loader.getController();
             lcpc.initData(l);
             loginsCards.add(root);
@@ -61,8 +60,35 @@ public class LoginsPaneController implements Initializable {
 
     }
 
-    public void searchButtonClick(){//TODO
-
+    public void searchButtonClick(){
+        ObservableList<Login> displayList = FXCollections.observableArrayList();
+        if (!searchTxf.getText().matches("")) {
+            for (Login ln: Main.connectionHandler.logins) {
+                if (ln.getLoginName().toLowerCase().contains(searchTxf.getText().toLowerCase())) {
+                    displayList.add(ln);
+                }
+            }
+        } else {
+            displayList.addAll(Main.connectionHandler.logins);
+        }
+        ObservableList<HBox> loginsCards = FXCollections.observableArrayList();
+        for (Login l: displayList) {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("LoginsCardPane.fxml"));
+            HBox root = null;
+            try {
+                root = loader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            LoginsCardPaneController lcpc = loader.getController();
+            lcpc.initData(l);
+            loginsCards.add(root);
+        }
+        Platform.runLater(() -> {
+            loginsList.getChildren().clear();
+            loginsList.getChildren().addAll(loginsCards);
+        });
     }
 
     public void addLoginButtonClick(){

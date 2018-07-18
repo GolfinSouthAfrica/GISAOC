@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="1060.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.LoginsCardPaneController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.LoginsCardPaneController">
    <children>
       <VBox alignment="CENTER" prefHeight="100.0" prefWidth="374.0">
          <children>
@@ -17,19 +17,19 @@
       </VBox>
       <VBox alignment="CENTER" prefHeight="100.0" prefWidth="459.0">
          <children>
-            <Label fx:id="username" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Ronnie28" />
-            <Label fx:id="password" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Ronald#28" />
+            <Label fx:id="username" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Ronnie28" />
+            <Label fx:id="password" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Ronald#28" />
          </children>
       </VBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="272.0" spacing="30.0">
          <children>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button fx:id="editBtn" mnemonicParsing="false" onAction="#editButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                  <Button fx:id="editBtn" mnemonicParsing="false" onAction="#editButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
                      <graphic>
-                        <ImageView fx:id="viewBtn">
+                        <ImageView>
                            <image>
-                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                              <Image url="@../resources/EditSmall.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -38,11 +38,11 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button fx:id="removeBtn" mnemonicParsing="false" onAction="#removeButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                  <Button fx:id="removeBtn" mnemonicParsing="false" onAction="#removeButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
                      <graphic>
-                        <ImageView fx:id="editBtn">
+                        <ImageView>
                            <image>
-                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                              <Image url="@../resources/RemoveSmall.png" />
                            </image>
                         </ImageView>
                      </graphic>

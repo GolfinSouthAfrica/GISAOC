@@ -8,48 +8,48 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="1060.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ViewSuppliersContactCardPaneController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ViewSuppliersContactCardPaneController">
    <children>
-      <VBox alignment="CENTER" prefHeight="100.0" prefWidth="331.0">
+      <VBox alignment="CENTER" prefHeight="100.0" prefWidth="270.0">
          <children>
             <Label fx:id="contactNameLbl" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Piet Pompies" />
             <Label fx:id="positionLbl" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Account Manager" />
          </children>
       </VBox>
-      <VBox alignment="CENTER" prefHeight="100.0" prefWidth="298.0">
+      <VBox alignment="CENTER" prefHeight="100.0" prefWidth="270.0">
          <children>
             <Label fx:id="contactNumberLbl" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="021 554 4019" />
-            <Hyperlink fx:id="emailHL" text="pietpompies@gmail.com" />
+            <Hyperlink fx:id="emailHL" onAction="#emailHLClicked" style="-fx-text-fill: #1a6331;" text="pietpompies@gmail.com" />
          </children>
       </VBox>
-      <VBox alignment="CENTER" prefHeight="100.0" prefWidth="298.0">
+      <VBox alignment="CENTER" prefHeight="100.0" prefWidth="220.0">
          <children>
             <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Date Added:" />
             <Label fx:id="dateAddedLbl" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="2018-06-28" />
          </children>
       </VBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="283.0">
+      <HBox alignment="CENTER" prefHeight="80.0" prefWidth="173.0">
          <children>
-            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="110.0">
                <children>
-                  <Button fx:id="editBtn" mnemonicParsing="false" onAction="#editButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                  <Button fx:id="editBtn" mnemonicParsing="false" onAction="#editButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
                      <graphic>
                         <ImageView>
                            <image>
-                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                              <Image url="@../resources/EditSmall.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
                </children>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="110.0">
                <children>
-                  <Button fx:id="removeBtn" mnemonicParsing="false" onAction="#removeButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                  <Button fx:id="removeBtn" mnemonicParsing="false" onAction="#removeButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
                      <graphic>
                         <ImageView>
                            <image>
-                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                              <Image url="@../resources/RemoveSmall.png" />
                            </image>
                         </ImageView>
                      </graphic>

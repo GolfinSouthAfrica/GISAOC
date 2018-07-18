@@ -18,7 +18,7 @@
             <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="New Suppliers" />
          </children>
       </VBox>
-      <VBox alignment="TOP_CENTER" prefHeight="441.0" prefWidth="1100.0" spacing="10.0">
+      <VBox alignment="TOP_CENTER" prefHeight="428.0" prefWidth="1100.0">
          <children>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1100.0" spacing="10.0">
                <children>
@@ -52,37 +52,37 @@
             </HBox>
          </children>
          <VBox.margin>
-            <Insets top="30.0" />
+            <Insets top="80.0" />
          </VBox.margin>
       </VBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="300.0">
          <children>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#addButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                  <Button defaultButton="true" mnemonicParsing="false" onAction="#addButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
                      <graphic>
                         <ImageView>
                            <image>
-                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                              <Image url="@../resources/Add.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label styleClass="home-text" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css" text="Add" />
+                  <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Add" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#backButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                  <Button mnemonicParsing="false" onAction="#backButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
                      <graphic>
                         <ImageView>
                            <image>
-                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                              <Image url="@../resources/Back.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label styleClass="home-text" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css" text="Back" />
+                  <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Back" />
                </children>
             </VBox>
          </children>

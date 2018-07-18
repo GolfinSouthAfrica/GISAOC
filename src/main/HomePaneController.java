@@ -88,8 +88,10 @@ public class HomePaneController {
     }
 
     public void logOutButtonClick(){
+        Main.connectionHandler.logOut();
+        Main.connectionHandler = new ConnectionHandler();
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("LogOutPane.fxml"));
+        loader.setLocation(getClass().getResource("LoginPane.fxml"));
         try {
             Main.setStage(loader.load());
         } catch (IOException e) {

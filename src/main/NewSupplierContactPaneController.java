@@ -2,6 +2,7 @@ package main;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.beans.InvalidationListener;
+import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -63,14 +64,12 @@ public class NewSupplierContactPaneController implements Initializable {
                             Main.connectionHandler.outputQueue.add(new ContactDetails(cd.getContactDetailsID(), contactNameLblTxf.getText(), positionTxf.getText(), numberTxf.getText(), emailTxf.getText(), cd.getDateAdded()));
                         }
                         FXMLLoader loader = new FXMLLoader();
-                        loader.setLocation(getClass().getResource("ViewSuppliersPane.fxml"));
+                        loader.setLocation(getClass().getResource("SuppliersPane.fxml"));
                         try {
                             Main.setStage(loader.load());
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                        ViewSuppliersPaneController vspc = loader.getController();
-                        vspc.initData(supplier);
                     } else {
                         new CustomDialog(Main.stage,"Email not entered", "Enter Email before adding Contact.", new JFXButton("Ok")).showDialog();
                     }

@@ -9,70 +9,73 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.NewSupplierContactPaneController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.NewLoginPaneController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="78.0" prefWidth="1100.0">
          <children>
-            <Label styleClass="mainHeadingText" stylesheets="@../resources/GISAStyle.css" text="Golf in South Africa" />
+            <Label styleClass="heading-text" stylesheets="@../resources/GISAStyle.css" text="Golf in South Africa" />
             <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="New Login" />
          </children>
       </VBox>
-      <VBox alignment="TOP_CENTER" prefHeight="433.0" prefWidth="1100.0" spacing="10.0">
+      <VBox alignment="TOP_CENTER" prefHeight="462.0" prefWidth="1100.0" spacing="10.0">
          <children>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1100.0" spacing="10.0">
                <children>
                   <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="33.0" prefWidth="250.0" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Login Name: " />
-                  <TextField fx:id="contactNameLblTxf" prefHeight="35.0" prefWidth="350.0" styleClass="new" stylesheets="@../resources/GISAStyle.css" />
+                  <TextField fx:id="loginNameTxf" prefHeight="46.0" prefWidth="350.0" styleClass="new" stylesheets="@../resources/GISAStyle.css" />
                </children>
                <padding>
-                  <Insets top="30.0" />
+                  <Insets top="10.0" />
                </padding>
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1100.0" spacing="10.0">
                <children>
                   <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="33.0" prefWidth="250.0" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Username:" />
-                  <TextField fx:id="positionTxf" prefHeight="35.0" prefWidth="350.0" styleClass="new" stylesheets="@../resources/GISAStyle.css" />
+                  <TextField fx:id="usernameTxf" prefHeight="40.0" prefWidth="350.0" styleClass="new" stylesheets="@../resources/GISAStyle.css" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1100.0" spacing="10.0">
                <children>
                   <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="33.0" prefWidth="250.0" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Password:" />
-                  <TextField fx:id="numberTxf" prefHeight="35.0" prefWidth="350.0" styleClass="new" stylesheets="@../resources/GISAStyle.css" />
+                  <TextField fx:id="passwordTxf" prefHeight="40.0" prefWidth="350.0" styleClass="new" stylesheets="@../resources/GISAStyle.css" />
                </children>
             </HBox>
          </children>
          <VBox.margin>
             <Insets top="30.0" />
          </VBox.margin>
+         <padding>
+            <Insets top="30.0" />
+         </padding>
       </VBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="300.0">
          <children>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#addButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                  <Button defaultButton="true" mnemonicParsing="false" onAction="#addButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
                      <graphic>
                         <ImageView>
                            <image>
-                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                              <Image url="@../resources/Add.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label styleClass="home-text" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css" text="Add" />
+                  <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Add" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#backButtonClick" prefHeight="58.0" prefWidth="59.0" styleClass="home-icon-image-suppliers" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css">
+                  <Button mnemonicParsing="false" onAction="#backButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
                      <graphic>
                         <ImageView>
                            <image>
-                              <Image url="@../../../ChampleyClient/src/resources/Suppliers.png" />
+                              <Image url="@../resources/Back.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label styleClass="home-text" stylesheets="@../../../ChampleyClient/src/resources/ChampleyStyle.css" text="Back" />
+                  <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Back" />
                </children>
             </VBox>
          </children>

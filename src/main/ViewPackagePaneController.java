@@ -1,12 +1,15 @@
 package main;
 
+import javafx.application.Platform;
 import javafx.beans.InvalidationListener;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import models.TripPackage;
+import models.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -50,15 +53,14 @@ public class ViewPackagePaneController implements Initializable {
     }
 
     private void populateLists(){
-        accommodationListView.getItems().clear();
-        accommodationListView.getItems().addAll(tripPackage.getBookingAccommodation());
-        golfListView.getItems().clear();
-        golfListView.getItems().addAll(tripPackage.getBookingGolf());
-        transportListView.getItems().clear();
-        transportListView.getItems().addAll(tripPackage.getBookingTransport());
-        activitiesListView.getItems().clear();
-        activitiesListView.getItems().addAll(tripPackage.getBookingActivities());
-
+        ObservableList<BookingAccommodation> accommodation = FXCollections.observableArrayList(tripPackage.getBookingAccommodation());
+        accommodationListView.setItems(accommodation);
+        ObservableList<BookingGolf> golf = FXCollections.observableArrayList(tripPackage.getBookingGolf());
+        golfListView.setItems(golf);
+        ObservableList<BookingTransport> transport = FXCollections.observableArrayList(tripPackage.getBookingTransport());
+        transportListView.setItems(transport);
+        ObservableList<BookingActivity> activities = FXCollections.observableArrayList(tripPackage.getBookingActivities());
+        activitiesListView.setItems(activities);
     }
 
     public void editButtonClick(){
