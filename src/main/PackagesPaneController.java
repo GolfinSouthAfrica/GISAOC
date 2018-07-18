@@ -38,26 +38,30 @@ public class PackagesPaneController implements Initializable {
     }
 
     private void populatePackages(){
-        ObservableList<HBox> packageCards = FXCollections.observableArrayList();
-        for (TripPackage tp: Main.connectionHandler.packages) {
-            if(!tp.getPackageName().contains("Bespoke")) {
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("PackagesCardPane.fxml"));
-                HBox root = null;
-                try {
-                    root = loader.load();
-                } catch (IOException e) {
-                    e.printStackTrace();
+        if(!Main.connectionHandler.packages.isEmpty()) {
+            ObservableList<HBox> packageCards = FXCollections.observableArrayList();
+            for (TripPackage tp : Main.connectionHandler.packages) {
+                if (!tp.getPackageName().contains("Bespoke")) {
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("PackagesCardPane.fxml"));
+                    HBox root = null;
+                    try {
+                        root = loader.load();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    PackagesCardPaneController pcpc = loader.getController();
+                    pcpc.initData(tp);
+                    packageCards.add(root);
                 }
-                PackagesCardPaneController pcpc = loader.getController();
-                pcpc.initData(tp);
-                packageCards.add(root);
             }
+            Platform.runLater(() -> {
+                packagesList.getChildren().clear();
+                packagesList.getChildren().addAll(packageCards);
+            });
+        } else {
+            Platform.runLater(() -> packagesList.getChildren().clear());
         }
-        Platform.runLater(() -> {
-            packagesList.getChildren().clear();
-            packagesList.getChildren().addAll(packageCards);
-        });
     }
 
     public void searchButtonClick(){
