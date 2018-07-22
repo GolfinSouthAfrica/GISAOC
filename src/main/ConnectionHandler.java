@@ -6,12 +6,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import models.*;
 
-import javax.net.ssl.SSLSocketFactory;
 import java.io.*;
-import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
-import java.net.URL;
 import java.nio.file.Files;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -34,6 +31,7 @@ public class ConnectionHandler {
     public ObservableList<ProductGolf> golf = FXCollections.observableArrayList();
     public ObservableList<ProductTransport> transport = FXCollections.observableArrayList();
     public ObservableList<ProductActivity> activities = FXCollections.observableArrayList();
+    public ObservableList<Transaction> transactions = FXCollections.observableArrayList();
     public volatile ObservableList<Object> outputQueue = FXCollections.observableArrayList();
     public volatile ObservableList<Object> inputQueue = FXCollections.observableArrayList();
     private Socket socket;
@@ -153,13 +151,13 @@ public class ConnectionHandler {
     }
 
     public String getTodaysDate(){
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate localDate = LocalDate.now();
         return dtf.format(localDate);
     }
 
     public String getFullPaymentDate(String arrival){
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyy");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate localDate = LocalDate.parse(arrival).minusDays(60);
         return dtf.format(localDate);
     }
@@ -256,9 +254,10 @@ public class ConnectionHandler {
                     } else if (input instanceof List<?>) {
                         List list = (List) input;
                         if (!list.isEmpty() && list.get(0) instanceof Supplier) {
-                            suppliers.clear();
                             if (((Supplier) list.get(0)).getSupplierNumber() != -10) {
                                 suppliers.addAll(list);
+                            } else {
+                                suppliers.clear();
                             }
                             System.out.println("Updated Suppliers (" + suppliers.size() + ")");
                         } else if (!list.isEmpty() && list.get(0) instanceof Booking) {
@@ -284,7 +283,6 @@ public class ConnectionHandler {
                                 documents.clear();
                                 if (!((DataFile) list.get(0)).getFileName().equals("NoDocuments")) {
                                     documents.addAll(list);
-                                    System.out.println(documents.get(0).getFileName());
                                 }
                                 System.out.println("Updated Documents (" + documents.size() + ")");
                             }
@@ -329,8 +327,14 @@ public class ConnectionHandler {
                             if (!((Mail) list.get(0)).getFromMailAddress().equals("NoMails")) {
                                 mails.addAll(list);
                             }
-                            System.out.println("Updated Mails (" + activities.size() + ")");
+                            System.out.println("Updated Mails (" + mails.size() + ")");
                             gotMails.setValue(true);
+                        } else if (!list.isEmpty() && list.get(0) instanceof Transaction) {
+                            transactions.clear();
+                            if (!((Transaction) list.get(0)).getTransactionType().equals("NoTransactions")) {
+                                transactions.addAll(list);
+                            }
+                            System.out.println("Updated Transactions (" + transactions.size() + ")");
                         }
                     } else {
                         inputQueue.add(input);

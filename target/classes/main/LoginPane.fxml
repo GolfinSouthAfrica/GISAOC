@@ -19,8 +19,8 @@
          </image></ImageView>
       <Label styleClass="heading-text" stylesheets="@../resources/GISAStyle.css" text="Golf in South Africa" />
       <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="AN UNFORGETTABLE STORY" />
-      <TextField fx:id="emailTxf" promptText="Username" styleClass="login-fields" stylesheets="@../resources/GISAStyle.css" />
-      <PasswordField fx:id="passwordTxf" promptText="Password" styleClass="login-password" stylesheets="@../resources/GISAStyle.css" />
+      <TextField fx:id="emailTxf" promptText="Username" styleClass="login-fields" stylesheets="@../resources/GISAStyle.css" text="Ronnie28" />
+      <PasswordField fx:id="passwordTxf" promptText="Password" styleClass="login-password" stylesheets="@../resources/GISAStyle.css" text="Ronald#28" />
       <Button defaultButton="true" mnemonicParsing="false" onAction="#loginButtonClick" styleClass="login-button" stylesheets="@../resources/GISAStyle.css" text="Login" />
       <Hyperlink onAction="#forgotPasswordHLClicked" style="-fx-text-fill: #1a6331;" text="Forgot Password?" />
    </children>

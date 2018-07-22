@@ -13,6 +13,7 @@ import models.Supplier;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class NewSupplierContactPaneController implements Initializable {
@@ -59,7 +60,9 @@ public class NewSupplierContactPaneController implements Initializable {
                 if (!numberTxf.getText().matches("")) {
                     if (!emailTxf.getText().matches("")) {
                         if (cd == null) {
-                            Main.connectionHandler.outputQueue.add(new ContactDetails(supplier.getSupplierNumber() + 100000, contactNameLblTxf.getText(), positionTxf.getText(), numberTxf.getText(), emailTxf.getText(), LocalDate.now().toString()));
+                            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                            LocalDate localDate = LocalDate.now();
+                            Main.connectionHandler.outputQueue.add(new ContactDetails(supplier.getSupplierNumber() + 100000, contactNameLblTxf.getText(), positionTxf.getText(), numberTxf.getText(), emailTxf.getText(), dtf.format(localDate)));
                         } else {
                             Main.connectionHandler.outputQueue.add(new ContactDetails(cd.getContactDetailsID(), contactNameLblTxf.getText(), positionTxf.getText(), numberTxf.getText(), emailTxf.getText(), cd.getDateAdded()));
                         }

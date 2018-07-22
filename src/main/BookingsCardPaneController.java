@@ -78,8 +78,8 @@ public class BookingsCardPaneController implements Initializable {
         Main.connectionHandler.outputQueue.add("rb:" + booking.getGsNumber());
     }
 
-    public void processButtonClick(){//TODO
-
+    public void processButtonClick(){
+        new BookingProcess().BookingProcess(Main.stage, booking);
     }
 
     public void mailsButtonClick(){//TODO

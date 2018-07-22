@@ -8,11 +8,13 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.util.StringConverter;
 import models.*;
 
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -31,6 +33,22 @@ public class NewPackagePaneController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        expiryDateDP.setConverter(new StringConverter<LocalDate>(){
+            private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            @Override
+            public String toString(LocalDate localDate){
+                if(localDate==null)
+                    return "";
+                return dateTimeFormatter.format(localDate);
+            }
+            @Override
+            public LocalDate fromString(String dateString){
+                if(dateString==null || dateString.trim().isEmpty()){
+                    return null;
+                }
+                return LocalDate.parse(dateString,dateTimeFormatter);
+            }
+        });
         categoryCmb.getItems().clear();
         categoryCmb.getItems().addAll("Please Select Category", "Short Golf Break", "Golf Tour");//TODO Exc
         categoryCmb.getSelectionModel().select(0);

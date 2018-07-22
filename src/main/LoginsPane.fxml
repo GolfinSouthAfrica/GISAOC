@@ -21,7 +21,7 @@
       <HBox alignment="CENTER" prefHeight="120.0" prefWidth="1100.0" spacing="20.0">
          <children>
             <TextField fx:id="searchTxf" styleClass="products-searchfield" stylesheets="@../resources/GISAStyle.css" />
-            <Button mnemonicParsing="false" onAction="#searchButtonClick" onMouseClicked="#searchButtonClick" styleClass="dialog-button" stylesheets="@../resources/GISAStyle.css" text="Search" />
+            <Button defaultButton="true" mnemonicParsing="false" onAction="#searchButtonClick" onMouseClicked="#searchButtonClick" styleClass="dialog-button" stylesheets="@../resources/GISAStyle.css" text="Search" />
          </children>
          <VBox.margin>
             <Insets top="15.0" />

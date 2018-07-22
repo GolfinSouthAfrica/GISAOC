@@ -22,16 +22,19 @@
             <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Finance" />
          </children>
       </VBox>
-      <TabPane prefHeight="480.0" prefWidth="1100.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="tabs" prefHeight="480.0" prefWidth="1100.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Money Came In">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="moneyCameInTV" layoutX="50.0" layoutY="18.0" prefHeight="400.0" prefWidth="1000.0">
+                        <TableView fx:id="moneyCameInTV" layoutX="50.0" layoutY="18.0" prefHeight="400.0" prefWidth="1000.0" AnchorPane.rightAnchor="50.0">
                           <columns>
-                            <TableColumn prefWidth="75.0" text="C1" />
-                            <TableColumn prefWidth="75.0" text="C2" />
+                            <TableColumn fx:id="mciFirst" prefWidth="148.00003051757812" text="GSNumber" />
+                            <TableColumn fx:id="mciSecond" prefWidth="188.0" text="Other" />
+                              <TableColumn fx:id="mciThird" prefWidth="322.0" text="Reference" />
+                              <TableColumn fx:id="mciFouth" prefWidth="182.0" text="Date" />
+                              <TableColumn fx:id="mciFifth" prefWidth="159.0" text="Amount" />
                           </columns>
                         </TableView>
                      </children>
@@ -44,8 +47,12 @@
                      <children>
                         <TableView fx:id="moneyPaidOutTV" layoutX="50.0" layoutY="18.0" prefHeight="401.0" prefWidth="1000.0">
                           <columns>
-                            <TableColumn prefWidth="75.0" text="C1" />
-                            <TableColumn prefWidth="75.0" text="C2" />
+                            <TableColumn fx:id="mpoFirst" prefWidth="159.00003051757812" text="TransactionType" />
+                            <TableColumn fx:id="mpoSecond" prefWidth="131.0" text="GSNumber" />
+                              <TableColumn fx:id="mpoThird" prefWidth="128.0" text="Other" />
+                              <TableColumn fx:id="mpoFouth" prefWidth="285.0" text="Reference" />
+                              <TableColumn fx:id="mpoFifth" prefWidth="160.0" text="Date" />
+                              <TableColumn fx:id="mpoSixth" prefWidth="138.0" text="Amount" />
                           </columns>
                         </TableView>
                      </children>
@@ -58,8 +65,11 @@
                      <children>
                         <TableView fx:id="expensesTV" layoutX="50.0" layoutY="18.0" prefHeight="400.0" prefWidth="1000.0">
                           <columns>
-                            <TableColumn prefWidth="75.0" text="C1" />
-                            <TableColumn prefWidth="75.0" text="C2" />
+                            <TableColumn fx:id="exFirst" prefWidth="165.00003051757812" text="GSNumber" />
+                            <TableColumn fx:id="exSecond" prefWidth="164.0" text="Other" />
+                              <TableColumn fx:id="exThird" prefWidth="391.0" text="Reference" />
+                              <TableColumn fx:id="exFouth" prefWidth="144.0" text="Date" />
+                              <TableColumn fx:id="exFifth" prefWidth="135.0" text="Amount" />
                           </columns>
                         </TableView>
                      </children>
@@ -72,8 +82,11 @@
                      <children>
                         <TableView fx:id="suppliersPaidTV" layoutX="50.0" layoutY="18.0" prefHeight="400.0" prefWidth="1000.0">
                           <columns>
-                            <TableColumn prefWidth="75.0" text="C1" />
-                            <TableColumn prefWidth="75.0" text="C2" />
+                            <TableColumn fx:id="spFirst" prefWidth="165.00003051757812" text="GSNumber" />
+                            <TableColumn fx:id="spSecond" prefWidth="177.0" text="Other" />
+                              <TableColumn fx:id="spThird" prefWidth="363.0" text="Reference" />
+                              <TableColumn fx:id="spFouth" prefWidth="161.0" text="Date" />
+                              <TableColumn fx:id="spFifth" prefWidth="135.0" text="Amount" />
                           </columns>
                         </TableView>
                      </children>
@@ -86,23 +99,27 @@
                      <children>
                         <TableView fx:id="searchTV" layoutX="50.0" layoutY="82.0" prefHeight="340.0" prefWidth="1000.0">
                           <columns>
-                            <TableColumn prefWidth="75.0" text="C1" />
-                            <TableColumn prefWidth="75.0" text="C2" />
+                            <TableColumn fx:id="seFirst" prefWidth="138.00003051757812" text="TransactionType" />
+                            <TableColumn fx:id="seSecond" prefWidth="113.0" text="GSNumber" />
+                              <TableColumn fx:id="seThird" prefWidth="148.0" text="Other" />
+                              <TableColumn fx:id="seFouth" prefWidth="291.0" text="Reference" />
+                              <TableColumn fx:id="seFifth" prefWidth="151.0" text="Date" />
+                              <TableColumn fx:id="seSixth" prefWidth="159.0" text="Amount" />
                           </columns>
                         </TableView>
                         <TextField fx:id="searchTxf" layoutX="345.0" layoutY="25.0" styleClass="products-searchfield" stylesheets="@../resources/GISAStyle.css" />
-                        <Button layoutX="633.0" layoutY="27.0" mnemonicParsing="false" styleClass="dialog-button" stylesheets="@../resources/GISAStyle.css" text="Search" />
+                        <Button layoutX="633.0" layoutY="27.0" mnemonicParsing="false" onAction="#searchButtonClick" styleClass="dialog-button" stylesheets="@../resources/GISAStyle.css" text="Search" />
                      </children>
                   </AnchorPane>
               </content>
             </Tab>
         </tabs>
       </TabPane>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="800.0">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="200.0">
          <children>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
+                  <Button mnemonicParsing="false" onAction="#addTransactionButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
                      <graphic>
                         <ImageView>
                            <image>
@@ -116,7 +133,35 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
+                  <Button mnemonicParsing="false" onAction="#editTransactionButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../resources/Edit.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Edit" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#removeTransactionButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../resources/Remove.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Remove" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#backButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
                      <graphic>
                         <ImageView>
                            <image>
@@ -125,7 +170,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Back" />
+                  <Label onDragDetected="#backButtonClick" styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Back" />
                </children>
             </VBox>
          </children>

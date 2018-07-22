@@ -22,7 +22,7 @@
       <HBox alignment="CENTER" prefHeight="76.0" prefWidth="1100.0" spacing="20.0">
          <children>
             <TextField fx:id="searchTxf" styleClass="products-searchfield" stylesheets="@../resources/GISAStyle.css" />
-            <Button mnemonicParsing="false" onAction="#searchButtonClick" styleClass="dialog-button" stylesheets="@../resources/GISAStyle.css" text="Search" />
+            <Button defaultButton="true" mnemonicParsing="false" onAction="#searchButtonClick" styleClass="dialog-button" stylesheets="@../resources/GISAStyle.css" text="Search" />
             <Label styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Sort by:" />
             <ComboBox fx:id="sortBy" prefWidth="150.0" styleClass="sortby-combo-box" stylesheets="@../resources/GISAStyle.css" />
          </children>

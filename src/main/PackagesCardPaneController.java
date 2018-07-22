@@ -67,7 +67,7 @@ public class PackagesCardPaneController implements Initializable {
 
     public void removeButtonClick(){
         if (UserNotification.confirmationDialog(Main.stage, "Are you sure you want to remove " + tripPackage.getPackageName() + "?", "This will delete all not delete current conformed bookings of this package.")) {
-            Main.connectionHandler.outputQueue.add("rs:" + tripPackage.getPackageID());
+            Main.connectionHandler.outputQueue.add("rp:" + tripPackage.getPackageID());
         }
     }
 }

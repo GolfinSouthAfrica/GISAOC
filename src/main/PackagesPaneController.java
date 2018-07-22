@@ -17,6 +17,8 @@ import models.TripPackage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Comparator;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class PackagesPaneController implements Initializable {
@@ -28,18 +30,44 @@ public class PackagesPaneController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Main.connectionHandler.packages.addListener((InvalidationListener) e -> {
-            populatePackages();
-        });
-        populatePackages();
         sortBy.getItems().clear();
-        sortBy.getItems().addAll("Name", "Province");
+        sortBy.getItems().addAll("Unsorted", "Name-Ascend", "Name-Descend", "Province-Ascend", "Province-Descend", "Category-Ascend", "Category-Descend");
         sortBy.getSelectionModel().select(0);
+        sortBy.valueProperty().addListener((obs, oldItem, newItem) -> {
+            populatePackages(sortBy.getSelectionModel().getSelectedItem().toString());
+        });
+        populatePackages(sortBy.getSelectionModel().getSelectedItem().toString());
+        Main.connectionHandler.packages.addListener((InvalidationListener) e -> {
+            populatePackages("");
+            sortBy.getSelectionModel().select(0);
+        });
     }
 
-    private void populatePackages(){
+    private void populatePackages(String sort){
         if(!Main.connectionHandler.packages.isEmpty()) {
             ObservableList<HBox> packageCards = FXCollections.observableArrayList();
+            List<TripPackage> temp = Main.connectionHandler.packages;
+            if(temp.size() > 1) {
+                if (sort.matches("Name-Ascend")) {
+                    temp.sort(Comparator.comparing(TripPackage::getPackageName));
+                } else if (sort.matches("Name-Descend")) {
+                    temp.sort(Comparator.comparing(TripPackage::getPackageName).reversed());
+                } else if (sort.matches("Province-Ascend")) {
+                    temp.sort(Comparator.comparing(TripPackage::getPackageName));
+                    temp.sort(Comparator.comparing(TripPackage::getProvince));
+                } else if (sort.matches("Province-Descend")) {
+                    temp.sort(Comparator.comparing(TripPackage::getPackageName).reversed());
+                    temp.sort(Comparator.comparing(TripPackage::getProvince).reversed());
+                } else if (sort.matches("Category-Ascend")) {
+                    temp.sort(Comparator.comparing(TripPackage::getPackageName));
+                    temp.sort(Comparator.comparing(TripPackage::getProvince));
+                    temp.sort(Comparator.comparing(TripPackage::getCategory));
+                } else if (sort.matches("Category-Descend")) {
+                    temp.sort(Comparator.comparing(TripPackage::getPackageName).reversed());
+                    temp.sort(Comparator.comparing(TripPackage::getProvince).reversed());
+                    temp.sort(Comparator.comparing(TripPackage::getCategory).reversed());
+                }
+            }
             for (TripPackage tp : Main.connectionHandler.packages) {
                 if (!tp.getPackageName().contains("Bespoke")) {
                     FXMLLoader loader = new FXMLLoader();

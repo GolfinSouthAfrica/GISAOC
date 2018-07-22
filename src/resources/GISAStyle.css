@@ -75,25 +75,25 @@
 
 .mainHeadingText {
     -fx-font-weight: bold;
-    -fx-font-size: 300%;
+    -fx-font-size: 250%;
     -fx-text-fill: white;
 }
 
 .secondaryHeadingText {
     -fx-font-weight: bold;
-    -fx-font-size: 150%;
+    -fx-font-size: 120%;
     -fx-text-fill: white;
 }
 
 .tertiaryHeadingText {
     -fx-font-weight: bold;
-    -fx-font-size: 80%;
+    -fx-font-size: 65%;
     -fx-text-fill: white;
 }
 
 .home-button-text {
     -fx-font-weight: bold;
-    -fx-font-size: 25;
+    -fx-font-size: 16;
     -fx-text-fill: white;
 }
 
@@ -101,7 +101,7 @@
     -fx-border-color: black;
     -fx-border-width: 3;
     -fx-font-weight: bold;
-    -fx-font-size: 20;
+    -fx-font-size: 16;
 }
 
 .home-button:hover {
@@ -126,7 +126,7 @@
 
 .login-fields {
     -fx-prompt-text-fill: derive(-fx-control-inner-background, -45%);
-    -fx-font-size: 12pt;
+    -fx-font-size: 12;
     -fx-font-weight: bold;
     -fx-background-color: linear-gradient(#ffffff, #d3d3d3);
     -fx-background-radius: 20, 20, 20, 20;
@@ -144,7 +144,7 @@
 
 .login-password {
     -fx-prompt-text-fill: derive(-fx-control-inner-background, -45%);
-    -fx-font-size: 12pt;
+    -fx-font-size: 12;
     -fx-font-weight: bold;
     -fx-background-color: linear-gradient(#ffffff, #d3d3d3);
     -fx-background-radius: 20, 20, 20, 20;
@@ -182,28 +182,28 @@
 }
 
 .heading-text {
-    -fx-font-size: 300%;
-    -fx-font-weight: bold;
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
-    -fx-text-fill: white;
-}
-
-.headingInfo-text {
     -fx-font-size: 200%;
     -fx-font-weight: bold;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
     -fx-text-fill: white;
 }
 
+.headingInfo-text {
+    -fx-font-size: 150%;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
+    -fx-text-fill: white;
+}
+
 .subHeadingInfo-text {
-    -fx-font-size: 120%;
+    -fx-font-size: 100%;
     -fx-font-weight: bold;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
     -fx-text-fill: white;
 }
 
 .home-text {
-    -fx-font-size: 150%;
+    -fx-font-size: 130%;
     -fx-font-weight: bold;
     -fx-text-fill: white;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
@@ -211,7 +211,7 @@
 
 .sortby-combo-box {
     -fx-background-color: white;
-    -fx-font-size: 17;
+    -fx-font-size: 16;
     -fx-min-width: 190;
     -fx-max-width: 190;
     -fx-min-height: 40;
@@ -236,7 +236,7 @@
 
 .products-searchfield {
     -fx-prompt-text-fill: derive(-fx-control-inner-background, -45%);
-    -fx-font-size: 17pt;
+    -fx-font-size: 16;
     -fx-font-weight: bold;
     -fx-background-color: linear-gradient(#ffffff, #d3d3d3);
     -fx-background-image: url("Search.png");
@@ -254,7 +254,7 @@
 
 .input-textfield {
     -fx-prompt-text-fill: derive(-fx-control-inner-background, -45%);
-    -fx-font-size: 20;
+    -fx-font-size: 16;
     -fx-font-weight: bold;
     -fx-background-color: linear-gradient(#ffffff, #d3d3d3);
     -fx-background-radius: 20, 20, 20, 20;
@@ -270,7 +270,7 @@
 }
 
 .booking-datePicker {
-    -fx-font-size: 20;
+    -fx-font-size: 16;
     -fx-font-weight: bold;
     -fx-background-repeat: no-repeat;
     -fx-background-size: auto 50%;
@@ -282,7 +282,7 @@
 }
 
 .newPackage-DatePicker {
-    -fx-font-size: 20;
+    -fx-font-size: 16;
     -fx-font-weight: bold;
     -fx-background-repeat: no-repeat;
     -fx-background-size: auto 50%;
@@ -295,7 +295,7 @@
 
 .booking-input-textfield {
     -fx-prompt-text-fill: derive(-fx-control-inner-background, -45%);
-    -fx-font-size: 20;
+    -fx-font-size: 16;
     -fx-font-weight: bold;
     -fx-background-color: linear-gradient(#ffffff, #d3d3d3);
     -fx-background-repeat: no-repeat;
@@ -310,7 +310,7 @@
 
 .booking-search-textfield {
     -fx-prompt-text-fill: derive(-fx-control-inner-background, -45%);
-    -fx-font-size: 20;
+    -fx-font-size: 16;
     -fx-font-weight: bold;
     -fx-background-color: linear-gradient(#ffffff, #d3d3d3);
     -fx-background-repeat: no-repeat;
@@ -326,7 +326,7 @@
 
 .booking-province-combo-box {
      -fx-background-color: white;
-     -fx-font-size: 17;
+     -fx-font-size: 16;
      -fx-min-width: 200;
      -fx-max-width: 200;
      -fx-min-height: 35;
@@ -338,7 +338,7 @@
 
 .booking-sortby-combo-box {
     -fx-background-color: white;
-    -fx-font-size: 17;
+    -fx-font-size: 16;
     -fx-min-width: 150;
     -fx-max-width: 150;
     -fx-min-height: 35;
@@ -350,7 +350,7 @@
 
 .booking-textarea {
     -fx-prompt-text-fill: derive(-fx-control-inner-background, -45%);
-    -fx-font-size: 20;
+    -fx-font-size: 18;
     -fx-font-weight: bold;
     -fx-background-color: linear-gradient(#ffffff, #d3d3d3);
     -fx-background-repeat: no-repeat;
@@ -385,7 +385,7 @@
     -fx-border-radius: 15;
     -fx-border-insets: -2;
     -fx-border-width: 0;
-    -fx-font-size: 22;
+    -fx-font-size: 16;
     -fx-max-width: 230;
     -fx-min-width: 230;
 }
@@ -401,7 +401,7 @@
     -fx-border-width: 0;
     -fx-max-width: 600;
     -fx-min-width: 600;
-    -fx-font-size: 16;
+    -fx-font-size: 12;
 }
 
 .bookingPackage-listView {
@@ -413,7 +413,7 @@
     -fx-border-radius: 15;
     -fx-border-insets: -2;
     -fx-border-width: 0;
-    -fx-font-size: 22;
+    -fx-font-size: 16;
     -fx-max-width: 950;
     -fx-min-width: 950;
 }
@@ -427,13 +427,13 @@
     -fx-border-radius: 15;
     -fx-border-insets: -10;
     -fx-border-width: 2;
-    -fx-font-size: 22;
+    -fx-font-size: 16;
     -fx-max-width: 1000;
     -fx-min-width: 1000;
 }
 
 .mailMessage-TextArea {
-    -fx-font-size: 20;
+    -fx-font-size: 18;
     -fx-font-weight: bold;
     -fx-max-width: 1000;
     -fx-min-width: 1000;
@@ -449,7 +449,7 @@
     -fx-background-color: #1a6331;
     -fx-background-radius: 25;
     -fx-border-radius: 25;
-    -fx-font-size: 12;
+    -fx-font-size: 11;
     -fx-font-weight: bold;
 }
 
@@ -462,7 +462,7 @@
     -fx-border-radius: 15;
     -fx-border-insets: -10;
     -fx-border-width: 2;
-    -fx-font-size: 22;
+    -fx-font-size: 16;
     -fx-max-width: 1200;
     -fx-min-width: 200;
 }
@@ -476,7 +476,7 @@
 }
 
 .product-context-menu {
-    -fx-font-size: 18;
+    -fx-font-size: 15;
 }
 
 .download-progress-bar {
@@ -488,16 +488,16 @@
 }
 
 .percentage-text {
-    -fx-font-size: 14px;
+    -fx-font-size: 12px;
 }
 
 
 .custom-dialog-heading {
     -fx-font-family: "Roboto";
-    -fx-font-size: 22;
+    -fx-font-size: 20;
 }
 
 .custom-dialog-body {
     -fx-font-family: "Roboto";
-    -fx-font-size: 16;
+    -fx-font-size: 14;
 }

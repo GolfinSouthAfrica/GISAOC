@@ -54,7 +54,9 @@ public class NewQuoteBespokePaneController implements Initializable {
     public void accommodationAddButtonClick(){
         BespokePackageSelectDialog bDialog = new BespokePackageSelectDialog();
         Product x = bDialog.BespokePackageSelectDialog(Main.stage, "Accommodation", null);
-        accommodationListView.getItems().add(x);
+        if(x!=null) {
+            accommodationListView.getItems().add(x);
+        }
     }
 
     public void accommodationEditButtonClick(){
@@ -79,7 +81,9 @@ public class NewQuoteBespokePaneController implements Initializable {
     public void golfAddButtonClick(){
         BespokePackageSelectDialog bDialog = new BespokePackageSelectDialog();
         Product x = bDialog.BespokePackageSelectDialog(Main.stage, "Golf", null);
-        golfListView.getItems().add(x);
+        if(x!=null) {
+            golfListView.getItems().add(x);
+        }
     }
 
     public void golfEditButtonClick(){
@@ -104,7 +108,9 @@ public class NewQuoteBespokePaneController implements Initializable {
     public void activityAddButtonClick(){
         BespokePackageSelectDialog bDialog = new BespokePackageSelectDialog();
         Product x = bDialog.BespokePackageSelectDialog(Main.stage, "Activity", null);
-        activitiesListView.getItems().add(x);
+        if(x!=null) {
+            activitiesListView.getItems().add(x);
+        }
     }
 
     public void activityEditButtonClick(){
@@ -129,7 +135,9 @@ public class NewQuoteBespokePaneController implements Initializable {
     public void tranportAddButtonClick(){
         BespokePackageSelectDialog bDialog = new BespokePackageSelectDialog();
         Product x = bDialog.BespokePackageSelectDialog(Main.stage, "Transport", null);
-        transportListView.getItems().add(x);
+        if(x!=null) {
+            transportListView.getItems().add(x);
+        }
     }
 
     public void tranportEditButtonClick(){

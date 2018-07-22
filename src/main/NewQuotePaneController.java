@@ -46,7 +46,7 @@ public class NewQuotePaneController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         arrivalDP.setConverter(new StringConverter<LocalDate>(){
-            private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+            private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             @Override
             public String toString(LocalDate localDate){
                 if(localDate==null)
@@ -62,7 +62,7 @@ public class NewQuotePaneController implements Initializable{
             }
         });
         departureDP.setConverter(new StringConverter<LocalDate>(){
-            private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+            private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             @Override
             public String toString(LocalDate localDate){
                 if(localDate==null)
