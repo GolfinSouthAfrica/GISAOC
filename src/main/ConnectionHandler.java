@@ -1,5 +1,6 @@
 package main;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
@@ -58,7 +59,7 @@ public class ConnectionHandler {
     private void connect() {
         if (!connectLocal()) {
             if (!connectInternet()) {
-                UserNotification.showErrorMessage("Connection Error", "Failed to connect to GISA Office Server! (" + LOCAL_ADDRESS + ")\nPlease check your network connection and try again!");
+                new CustomDialog().CustomDialog(Main.stage, "Connection Error", "Failed to connect to GISA Office Server! (\" + LOCAL_ADDRESS + \")\\nPlease check your network connection and try again!", new JFXButton("Ok"));
                 System.out.println("Exiting..");
                 System.exit(0);
             }
@@ -133,16 +134,16 @@ public class ConnectionHandler {
         double x = 0;
         try {
             for (BookingAccommodation a : trip.getBookingAccommodation()) {
-                x = +a.getSellPricePerUnit();
+                x = +a.getSellPricePerUnit()*a.getQuantity()*a.getQuantity();
             }
             for (BookingGolf g : trip.getBookingGolf()) {
-                x = +g.getSellPricePerUnit();
+                x = +g.getSellPricePerUnit()*g.getQuantity()*g.getRounds();
             }
             for (BookingTransport t : trip.getBookingTransport()) {
-                x = +t.getSellPricePerUnit();
+                x = +t.getSellPricePerUnit()*t.getQuantity();
             }
             for (BookingActivity at : trip.getBookingActivities()) {
-                x = +at.getSellPricePerUnit();
+                x = +at.getSellPricePerUnit()*at.getQuantity();
             }
         } catch (NullPointerException ex) {
 

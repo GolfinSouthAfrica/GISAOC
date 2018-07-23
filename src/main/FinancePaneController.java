@@ -193,23 +193,23 @@ public class FinancePaneController implements Initializable {
             FinanceAddTransactionPaneController fatpc = loader.getController();
             fatpc.initData((Transaction) searchTV.getSelectionModel().getSelectedItem());
         } else {
-            new CustomDialog(Main.stage, "No Transaction Selected", "Select the transaction you want to edit first", new JFXButton("Ok")).showDialog();
+            new CustomDialog().CustomDialog(Main.stage, "No Transaction Selected", "Select the transaction you want to edit first", new JFXButton("Ok"));
         }
     }
 
     public void removeTransactionButtonClick(){
         if(tabs.getSelectionModel().getSelectedItem().getText().matches("Money Came In") && moneyCameInTV.getSelectionModel().getSelectedItem() != null){
-            Main.connectionHandler.outputQueue.add("rtr:" + ((Transaction)moneyCameInTV.getSelectionModel().getSelectedItem()).getID());
+            Main.connectionHandler.outputQueue.add("rtr:" + ((Transaction)moneyCameInTV.getSelectionModel().getSelectedItem()).getID() + ":" + ((Transaction)moneyCameInTV.getSelectionModel().getSelectedItem()).getGsNumber());
         } else if (tabs.getSelectionModel().getSelectedItem().getText().matches("Money Paid Out") && moneyPaidOutTV.getSelectionModel().getSelectedItem() != null){
-            Main.connectionHandler.outputQueue.add("rtr:" + ((Transaction)moneyPaidOutTV.getSelectionModel().getSelectedItem()).getID());
+            Main.connectionHandler.outputQueue.add("rtr:" + ((Transaction)moneyPaidOutTV.getSelectionModel().getSelectedItem()).getID() + ":" + ((Transaction)moneyPaidOutTV.getSelectionModel().getSelectedItem()).getGsNumber());
         } else if (tabs.getSelectionModel().getSelectedItem().getText().matches("Expenses") && expensesTV.getSelectionModel().getSelectedItem() != null){
-            Main.connectionHandler.outputQueue.add("rtr:" + ((Transaction)expensesTV.getSelectionModel().getSelectedItem()).getID());
+            Main.connectionHandler.outputQueue.add("rtr:" + ((Transaction)expensesTV.getSelectionModel().getSelectedItem()).getID() + ":" + ((Transaction)expensesTV.getSelectionModel().getSelectedItem()).getGsNumber());
         } else if (tabs.getSelectionModel().getSelectedItem().getText().matches("Suppliers Paid") && suppliersPaidTV.getSelectionModel().getSelectedItem() != null){
-            Main.connectionHandler.outputQueue.add("rtr:" + ((Transaction)suppliersPaidTV.getSelectionModel().getSelectedItem()).getID());
+            Main.connectionHandler.outputQueue.add("rtr:" + ((Transaction)suppliersPaidTV.getSelectionModel().getSelectedItem()).getID() + ":" + ((Transaction)suppliersPaidTV.getSelectionModel().getSelectedItem()).getGsNumber());
         } else if (tabs.getSelectionModel().getSelectedItem().getText().matches("Search") && searchTV.getSelectionModel().getSelectedItem() != null){
-            Main.connectionHandler.outputQueue.add("rtr:" + ((Transaction)searchTV.getSelectionModel().getSelectedItem()).getID());
+            Main.connectionHandler.outputQueue.add("rtr:" + ((Transaction)searchTV.getSelectionModel().getSelectedItem()).getID() + ":" + ((Transaction)searchTV.getSelectionModel().getSelectedItem()).getGsNumber());
         } else {
-            new CustomDialog(Main.stage, "No Transaction Selected", "Select the transaction you want to remove first", new JFXButton("Ok")).showDialog();
+            new CustomDialog().CustomDialog(Main.stage, "No Transaction Selected", "Select the transaction you want to remove first", new JFXButton("Ok"));
         }
     }
 

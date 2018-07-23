@@ -83,7 +83,7 @@ public class NewPackagePaneController implements Initializable {
         if(accommodationListView.getSelectionModel().getSelectedItems() != null) {
             accommodationListView.getItems().remove(accommodationListView.getSelectionModel().getSelectedItem());
         } else {
-            new CustomDialog(Main.stage, "No accommodation selected to remove", "Select accommodation you want to remove before clicking the remove button.", new JFXButton("Ok"));
+            new CustomDialog().CustomDialog(Main.stage, "No accommodation selected to remove", "Select accommodation you want to remove before clicking the remove button.", new JFXButton("Ok"));
         }
     }
 
@@ -94,7 +94,7 @@ public class NewPackagePaneController implements Initializable {
             accommodationListView.getItems().remove(accommodationListView.getSelectionModel().getSelectedItem());
             accommodationListView.getItems().add(x);
         } else {
-            new CustomDialog(Main.stage, "No accommodation selected to edit", "Select accommodation you want to edit before clicking the edit button.", new JFXButton("Ok"));
+            new CustomDialog().CustomDialog(Main.stage, "No accommodation selected to edit", "Select accommodation you want to edit before clicking the edit button.", new JFXButton("Ok"));
         }
     }
 
@@ -108,7 +108,7 @@ public class NewPackagePaneController implements Initializable {
         if(golfListView.getSelectionModel().getSelectedItems() != null) {
             golfListView.getItems().remove(golfListView.getSelectionModel().getSelectedItem());
         } else {
-            new CustomDialog(Main.stage, "No accommodation selected to remove", "Select accommodation you want to remove before clicking the remove button.", new JFXButton("Ok"));
+            new CustomDialog().CustomDialog(Main.stage, "No accommodation selected to remove", "Select accommodation you want to remove before clicking the remove button.", new JFXButton("Ok"));
         }
     }
 
@@ -119,7 +119,7 @@ public class NewPackagePaneController implements Initializable {
             golfListView.getItems().remove(golfListView.getSelectionModel().getSelectedItem());
             golfListView.getItems().add(x);
         } else {
-            new CustomDialog(Main.stage, "No accommodation selected to edit", "Select accommodation you want to edit before clicking the edit button.", new JFXButton("Ok"));
+            new CustomDialog().CustomDialog(Main.stage, "No accommodation selected to edit", "Select accommodation you want to edit before clicking the edit button.", new JFXButton("Ok"));
         }
     }
 
@@ -133,7 +133,7 @@ public class NewPackagePaneController implements Initializable {
         if(transportListView.getSelectionModel().getSelectedItems() != null) {
             transportListView.getItems().remove(transportListView.getSelectionModel().getSelectedItem());
         } else {
-            new CustomDialog(Main.stage, "No accommodation selected to remove", "Select accommodation you want to remove before clicking the remove button.", new JFXButton("Ok"));
+            new CustomDialog().CustomDialog(Main.stage, "No accommodation selected to remove", "Select accommodation you want to remove before clicking the remove button.", new JFXButton("Ok"));
         }
     }
 
@@ -144,7 +144,7 @@ public class NewPackagePaneController implements Initializable {
             transportListView.getItems().remove(transportListView.getSelectionModel().getSelectedItem());
             transportListView.getItems().add(x);
         } else {
-            new CustomDialog(Main.stage, "No accommodation selected to edit", "Select accommodation you want to edit before clicking the edit button.", new JFXButton("Ok"));
+            new CustomDialog().CustomDialog(Main.stage, "No accommodation selected to edit", "Select accommodation you want to edit before clicking the edit button.", new JFXButton("Ok"));
         }
     }
 
@@ -158,7 +158,7 @@ public class NewPackagePaneController implements Initializable {
         if(activitiesListView.getSelectionModel().getSelectedItems() != null) {
             activitiesListView.getItems().remove(activitiesListView.getSelectionModel().getSelectedItem());
         } else {
-            new CustomDialog(Main.stage, "No accommodation selected to remove", "Select accommodation you want to remove before clicking the remove button.", new JFXButton("Ok"));
+            new CustomDialog().CustomDialog(Main.stage, "No accommodation selected to remove", "Select accommodation you want to remove before clicking the remove button.", new JFXButton("Ok"));
         }
     }
 
@@ -169,7 +169,7 @@ public class NewPackagePaneController implements Initializable {
             activitiesListView.getItems().remove(activitiesListView.getSelectionModel().getSelectedItem());
             activitiesListView.getItems().add(x);
         } else {
-            new CustomDialog(Main.stage, "No activity selected to edit", "Select activity you want to edit before clicking the edit button.", new JFXButton("Ok"));
+            new CustomDialog().CustomDialog(Main.stage, "No activity selected to edit", "Select activity you want to edit before clicking the edit button.", new JFXButton("Ok"));
         }
     }
 
@@ -219,16 +219,16 @@ public class NewPackagePaneController implements Initializable {
                             e.printStackTrace();
                         }
                     } else {
-                        new CustomDialog(Main.stage,"Expiry Date not selected", "Enter Address before adding package.", new JFXButton("Ok")).showDialog();
+                        new CustomDialog().CustomDialog(Main.stage,"Expiry Date not selected", "Enter Address before adding package.", new JFXButton("Ok"));
                     }
                 } else {
-                    new CustomDialog(Main.stage,"Category not selected", "Select Category before adding package.", new JFXButton("Ok")).showDialog();
+                    new CustomDialog().CustomDialog(Main.stage,"Category not selected", "Select Category before adding package.", new JFXButton("Ok"));
                 }
             } else {
-                new CustomDialog(Main.stage,"Province not selected", "Select Province before adding package.", new JFXButton("Ok")).showDialog();
+                new CustomDialog().CustomDialog(Main.stage,"Province not selected", "Select Province before adding package.", new JFXButton("Ok"));
             }
         } else {
-            new CustomDialog(Main.stage,"Package Name not entered", "Enter Package Name before adding package.", new JFXButton("Ok")).showDialog();
+            new CustomDialog().CustomDialog(Main.stage,"Package Name not entered", "Enter Package Name before adding package.", new JFXButton("Ok"));
         }
     }
 

@@ -28,6 +28,7 @@ public class Main extends Application {
     public VBox loginPane;
     private static Scene scene;
     public static volatile BooleanProperty uploading = new SimpleBooleanProperty(false);
+    public static volatile BooleanProperty quoteDone = new SimpleBooleanProperty(false);
 
     @Override
     public void start(Stage primaryStage) throws Exception{

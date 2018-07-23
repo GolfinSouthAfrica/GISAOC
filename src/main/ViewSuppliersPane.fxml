@@ -24,31 +24,31 @@
                   <Insets top="15.0" />
                </VBox.margin>
                <children>
-                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Supplier Name:" />
+                  <Label style="-fx-text-fill: #1e6d01;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Supplier Name:" />
                   <Label fx:id="supplierNameTxf" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Pinnacle Point Golf Estate">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
                   </Label>
-                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Province: " />
+                  <Label style="-fx-text-fill: #1e6d01;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Province: " />
                   <Label fx:id="provinceTxf" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Western Cape" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1100.0" spacing="20.0">
                <children>
-                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Address: " />
+                  <Label style="-fx-text-fill: #1e6d01;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Address: " />
                   <Label fx:id="addressTxf" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Mosselbay">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
                   </Label>
-                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Co-Ordinates:" />
+                  <Label style="-fx-text-fill: #1e6d01;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Co-Ordinates:" />
                   <Label fx:id="coOrdinatesTxf" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="N/A" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1100.0" spacing="20.0">
                <children>
-                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Category:" />
+                  <Label style="-fx-text-fill: #1e6d01;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Category:" />
                   <Label fx:id="categoryTxf" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Accomodation">
                      <HBox.margin>
                         <Insets />
@@ -60,7 +60,7 @@
       </VBox>
       <VBox alignment="TOP_CENTER" prefHeight="319.0" prefWidth="1100.0">
          <children>
-            <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Contact Details:" />
+            <Label style="-fx-text-fill: #1e6d01;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Contact Details:" />
             <ScrollPane fx:id="contactsScrollPane" prefHeight="260.0" prefWidth="1040.0">
                <content>
                   <VBox fx:id="contactsList" alignment="TOP_CENTER" prefHeight="184.0" prefWidth="1020.0" />
@@ -74,9 +74,9 @@
             <Insets top="10.0" />
          </padding>
       </VBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="350.0">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="300.0">
          <children>
-            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#addButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
                      <graphic>
@@ -87,10 +87,10 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Add Contact" />
+                  <Label alignment="CENTER" prefHeight="23.0" prefWidth="127.0" styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Add Contact" />
                </children>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#editButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
                      <graphic>
@@ -101,10 +101,10 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Edit Supplier" />
+                  <Label alignment="CENTER" prefHeight="23.0" prefWidth="141.0" styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Edit Supplier" />
                </children>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#backButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
                      <graphic>
@@ -115,7 +115,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Back" />
+                  <Label alignment="CENTER" prefHeight="23.0" prefWidth="129.0" styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Back" />
                </children>
             </VBox>
          </children>

@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" spacing="5.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.NewQuotePaneController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="701.0" prefWidth="1100.0" spacing="5.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.NewQuotePaneController">
    <children>
       <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
@@ -51,7 +51,12 @@
                                           <TextField fx:id="emailTxf" styleClass="booking-input-textfield" stylesheets="@../resources/GISAStyle.css" />
                                        </children>
                                     </HBox>
-                                    <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="100.0" spacing="20.0" />
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="1100.0" spacing="20.0">
+                                       <children>
+                                          <Label alignment="CENTER_RIGHT" prefHeight="15.0" prefWidth="75.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Arrival:" />
+                                          <DatePicker fx:id="arrivalDP" styleClass="booking-datePicker" stylesheets="@../resources/GISAStyle.css" />
+                                       </children>
+                                    </HBox>
                                  </children>
                               </VBox>
                               <VBox prefHeight="125.0" prefWidth="343.0" spacing="10.0">
@@ -62,10 +67,16 @@
                                           <TextField fx:id="contactNumberTxf" prefHeight="25.0" prefWidth="150.0" styleClass="booking-input-textfield" stylesheets="@../resources/GISAStyle.css" />
                                        </children>
                                     </HBox>
-                                    <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="343.0" spacing="10.0">
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="343.0" spacing="20.0">
                                        <children>
-                                          <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="17.0" prefWidth="120.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Package Name:" />
+                                          <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="17.0" prefWidth="120.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Package Name:" />
                                           <TextField fx:id="packageNameTxf" prefHeight="25.0" prefWidth="150.0" styleClass="booking-input-textfield" stylesheets="@../resources/GISAStyle.css" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="100.0" spacing="20.0">
+                                       <children>
+                                          <Label alignment="CENTER_RIGHT" prefHeight="15.0" prefWidth="75.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Departure:" />
+                                          <DatePicker fx:id="departureDP" styleClass="booking-datePicker" stylesheets="@../resources/GISAStyle.css" />
                                        </children>
                                     </HBox>
                                  </children>
@@ -84,32 +95,40 @@
             </VBox>
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="40.0" prefWidth="1100.0">
+      <HBox prefHeight="133.0" prefWidth="1100.0">
          <children>
-            <Label alignment="CENTER" prefHeight="15.0" prefWidth="75.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Arrival:" />
-            <DatePicker fx:id="arrivalDP" styleClass="booking-datePicker" stylesheets="@../resources/GISAStyle.css" />
-            <Label alignment="CENTER" prefHeight="15.0" prefWidth="75.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Departure:" />
-            <DatePicker fx:id="departureDP" styleClass="booking-datePicker" stylesheets="@../resources/GISAStyle.css" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="90.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Golfers Sharing:" />
-            <ComboBox fx:id="golfersSharingCmb" prefHeight="38.0" prefWidth="60.0" />
-            <Label alignment="CENTER" prefHeight="15.0" prefWidth="107.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Non-Golfers Sharing:" />
-            <ComboBox fx:id="nonGolfersSharingCmb" prefHeight="38.0" prefWidth="60.0" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="90.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Golfers Single:" />
-            <ComboBox fx:id="golfersSingleCmb" prefHeight="38.0" prefWidth="60.0" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="98.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Non-Golfers Single:" />
-            <ComboBox fx:id="nonGolfersSingleCmb" prefHeight="38.0" prefWidth="60.0" />
+            <VBox alignment="CENTER" prefHeight="153.0" prefWidth="691.0" spacing="10.0">
+               <children>
+                  <Label styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Message" />
+                  <TextArea fx:id="messageTxa" minHeight="115.0" prefHeight="115.0" prefWidth="590.0" stylesheets="@../resources/GISAStyle.css" text="Testing">
+                     <VBox.margin>
+                        <Insets left="50.0" />
+                     </VBox.margin>
+                  </TextArea>
+               </children>
+            </VBox>
+            <VBox prefHeight="153.0" prefWidth="511.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="75.0" prefWidth="460.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="90.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Golfers Sharing:" />
+                        <ComboBox fx:id="golfersSharingCmb" prefHeight="38.0" prefWidth="90.0" />
+                        <Label alignment="CENTER" prefHeight="15.0" prefWidth="107.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Non-Golfers Sharing:" />
+                        <ComboBox fx:id="nonGolfersSharingCmb" prefHeight="38.0" prefWidth="90.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="75.0" prefWidth="460.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="90.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Golfers Single:" />
+                        <ComboBox fx:id="golfersSingleCmb" prefHeight="38.0" prefWidth="90.0" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="110.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Non-Golfers Single:" />
+                        <ComboBox fx:id="nonGolfersSingleCmb" prefHeight="38.0" prefWidth="90.0" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
          </children>
       </HBox>
-      <VBox alignment="CENTER" prefHeight="127.0" prefWidth="1100.0" spacing="10.0">
-         <children>
-            <Label styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Message" />
-            <TextArea fx:id="messageTxa" minHeight="131.0" prefHeight="131.0" prefWidth="900.0" stylesheets="@../resources/GISAStyle.css" text="Testing">
-               <VBox.margin>
-                  <Insets left="100.0" right="100.0" />
-               </VBox.margin>
-            </TextArea>
-         </children>
-      </VBox>
       <HBox prefHeight="220.0" prefWidth="1100.0">
          <children>
             <VBox fx:id="quoteTypeVBox" alignment="CENTER" prefHeight="320.0" prefWidth="1100.0" />
@@ -125,6 +144,9 @@
                      </graphic>
                   </Button>
                </children>
+               <HBox.margin>
+                  <Insets top="30.0" />
+               </HBox.margin>
             </VBox>
          </children>
          <padding>

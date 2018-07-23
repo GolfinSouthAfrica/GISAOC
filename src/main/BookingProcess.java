@@ -50,15 +50,15 @@ public class BookingProcess extends CustomDialogSkin {
                     this.booking.setProcess("PendingBookingMade");
                 }
             } else if(this.booking.getProcess().matches("PendingBookingMade")){
-                new CustomDialog(Main.stage, "Go to the Finance Pane", "Go to the Finance Pane and add the client transaction to take booking to next process.", new JFXButton("Ok")).showDialog();
+                new CustomDialog().CustomDialog(Main.stage, "Go to the Finance Pane", "Go to the Finance Pane and add the client transaction to take booking to next process.", new JFXButton("Ok"));
             } else if(this.booking.getProcess().matches("PendingDepositRecieved")) {
-                new CustomDialog(Main.stage, "Go to the Finance Pane", "Go to the Finance Pane and add the client transaction to take booking to next process.", new JFXButton("Ok")).showDialog();
+                new CustomDialog().CustomDialog(Main.stage, "Go to the Finance Pane", "Go to the Finance Pane and add the client transaction to take booking to next process.", new JFXButton("Ok"));
             } else if(this.booking.getProcess().matches("PendingDepositPaid")){
-                new CustomDialog(Main.stage, "Go to the Finance Pane", "Go to the Finance Pane and add the client transaction to take booking to next process.", new JFXButton("Ok")).showDialog();
+                new CustomDialog().CustomDialog(Main.stage, "Go to the Finance Pane", "Go to the Finance Pane and add the client transaction to take booking to next process.", new JFXButton("Ok"));
             } else if(this.booking.getProcess().matches("PendingFullRecieved")){
-                new CustomDialog(Main.stage, "Go to the Finance Pane", "Go to the Finance Pane and add the client transaction to take booking to next process.", new JFXButton("Ok")).showDialog();
+                new CustomDialog().CustomDialog(Main.stage, "Go to the Finance Pane", "Go to the Finance Pane and add the client transaction to take booking to next process.", new JFXButton("Ok"));
             } else if(this.booking.getProcess().matches("ConfirmedFullPaid")){
-                new CustomDialog(Main.stage, "Go to the Finance Pane", "Go to the Finance Pane and add the client transaction to take booking to next process.", new JFXButton("Ok")).showDialog();
+                new CustomDialog().CustomDialog(Main.stage, "Go to the Finance Pane", "Go to the Finance Pane and add the client transaction to take booking to next process.", new JFXButton("Ok"));
             }
         });
         Button done = new Button("Done");

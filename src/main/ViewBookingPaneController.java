@@ -31,7 +31,7 @@ public class ViewBookingPaneController implements Initializable {
     @FXML ListView golfListView;
     @FXML ListView transportListView;
     @FXML ListView activitiesListView;
-
+    private String process;
     private Booking booking;
 
     @Override
@@ -39,8 +39,9 @@ public class ViewBookingPaneController implements Initializable {
 
     }
 
-    public void initData(Booking booking){
+    public void initData(Booking booking, String process){
         Main.connectionHandler.suppliers.addListener((InvalidationListener) e -> {
+            this.process = process;
             this.booking = booking;
             clientNameLbl.setText(booking.getClientName());
             gsNumberLbl.setText(booking.getGsNumber());
@@ -71,6 +72,7 @@ public class ViewBookingPaneController implements Initializable {
             activitiesListView.getItems().clear();
             activitiesListView.getItems().addAll(booking.getBookingActivities());
         });
+        this.process = process;
         this.booking = booking;
         clientNameLbl.setText(booking.getClientName());
         gsNumberLbl.setText(booking.getGsNumber());
@@ -115,22 +117,24 @@ public class ViewBookingPaneController implements Initializable {
         nqpc.initEditData("ViewBookingsPane", booking, false);
     }
 
-    public void processButtonClick(){//TODO
+    public void processButtonClick(){
+        new BookingProcess().BookingProcess(Main.stage, booking);
+    }
+
+    public void mailsButtonClick(){
 
     }
 
-    public void mailsButtonClick(){//TODO
-
-    }
-
-    public void backButtonClick(){
+    public void backButtonClick(){//TODO
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("SuppliersPane.fxml"));
+        loader.setLocation(getClass().getResource("BookingsListPane.fxml"));
         try {
             Main.setStage(loader.load());
         } catch (IOException e) {
             e.printStackTrace();
         }
+        BookingsListPaneController blpc = loader.getController();
+        blpc.initData(process, "");
     }
 
 }

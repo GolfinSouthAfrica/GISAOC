@@ -112,7 +112,7 @@ public class NewQuotePaneController implements Initializable{
         quoteTypeVBox.getChildren().clear();
         quoteTypeVBox.getChildren().add(root);
         packagePane = false;
-        nqppc = loader.getController();
+        nqbpc = loader.getController();
         quoteTypeVBox.getChildren().clear();
         quoteTypeVBox.getChildren().add(root);
         nameTxf.setText(booking.getClientName());
@@ -193,10 +193,10 @@ public class NewQuotePaneController implements Initializable{
                 quoteTypeVBox.getChildren().add(root);
                 packagePane = false;
             } else {
-                UserNotification.showErrorMessage("No Package Selected", "Please Select a Package First.");
+                new CustomDialog().CustomDialog(Main.stage, "No Package Selected", "Please Select a Package First.", new JFXButton("Ok"));
             }
         } else {
-            if(UserNotification.confirmationDialog(Main.stage, "","Are you sure you want to go back to the package pane?")) {
+            //if(UserNotification.confirmationDialog(Main.stage, "","Are you sure you want to go back to the package pane?")) {
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("NewQuotePackagePane.fxml"));
                 VBox root = null;
@@ -208,7 +208,7 @@ public class NewQuotePaneController implements Initializable{
                 quoteTypeVBox.getChildren().clear();
                 quoteTypeVBox.getChildren().add(root);
                 packagePane = true;
-            }
+            //}
         }
     }
 
@@ -224,85 +224,55 @@ public class NewQuotePaneController implements Initializable{
                                 } else {
                                     booking = new Booking(booking.getGsNumber(), nameTxf.getText(), contactNumberTxf.getText(), emailTxf.getText(), Integer.parseInt(golfersSharingCmb.getSelectionModel().getSelectedItem().toString()), Integer.parseInt(nonGolfersSharingCmb.getSelectionModel().getSelectedItem().toString()), Integer.parseInt(golfersSingleCmb.getSelectionModel().getSelectedItem().toString()), Integer.parseInt(nonGolfersSingleCmb.getSelectionModel().getSelectedItem().toString()), arrivalDP.getValue().toString(), departureDP.getValue().toString(), booking.getProcess(), Main.connectionHandler.getTotalAmountTrip(nqbpc.getCompletedPackage()), booking.getConsultant(), Main.connectionHandler.getFullPaymentDate(arrivalDP.getValue().toString()), booking.getDepositPaid(), booking.getFullPaid(), packageNameTxf.getText(), booking.getBookingMadeDate(), booking.getNotes(), nqbpc.getCompletedPackage().getBookingAccommodation(), nqbpc.getCompletedPackage().getBookingGolf(), nqbpc.getCompletedPackage().getBookingActivities(), nqbpc.getCompletedPackage().getBookingTransport());
                                 }
-                                final FXMLLoader[] loader = {new FXMLLoader()};
-                                loader[0].setLocation(getClass().getResource("LoadingPane.fxml"));
-                                try {
-                                    Main.setStage(loader[0].load());
-                                } catch (IOException e) {
-                                e.printStackTrace();
-                                }
                                 Main.connectionHandler.outputQueue.add(booking);
                                 String result = Main.connectionHandler.getGSNumber();
-                                if (booking.getGsNumber().matches("New")) {
-                                    String gsNumber = result.split(":")[0];
-                                    int length = Integer.parseInt(result.split(":")[1]);
-                                    booking.setGsNumber(gsNumber);
-                                    DataFile costing = new DataFile("Quote", "GS" + gsNumber, ".xls", length);
-                                    ConnectionHandler.FileDownloader fileDownloader = Main.connectionHandler.new FileDownloader(costing);
-                                    fileDownloader.start();
-                                    costing.setFileDownloader(fileDownloader);
-                                    Main.connectionHandler.user.update();
-                                    fileDownloader.done.addListener((InvalidationListener) ea -> {
-                                        File openFile = new File(Main.LOCAL_CACHE.getAbsolutePath() + "/" + costing.getFileType() + "/" + costing.getFileName() + ".xls");
-                                        if (openFile.exists() && openFile.length() == costing.getFileLength()) {
-                                            try {
-                                                java.awt.Desktop.getDesktop().open(openFile);
-                                            } catch (Exception ex) {
-                                                ex.printStackTrace();
-                                            }
+                                String gsNumber = result.split(":")[0];
+                                int length = Integer.parseInt(result.split(":")[1]);
+                                booking.setGsNumber(gsNumber);
+                                DataFile costing = new DataFile("Quote", "GS" + gsNumber, ".xls", length);
+                                ConnectionHandler.FileDownloader fileDownloader = Main.connectionHandler.new FileDownloader(costing);
+                                fileDownloader.start();
+                                costing.setFileDownloader(fileDownloader);
+                                Main.connectionHandler.user.update();
+                                fileDownloader.done.addListener((InvalidationListener) ea -> {
+                                File openFile = new File(Main.LOCAL_CACHE.getAbsolutePath() + "/" + costing.getFileType() + "/" + costing.getFileName() + ".xls");
+                                    if (openFile.exists() && openFile.length() == costing.getFileLength()) {
+                                        try {
+                                            java.awt.Desktop.getDesktop().open(openFile);
+                                        } catch (Exception ex) {
+                                            ex.printStackTrace();
                                         }
-                                    });
-                                    loader[0] = new FXMLLoader();
-                                    loader[0].setLocation(getClass().getResource("QuotePreviewPane.fxml"));
-                                    try {
-                                        Main.setStage(loader[0].load());
-                                    } catch (IOException ex) {
-                                        ex.printStackTrace();
                                     }
-                                    QuotePreviewPaneController qpp = loader[0].getController();
-                                    qpp.initData(booking, messageTxa.getText(), true, length, lastPane);
-                                } else {
-                                    int length = Integer.parseInt(result.split(":")[1]);
-                                    DataFile costing = new DataFile("Quote", "GS" + booking.getGsNumber(), ".xls", length);
-                                    ConnectionHandler.FileDownloader fileDownloader = Main.connectionHandler.new FileDownloader(costing);
-                                    fileDownloader.start();
-                                    costing.setFileDownloader(fileDownloader);
-                                    Main.connectionHandler.user.update();
-                                    fileDownloader.done.addListener((InvalidationListener) e -> {
-                                        File openFile;
-                                        if ((openFile = new File(Main.LOCAL_CACHE.getAbsolutePath() + "/" + costing.getFileType() + "/" + costing.getFileName())).exists() && openFile.length() == costing.getFileLength()) {
-                                            try {
-                                                java.awt.Desktop.getDesktop().open(openFile);
-                                            } catch (Exception ex) {
-                                                ex.printStackTrace();
-                                            }
+                                });
+                                final FXMLLoader[] loader = {new FXMLLoader()};
+                                Main.quoteDone.addListener((InvalidationListener) e -> {
+                                    if(Main.quoteDone.getValue()) {
+                                        loader[0] = new FXMLLoader();
+                                        loader[0].setLocation(getClass().getResource(lastPane + ".fxml"));
+                                        try {
+                                            Main.setStage(loader[0].load());
+                                        } catch (IOException ex) {
+                                            ex.printStackTrace();
                                         }
-                                    });
-                                    loader[0] = new FXMLLoader();
-                                    loader[0].setLocation(getClass().getResource("QuotePreviewPane.fxml"));
-                                    QuotePreviewPaneController qpp = loader[0].getController();
-                                    qpp.initData(booking, messageTxa.getText(), false, length, lastPane);
-                                    try {
-                                        Main.setStage(loader[0].load());
-                                    } catch (IOException ex) {
-                                        ex.printStackTrace();
+                                        Main.quoteDone.setValue(false);
                                     }
-                                }
+                                });
+                                new QuotePreviewPane(Main.stage, booking, messageTxa.getText(), length);
                             //}
                         } else {
-                            new CustomDialog(Main.stage,"Departure Date not selected", "Select Departure Date adding supplier.", new JFXButton("Ok")).showDialog();
+                            new CustomDialog().CustomDialog(Main.stage,"Departure Date not selected", "Select Departure Date adding supplier.", new JFXButton("Ok"));
                         }
                     } else {
-                        new CustomDialog(Main.stage,"Arrival Date not entered", "Select Arrival Date before previewing quote.", new JFXButton("Ok")).showDialog();
+                        new CustomDialog().CustomDialog(Main.stage,"Arrival Date not entered", "Select Arrival Date before previewing quote.", new JFXButton("Ok"));
                     }
                 } else {
-                    new CustomDialog(Main.stage,"Email not selected", "Enter Email before previewing quote.", new JFXButton("Ok")).showDialog();
+                    new CustomDialog().CustomDialog(Main.stage,"Email not selected", "Enter Email before previewing quote.", new JFXButton("Ok"));
                 }
             } else {
-                new CustomDialog(Main.stage,"Contact Number not selected", "Enter Contact Number before previewing quote.", new JFXButton("Ok")).showDialog();
+                new CustomDialog().CustomDialog(Main.stage,"Contact Number not selected", "Enter Contact Number before previewing quote.", new JFXButton("Ok"));
             }
         } else {
-            new CustomDialog(Main.stage,"Client Name not entered", "Enter Client Name before previewing quote.", new JFXButton("Ok")).showDialog();
+            new CustomDialog().CustomDialog(Main.stage,"Client Name not entered", "Enter Client Name before previewing quote.", new JFXButton("Ok"));
         }
     }
 

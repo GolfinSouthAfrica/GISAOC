@@ -27,7 +27,7 @@ public class BookingsCardPaneController implements Initializable {
     @FXML Button processBtn;
     @FXML Button mailsBtn;
     @FXML Hyperlink emailHL;
-
+    private String process;
     private Booking booking;
 
     @Override
@@ -35,8 +35,9 @@ public class BookingsCardPaneController implements Initializable {
 
     }
 
-    public void initData(Booking booking){
+    public void initData(Booking booking, String process){
         this.booking = booking;
+        this.process = process;
         clientNameLbl.setText(booking.getClientName());
         gsNumberLbl.setText("GS" + booking.getGsNumber());
         processLbl.setText(booking.getProcess());
@@ -59,7 +60,7 @@ public class BookingsCardPaneController implements Initializable {
             e.printStackTrace();
         }
         ViewBookingPaneController vbpc = loader.getController();
-        vbpc.initData(booking);
+        vbpc.initData(booking, process);
     }
 
     public void editButtonClick(){

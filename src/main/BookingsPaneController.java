@@ -47,7 +47,7 @@ public class BookingsPaneController implements Initializable {
             }
         }
         if(!found) {
-            new CustomDialog(Main.stage, "Not such Booking", "Could not found a booking with that data", new JFXButton("Ok")).showDialog();
+            new CustomDialog().CustomDialog(Main.stage, "Not such Booking", "Could not found a booking with that data", new JFXButton("Ok"));
         }
     }
 

@@ -60,8 +60,8 @@ public class SuppliersCardPaneController {
     }
 
     public void removeButtonClick(){
-        if (UserNotification.confirmationDialog(Main.stage, "Are you sure you want to remove " + supplier.getSupplierName() + "?", "This will delete all associated products of the supplier as well.")) {
+        //if (UserNotification.confirmationDialog(Main.stage, "Are you sure you want to remove " + supplier.getSupplierName() + "?", "This will delete all associated products of the supplier as well.")) {
             Main.connectionHandler.outputQueue.add("rs:" + supplier.getSupplierNumber());
-        }
+        //}
     }
 }

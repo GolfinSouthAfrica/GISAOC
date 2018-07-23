@@ -59,9 +59,9 @@ public class ViewSuppliersContactCardPaneController implements Initializable {
     }
 
     public void removeButtonClick(){
-        if (UserNotification.confirmationDialog(Main.stage, "Are you sure you want to remove " + cd.getPersonName() + "?", "Emails with this contact will still be in emails.")) {
+        //if (UserNotification.confirmationDialog(Main.stage, "Are you sure you want to remove " + cd.getPersonName() + "?", "Emails with this contact will still be in emails.")) {
             Main.connectionHandler.outputQueue.add("rcd:" + cd.getContactDetailsID());
-        }
+        //}
     }
 
     public void emailHLClicked(){

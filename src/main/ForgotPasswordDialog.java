@@ -27,7 +27,7 @@ public class ForgotPasswordDialog extends CustomDialogSkin {
                 connectionHandler.forgotPassword(usernameTextField.getText());
                 closeAnimation();
             } else {
-                UserNotification.showErrorMessage("Forgot Password", "Username is invalid");
+                new CustomDialog().CustomDialog(Main.stage, "Forgot Password", "Username is invalid", new JFXButton("Ok"));
             }
         });
         JFXButton cancelButton = new JFXButton("Cancel");

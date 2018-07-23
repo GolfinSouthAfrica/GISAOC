@@ -88,7 +88,7 @@ public class MailListPaneController implements Initializable {
             MailDisplayPaneController mdpc = loader.getController();
             mdpc.initData(m, category, flag);
         } else {
-            new CustomDialog(Main.stage,"Mail not selected.", "Select mail before viewing.", new JFXButton("Ok")).showDialog();
+            new CustomDialog().CustomDialog(Main.stage,"Mail not selected.", "Select mail before viewing.", new JFXButton("Ok"));
         }
     }
 

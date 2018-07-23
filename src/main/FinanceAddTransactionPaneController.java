@@ -83,7 +83,7 @@ public class FinanceAddTransactionPaneController implements Initializable {
                 other = otherTxf.getText();
                 x = true;
             } else {
-                new CustomDialog(Main.stage,"Other not entered", "Enter other before adding transaction.", new JFXButton("Ok")).showDialog();
+                new CustomDialog().CustomDialog(Main.stage,"Other not entered", "Enter other before adding transaction.", new JFXButton("Ok"));
                 x = false;
             }
         } else {
@@ -110,19 +110,19 @@ public class FinanceAddTransactionPaneController implements Initializable {
                                     e.printStackTrace();
                                 }
                             } else {
-                                new CustomDialog(Main.stage, "Transaction date not selected", "Select transaction date before adding transaction.", new JFXButton("Ok")).showDialog();
+                                new CustomDialog().CustomDialog(Main.stage, "Transaction date not selected", "Select transaction date before adding transaction.", new JFXButton("Ok"));
                             }
                         } else {
-                            new CustomDialog(Main.stage, "Amount not entered", "Enter amount before adding transaction.", new JFXButton("Ok")).showDialog();
+                            new CustomDialog().CustomDialog(Main.stage, "Amount not entered", "Enter amount before adding transaction.", new JFXButton("Ok"));
                         }
                     } else {
-                        new CustomDialog(Main.stage, "Reference not entered", "Enter reference before adding transaction.", new JFXButton("Ok")).showDialog();
+                        new CustomDialog().CustomDialog(Main.stage, "Reference not entered", "Enter reference before adding transaction.", new JFXButton("Ok"));
                     }
                 } else {
-                    new CustomDialog(Main.stage, "GSNumber not selected", "Select GSNumber before adding transaction.", new JFXButton("Ok")).showDialog();
+                    new CustomDialog().CustomDialog(Main.stage, "GSNumber not selected", "Select GSNumber before adding transaction.", new JFXButton("Ok"));
                 }
             } else {
-                new CustomDialog(Main.stage, "Transaction type not selected", "Select transaction type before adding transaction.", new JFXButton("Ok")).showDialog();
+                new CustomDialog().CustomDialog(Main.stage, "Transaction type not selected", "Select transaction type before adding transaction.", new JFXButton("Ok"));
             }
         }
     }

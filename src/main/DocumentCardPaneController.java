@@ -47,10 +47,10 @@ public class DocumentCardPaneController {
     }
 
     public void removeButtonClick(){
-        boolean rc = UserNotification.confirmationDialog(Main.stage, "Delete Document", "Are you sure you want to delete Document: " + dataFile.getFileName() + "?");
-        if (rc) {
+        //boolean rc = UserNotification.confirmationDialog(Main.stage, "Delete Document", "Are you sure you want to delete Document: " + dataFile.getFileName() + "?");
+        //if (rc) {
             Main.connectionHandler.outputQueue.add("rd:" + dataFile.getFileName() + dataFile.getFileExtension());
-        }
+        //}TODO confirm dialog
     }
 
     public void sendButtonClick(){//TODO test
@@ -67,10 +67,10 @@ public class DocumentCardPaneController {
             target.mkdirs();
             try {
                 Files.copy(source.toPath(), target.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                new CustomDialog(Main.stage, "Export Successful", "You successfully exported your " + dataFile.getFileType()).showDialog();
+                new CustomDialog().CustomDialog(Main.stage, "Export Successful", "You successfully exported your " + dataFile.getFileType());
             } catch (IOException ex) {
                 ex.printStackTrace();
-                new CustomDialog(Main.stage, "Export Failed", "The export of your " + dataFile.getFileType() + " failed.").showDialog();
+                new CustomDialog().CustomDialog(Main.stage, "Export Failed", "The export of your " + dataFile.getFileType() + " failed.");
             }
         }
     }

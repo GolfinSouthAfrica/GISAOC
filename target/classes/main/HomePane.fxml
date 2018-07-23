@@ -27,7 +27,7 @@
                      <graphic>
                         <ImageView>
                            <image>
-                              <Image url="@../resources/Products.png" />
+                              <Image url="@../resources/Add.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -41,7 +41,7 @@
                      <graphic>
                         <ImageView>
                            <image>
-                              <Image url="@../resources/Products.png" />
+                              <Image url="@../resources/Suppliers.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -55,7 +55,7 @@
                      <graphic>
                         <ImageView>
                            <image>
-                              <Image url="@../resources/Products.png" />
+                              <Image url="@../resources/Bookings.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -87,7 +87,7 @@
                      <graphic>
                         <ImageView>
                            <image>
-                              <Image url="@../resources/Products.png" />
+                              <Image url="@../resources/Packages.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -101,7 +101,7 @@
                      <graphic>
                         <ImageView>
                            <image>
-                              <Image url="@../resources/Products.png" />
+                              <Image url="@../resources/Invoices.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -115,7 +115,7 @@
                      <graphic>
                         <ImageView>
                            <image>
-                              <Image url="@../resources/Products.png" />
+                              <Image url="@../resources/Logins.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -147,7 +147,7 @@
                      <graphic>
                         <ImageView>
                            <image>
-                              <Image url="@../resources/Products.png" />
+                              <Image url="@../resources/Logout.png" />
                            </image>
                         </ImageView>
                      </graphic>

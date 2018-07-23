@@ -75,7 +75,7 @@ public class BookingsListPaneController implements Initializable {
                     }
                     root.setPrefWidth(bookingsScrollPane.getPrefWidth() - 10);
                     BookingsCardPaneController scc = loader.getController();
-                    scc.initData(b);
+                    scc.initData(b, process);
                     bookingCards.add(root);
                 }
             }
@@ -123,7 +123,7 @@ public class BookingsListPaneController implements Initializable {
                 e.printStackTrace();
             }
             BookingsCardPaneController scc = loader.getController();
-            scc.initData(b);
+            scc.initData(b, process);
             bookingCards.add(root);
         }
         Platform.runLater(() -> {

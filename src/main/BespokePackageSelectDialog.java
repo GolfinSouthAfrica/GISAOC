@@ -171,7 +171,7 @@ public class BespokePackageSelectDialog extends CustomDialogSkin {
                                     //TODO Arrival Date in popup
                                     this.closeAnimation();
                                 } else {
-                                    new CustomDialog(Main.stage, "Rack Rate is Less than STO", "Increase Rack rate to more than STO.", new JFXButton("Ok")).showDialog();
+                                    new CustomDialog().CustomDialog(Main.stage, "Rack Rate is Less than STO", "Increase Rack rate to more than STO.", new JFXButton("Ok"));
                                 }
                             } else if (category.matches("Golf")) {
                                 if (Integer.parseInt(rackTxf.getText()) > Integer.parseInt(((ProductGolf) selectedProduct[0]).getPrice())) {
@@ -180,7 +180,7 @@ public class BespokePackageSelectDialog extends CustomDialogSkin {
                                     //TODO
                                     this.closeAnimation();
                                 } else {
-                                    new CustomDialog(Main.stage, "Rack Rate is Less than STO", "Increase Rack rate to more than STO.", new JFXButton("Ok")).showDialog();
+                                    new CustomDialog().CustomDialog(Main.stage, "Rack Rate is Less than STO", "Increase Rack rate to more than STO.", new JFXButton("Ok"));
                                 }
                             } else if (category.matches("Transport")) {
                                 if (Integer.parseInt(rackTxf.getText()) > Integer.parseInt(((ProductTransport) selectedProduct[0]).getPrice())) {
@@ -189,7 +189,7 @@ public class BespokePackageSelectDialog extends CustomDialogSkin {
                                     //TODO
                                     this.closeAnimation();
                                 } else {
-                                    new CustomDialog(Main.stage, "Rack Rate is Less than STO", "Increase Rack rate to more than STO.", new JFXButton("Ok")).showDialog();
+                                    new CustomDialog().CustomDialog(Main.stage, "Rack Rate is Less than STO", "Increase Rack rate to more than STO.", new JFXButton("Ok"));
                                 }
                             } else if (category.matches("Activity")) {
                                 if (Integer.parseInt(rackTxf.getText()) > Integer.parseInt(((ProductActivity) selectedProduct[0]).getPrice())) {
@@ -198,24 +198,24 @@ public class BespokePackageSelectDialog extends CustomDialogSkin {
                                     //TODO
                                     this.closeAnimation();
                                 } else {
-                                    new CustomDialog(Main.stage, "Rack Rate is Less than STO", "Increase Rack rate to more than STO.", new JFXButton("Ok")).showDialog();
+                                    new CustomDialog().CustomDialog(Main.stage, "Rack Rate is Less than STO", "Increase Rack rate to more than STO.", new JFXButton("Ok"));
                                 }
                             }
                         } else {
-                            new CustomDialog(Main.stage, "Add to not selected", "Select to which group the product must be added to.", new JFXButton("Ok")).showDialog();
+                            new CustomDialog().CustomDialog(Main.stage, "Add to not selected", "Select to which group the product must be added to.", new JFXButton("Ok"));
                         }
                     } else {
-                        new CustomDialog(Main.stage, "Quantity not selected", "Select the quantity of the product needed for the tour.", new JFXButton("Ok")).showDialog();
+                        new CustomDialog().CustomDialog(Main.stage, "Quantity not selected", "Select the quantity of the product needed for the tour.", new JFXButton("Ok"));
                     }
                 } else {
                     if (category.matches("Accommodation")) {
-                        new CustomDialog(Main.stage, "Nights not selected", "Select the amount of nights the tour will be staying here.", new JFXButton("Ok")).showDialog();
+                        new CustomDialog().CustomDialog(Main.stage, "Nights not selected", "Select the amount of nights the tour will be staying here.", new JFXButton("Ok"));
                     } else if (category.matches("Golf")){
-                        new CustomDialog(Main.stage, "Rounds not selected", "Select the amount of rounds the golfers will be play here.", new JFXButton("Ok")).showDialog();
+                        new CustomDialog().CustomDialog(Main.stage, "Rounds not selected", "Select the amount of rounds the golfers will be play here.", new JFXButton("Ok"));
                     }
                 }
             } else {
-                new CustomDialog(Main.stage, "Select Product", "Select Product from list before adding.", new JFXButton("Ok")).showDialog();;
+                new CustomDialog().CustomDialog(Main.stage, "Select Product", "Select Product from list before adding.", new JFXButton("Ok"));;
             }
         });
         Button cancelBtn = new Button("Cancel");

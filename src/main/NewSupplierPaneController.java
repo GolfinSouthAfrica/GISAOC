@@ -70,19 +70,19 @@ public class NewSupplierPaneController implements Initializable {
                                 vspc.initData(supplier);
                             }
                         } else {
-                            new CustomDialog(Main.stage,"Co Ordinates not entered", "Enter Co Ordinates before adding supplier.", new JFXButton("Ok")).showDialog();
+                            new CustomDialog().CustomDialog(Main.stage,"Co Ordinates not entered", "Enter Co Ordinates before adding supplier.", new JFXButton("Ok"));
                         }
                     } else {
-                        new CustomDialog(Main.stage,"Address not entered", "Enter Address before adding supplier.", new JFXButton("Ok")).showDialog();
+                        new CustomDialog().CustomDialog(Main.stage,"Address not entered", "Enter Address before adding supplier.", new JFXButton("Ok"));
                     }
                 } else {
-                    new CustomDialog(Main.stage,"Category not selected", "Select Category before adding supplier.", new JFXButton("Ok")).showDialog();
+                    new CustomDialog().CustomDialog(Main.stage,"Category not selected", "Select Category before adding supplier.", new JFXButton("Ok"));
                 }
             } else {
-                new CustomDialog(Main.stage,"Province not selected", "Select Province before adding supplier.", new JFXButton("Ok")).showDialog();
+                new CustomDialog().CustomDialog(Main.stage,"Province not selected", "Select Province before adding supplier.", new JFXButton("Ok"));
             }
         } else {
-            new CustomDialog(Main.stage,"Supplier Name not entered", "Enter Supplier Name before adding supplier.", new JFXButton("Ok")).showDialog();
+            new CustomDialog().CustomDialog(Main.stage,"Supplier Name not entered", "Enter Supplier Name before adding supplier.", new JFXButton("Ok"));
         }
     }
 

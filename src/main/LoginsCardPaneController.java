@@ -55,8 +55,8 @@ public class LoginsCardPaneController implements Initializable {
     }
 
     public void removeButtonClick(){
-        if (UserNotification.confirmationDialog(Main.stage, "Are you sure you want to remove " + login.getLoginName() + "?", "This will no longer be saved on the system.")) {
+        //if (UserNotification.confirmationDialog(Main.stage, "Are you sure you want to remove " + login.getLoginName() + "?", "This will no longer be saved on the system.")) {
             Main.connectionHandler.outputQueue.add("rl:" + login.getLoginID());
-        }
+        //}
     }
 }

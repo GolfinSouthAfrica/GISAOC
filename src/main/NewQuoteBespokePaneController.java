@@ -66,7 +66,7 @@ public class NewQuoteBespokePaneController implements Initializable {
             accommodationListView.getItems().remove(accommodationListView.getSelectionModel().getSelectedItem());
             accommodationListView.getItems().add(x);
         } else {
-            new CustomDialog(Main.stage, "No accommodation selected to edit", "Select accommodation you want to edit before clicking the edit button.", new JFXButton("Ok"));
+            new CustomDialog().CustomDialog(Main.stage, "No accommodation selected to edit", "Select accommodation you want to edit before clicking the edit button.", new JFXButton("Ok"));
         }
     }
 
@@ -74,7 +74,7 @@ public class NewQuoteBespokePaneController implements Initializable {
         if(accommodationListView.getSelectionModel().getSelectedItems() != null) {
             accommodationListView.getItems().remove(accommodationListView.getSelectionModel().getSelectedItem());
         } else {
-            new CustomDialog(Main.stage, "No accommodation selected to remove", "Select accommodation you want to remove before clicking the remove button.", new JFXButton("Ok"));
+            new CustomDialog().CustomDialog(Main.stage, "No accommodation selected to remove", "Select accommodation you want to remove before clicking the remove button.", new JFXButton("Ok"));
         }
     }
 
@@ -93,7 +93,7 @@ public class NewQuoteBespokePaneController implements Initializable {
             golfListView.getItems().remove(golfListView.getSelectionModel().getSelectedItem());
             golfListView.getItems().add(x);
         } else {
-            new CustomDialog(Main.stage, "No golf selected to edit", "Select golf you want to edit before clicking the edit button.", new JFXButton("Ok"));
+            new CustomDialog().CustomDialog(Main.stage, "No golf selected to edit", "Select golf you want to edit before clicking the edit button.", new JFXButton("Ok"));
         }
     }
 
@@ -101,7 +101,7 @@ public class NewQuoteBespokePaneController implements Initializable {
         if(golfListView.getSelectionModel().getSelectedItems() != null) {
             golfListView.getItems().remove(golfListView.getSelectionModel().getSelectedItem());
         } else {
-            new CustomDialog(Main.stage, "No golf selected to remove", "Select golf you want to remove before clicking the remove button.", new JFXButton("Ok"));
+            new CustomDialog().CustomDialog(Main.stage, "No golf selected to remove", "Select golf you want to remove before clicking the remove button.", new JFXButton("Ok"));
         }
     }
 
@@ -120,7 +120,7 @@ public class NewQuoteBespokePaneController implements Initializable {
             activitiesListView.getItems().remove(activitiesListView.getSelectionModel().getSelectedItem());
             activitiesListView.getItems().add(x);
         } else {
-            new CustomDialog(Main.stage, "No accommodation selected to edit", "Select accommodation you want to edit before clicking the edit button.", new JFXButton("Ok"));
+            new CustomDialog().CustomDialog(Main.stage, "No accommodation selected to edit", "Select accommodation you want to edit before clicking the edit button.", new JFXButton("Ok"));
         }
     }
 
@@ -128,7 +128,7 @@ public class NewQuoteBespokePaneController implements Initializable {
         if(activitiesListView.getSelectionModel().getSelectedItems() != null) {
             activitiesListView.getItems().remove(activitiesListView.getSelectionModel().getSelectedItem());
         } else {
-            new CustomDialog(Main.stage, "No activity selected to remove", "Select activity you want to remove before clicking the remove button.", new JFXButton("Ok"));
+            new CustomDialog().CustomDialog(Main.stage, "No activity selected to remove", "Select activity you want to remove before clicking the remove button.", new JFXButton("Ok"));
         }
     }
 
@@ -147,7 +147,7 @@ public class NewQuoteBespokePaneController implements Initializable {
             transportListView.getItems().remove(transportListView.getSelectionModel().getSelectedItem());
             transportListView.getItems().add(x);
         } else {
-            new CustomDialog(Main.stage, "No accommodation selected to edit", "Select accommodation you want to edit before clicking the edit button.", new JFXButton("Ok"));
+            new CustomDialog().CustomDialog(Main.stage, "No accommodation selected to edit", "Select accommodation you want to edit before clicking the edit button.", new JFXButton("Ok"));
         }
     }
 
@@ -155,7 +155,7 @@ public class NewQuoteBespokePaneController implements Initializable {
         if(transportListView.getSelectionModel().getSelectedItems() != null) {
             transportListView.getItems().remove(transportListView.getSelectionModel().getSelectedItem());
         } else {
-            new CustomDialog(Main.stage, "No transport selected to remove", "Select transport you want to remove before clicking the remove button.", new JFXButton("Ok"));
+            new CustomDialog().CustomDialog(Main.stage, "No transport selected to remove", "Select transport you want to remove before clicking the remove button.", new JFXButton("Ok"));
         }
     }
 

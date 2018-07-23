@@ -53,13 +53,13 @@ public class EmailDialog extends CustomDialogSkin {
         sendButton.setOnAction(e -> {
             if (!emailTextField.getText().isEmpty() && !subjectTextField.getText().isEmpty() && !messageTextArea.getText().isEmpty()) {
                 if(Main.connectionHandler.sendEmail(emailTextField.getText(), subjectTextField.getText(), messageTextArea.getText(), fileType, fileName)){
-                    new CustomDialog(Main.stage, "Email Successful", "Successfully sent Mail to " + emailTextField.getText() + ".");
+                    new CustomDialog().CustomDialog(Main.stage, "Email Successful", "Successfully sent Mail to " + emailTextField.getText() + ".", new JFXButton("Ok"));
                     closeAnimation();
                 }else{
-                    new CustomDialog(Main.stage, "Email Failed", "Failed to send Mail to " + emailTextField.getText() + ".");
+                    new CustomDialog().CustomDialog(Main.stage, "Email Failed", "Failed to send Mail to " + emailTextField.getText() + ".", new JFXButton("Ok"));
                 }
             } else {
-                UserNotification.showErrorMessage("Send Email", "Invalid input values");
+                new CustomDialog().CustomDialog(Main.stage, "end Email", "Invalid input values.", new JFXButton("Ok"));
             }
         });
         sendButton.setStyle("-fx-text-fill: white");

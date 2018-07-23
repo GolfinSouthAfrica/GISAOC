@@ -74,16 +74,16 @@ public class NewSupplierContactPaneController implements Initializable {
                             e.printStackTrace();
                         }
                     } else {
-                        new CustomDialog(Main.stage,"Email not entered", "Enter Email before adding Contact.", new JFXButton("Ok")).showDialog();
+                        new CustomDialog().CustomDialog(Main.stage,"Email not entered", "Enter Email before adding Contact.", new JFXButton("Ok"));
                     }
                 } else {
-                    new CustomDialog(Main.stage,"Number not selected", "Select Number before adding Contact.", new JFXButton("Ok")).showDialog();
+                    new CustomDialog().CustomDialog(Main.stage,"Number not selected", "Select Number before adding Contact.", new JFXButton("Ok"));
                 }
             } else {
-                new CustomDialog(Main.stage,"Position not selected", "Select Position before adding Contact.", new JFXButton("Ok")).showDialog();
+                new CustomDialog().CustomDialog(Main.stage,"Position not selected", "Select Position before adding Contact.", new JFXButton("Ok"));
             }
         } else {
-            new CustomDialog(Main.stage,"Contact Name not entered", "Enter Contact Name before adding Contact.", new JFXButton("Ok")).showDialog();
+            new CustomDialog().CustomDialog(Main.stage,"Contact Name not entered", "Enter Contact Name before adding Contact.", new JFXButton("Ok"));
         }
     }
 

@@ -13,7 +13,7 @@ import java.util.List;
 
 public class CustomDialog extends CustomDialogSkin {
 
-    public CustomDialog(Window parent, String heading, String body, JFXButton... buttons) {
+    public void CustomDialog(Window parent, String heading, String body, JFXButton... buttons) {
         initOwner(parent);
         Text headingText = new Text(heading);
         headingText.getStyleClass().add("custom-dialog-heading");
@@ -45,7 +45,9 @@ public class CustomDialog extends CustomDialogSkin {
         contentPane.setAlignment(Pos.CENTER);
         setWidth(600);
         getDialogPane().setContent(contentPane);
+        showDialog();
     }
+
 
 
 }

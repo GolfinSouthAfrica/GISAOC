@@ -54,13 +54,13 @@ public class NewLoginPaneController implements Initializable {
                         e.printStackTrace();
                     }
                 } else {
-                    new CustomDialog(Main.stage,"Password not entered", "Enter Password before adding Login.", new JFXButton("Ok")).showDialog();
+                    new CustomDialog().CustomDialog(Main.stage,"Password not entered", "Enter Password before adding Login.", new JFXButton("Ok"));
                 }
             } else {
-                new CustomDialog(Main.stage,"Username not entered", "Enter Username before adding Login.", new JFXButton("Ok")).showDialog();
+                new CustomDialog().CustomDialog(Main.stage,"Username not entered", "Enter Username before adding Login.", new JFXButton("Ok"));
             }
         } else {
-            new CustomDialog(Main.stage,"Login Name not entered", "Enter Login Name before adding Login.", new JFXButton("Ok")).showDialog();
+            new CustomDialog().CustomDialog(Main.stage,"Login Name not entered", "Enter Login Name before adding Login.", new JFXButton("Ok"));
         }
     }
 
