@@ -26,23 +26,40 @@ public class SuppliersPaneController implements Initializable{
     @FXML private ScrollPane suppliersScrollPane;
     @FXML private VBox suppliersList;
     @FXML private ComboBox sortBy;
+    String category = "";
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        category = "all";
         sortBy.getItems().clear();
         sortBy.getItems().addAll("Unsorted", "Name-Ascend", "Name-Descend", "Province-Ascend", "Province-Descend", "Category-Ascend", "Category-Descend");
         sortBy.getSelectionModel().select(0);
         sortBy.valueProperty().addListener((obs, oldItem, newItem) -> {
-            populateSuppliers(sortBy.getSelectionModel().getSelectedItem().toString());
+            populateSuppliers(sortBy.getSelectionModel().getSelectedItem().toString(), category);
         });
-        populateSuppliers(sortBy.getSelectionModel().getSelectedItem().toString());
+        populateSuppliers(sortBy.getSelectionModel().getSelectedItem().toString(), category);
         Main.connectionHandler.suppliers.addListener((InvalidationListener) e -> {
-            populateSuppliers("");
+            populateSuppliers("", category);
             sortBy.getSelectionModel().select(0);
         });
     }
 
-    private void populateSuppliers(String sort){
+    public void initData(String category){
+        this.category = category;
+        sortBy.getItems().clear();
+        sortBy.getItems().addAll("Unsorted", "Name-Ascend", "Name-Descend", "Province-Ascend", "Province-Descend", "Category-Ascend", "Category-Descend");
+        sortBy.getSelectionModel().select(0);
+        sortBy.valueProperty().addListener((obs, oldItem, newItem) -> {
+            populateSuppliers(sortBy.getSelectionModel().getSelectedItem().toString(), category);
+        });
+        populateSuppliers(sortBy.getSelectionModel().getSelectedItem().toString(), category);
+        Main.connectionHandler.suppliers.addListener((InvalidationListener) e -> {
+            populateSuppliers("", category);
+            sortBy.getSelectionModel().select(0);
+        });
+    }
+
+    private void populateSuppliers(String sort, String category){
         if(!Main.connectionHandler.packages.isEmpty()) {
             ObservableList<HBox> supplierCards = FXCollections.observableArrayList();
             List<Supplier> temp = Main.connectionHandler.suppliers;
@@ -68,17 +85,19 @@ public class SuppliersPaneController implements Initializable{
                 }
             }
             for (Supplier s : Main.connectionHandler.suppliers) {
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("SuppliersCardPane.fxml"));
-                HBox root = null;
-                try {
-                    root = loader.load();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                if(s.getCategory().matches(category)) {
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("SuppliersCardPane.fxml"));
+                    HBox root = null;
+                    try {
+                        root = loader.load();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    SuppliersCardPaneController scc = loader.getController();
+                    scc.initData(s, category);
+                    supplierCards.add(root);
                 }
-                SuppliersCardPaneController scc = loader.getController();
-                scc.initData(s);
-                supplierCards.add(root);
             }
             Platform.runLater(() -> {
                 suppliersList.getChildren().clear();
@@ -93,12 +112,18 @@ public class SuppliersPaneController implements Initializable{
         ObservableList<Supplier> displayList = FXCollections.observableArrayList();
         if (!searchTxf.getText().matches("")) {
             for (Supplier s: Main.connectionHandler.suppliers) {
-                if (s.getSupplierName().toLowerCase().contains(searchTxf.getText().toLowerCase())||s.getProvince().toLowerCase().contains(searchTxf.getText().toLowerCase())||s.getCategory().toLowerCase().contains(searchTxf.getText().toLowerCase())||s.getAddress().toLowerCase().contains(searchTxf.getText().toLowerCase())) {
-                    displayList.add(s);
+                if(s.getCategory().matches(category)) {
+                    if (s.getSupplierName().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getProvince().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getCategory().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getAddress().toLowerCase().contains(searchTxf.getText().toLowerCase())) {
+                        displayList.add(s);
+                    }
                 }
             }
         } else {
-            displayList.addAll(Main.connectionHandler.suppliers);
+            for (Supplier s: Main.connectionHandler.suppliers) {
+                if(s.getCategory().matches(category)){
+                    displayList.add(s);
+                }
+            }
         }
         ObservableList<HBox> supplierCards = FXCollections.observableArrayList();
         for (Supplier s: displayList) {
@@ -111,7 +136,7 @@ public class SuppliersPaneController implements Initializable{
                 e.printStackTrace();
             }
             SuppliersCardPaneController scc = loader.getController();
-            scc.initData(s);
+            scc.initData(s, category);
             supplierCards.add(root);
         }
         suppliersList.getChildren().clear();
@@ -130,7 +155,7 @@ public class SuppliersPaneController implements Initializable{
 
     public void backButtonClick(){
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("HomePane.fxml"));
+        loader.setLocation(getClass().getResource("SuppliersSelectionPane.fxml"));
         try {
             Main.setStage(loader.load());
         } catch (IOException e) {

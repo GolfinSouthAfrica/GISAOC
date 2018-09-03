@@ -37,20 +37,6 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#suppliersButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
-                     <graphic>
-                        <ImageView>
-                           <image>
-                              <Image url="@../resources/Suppliers.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Suppliers" />
-               </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
-               <children>
                   <Button mnemonicParsing="false" onAction="#bookingsButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
                      <graphic>
                         <ImageView>
@@ -65,16 +51,30 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#mailButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
+                  <Button mnemonicParsing="false" onAction="#suppliersButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
                      <graphic>
                         <ImageView>
                            <image>
-                              <Image url="@../resources/Send.png" />
+                              <Image url="@../resources/Suppliers.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Mails" />
+                  <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Suppliers" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#mailButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../resources/Products.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Products" />
                </children>
             </VBox>
          </children>

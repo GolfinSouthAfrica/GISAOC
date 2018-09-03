@@ -17,16 +17,18 @@ public class NewQuoteBespokePaneController implements Initializable {
     @FXML ListView golfListView;
     @FXML ListView activitiesListView;
     @FXML ListView transportListView;
-    private TripPackage selectedPackage;
+    private TripPackage selectedPackage = new TripPackage();
+    private NewQuotePaneController nqpc;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
 
-    public void initData(TripPackage selectedPackage){
+    public void initData(TripPackage selectedPackage, NewQuotePaneController nqpc){
         if(!selectedPackage.getPackageName().matches("Bespoke")) {
             this.selectedPackage = selectedPackage;
+            this.nqpc = nqpc;
             accommodationListView.getItems().clear();
             accommodationListView.getItems().addAll(this.selectedPackage.getBookingAccommodation());
             golfListView.getItems().clear();
@@ -37,10 +39,12 @@ public class NewQuoteBespokePaneController implements Initializable {
             transportListView.getItems().addAll(this.selectedPackage.getBookingTransport());
         } else {
           this.selectedPackage = selectedPackage;
+          this.nqpc = nqpc;
         }
     }
 
-    public void editData(Booking booking){
+    public void editData(Booking booking, NewQuotePaneController nqpc){
+        this.nqpc = nqpc;
         accommodationListView.getItems().clear();
         accommodationListView.getItems().addAll(booking.getBookingAccommodation());
         golfListView.getItems().clear();
@@ -57,6 +61,7 @@ public class NewQuoteBespokePaneController implements Initializable {
         if(x!=null) {
             accommodationListView.getItems().add(x);
         }
+        nqpc.setPerPerson();
     }
 
     public void accommodationEditButtonClick(){
@@ -68,6 +73,7 @@ public class NewQuoteBespokePaneController implements Initializable {
         } else {
             new CustomDialog().CustomDialog(Main.stage, "No accommodation selected to edit", "Select accommodation you want to edit before clicking the edit button.", new JFXButton("Ok"));
         }
+        nqpc.setPerPerson();
     }
 
     public void accommodationRemoveButtonClick(){
@@ -76,6 +82,7 @@ public class NewQuoteBespokePaneController implements Initializable {
         } else {
             new CustomDialog().CustomDialog(Main.stage, "No accommodation selected to remove", "Select accommodation you want to remove before clicking the remove button.", new JFXButton("Ok"));
         }
+        nqpc.setPerPerson();
     }
 
     public void golfAddButtonClick(){
@@ -84,6 +91,7 @@ public class NewQuoteBespokePaneController implements Initializable {
         if(x!=null) {
             golfListView.getItems().add(x);
         }
+        nqpc.setPerPerson();
     }
 
     public void golfEditButtonClick(){
@@ -95,6 +103,7 @@ public class NewQuoteBespokePaneController implements Initializable {
         } else {
             new CustomDialog().CustomDialog(Main.stage, "No golf selected to edit", "Select golf you want to edit before clicking the edit button.", new JFXButton("Ok"));
         }
+        nqpc.setPerPerson();
     }
 
     public void golfRemoveButtonClick(){
@@ -103,6 +112,7 @@ public class NewQuoteBespokePaneController implements Initializable {
         } else {
             new CustomDialog().CustomDialog(Main.stage, "No golf selected to remove", "Select golf you want to remove before clicking the remove button.", new JFXButton("Ok"));
         }
+        nqpc.setPerPerson();
     }
 
     public void activityAddButtonClick(){
@@ -111,6 +121,7 @@ public class NewQuoteBespokePaneController implements Initializable {
         if(x!=null) {
             activitiesListView.getItems().add(x);
         }
+        nqpc.setPerPerson();
     }
 
     public void activityEditButtonClick(){
@@ -122,6 +133,7 @@ public class NewQuoteBespokePaneController implements Initializable {
         } else {
             new CustomDialog().CustomDialog(Main.stage, "No accommodation selected to edit", "Select accommodation you want to edit before clicking the edit button.", new JFXButton("Ok"));
         }
+        nqpc.setPerPerson();
     }
 
     public void activityRemoveButtonClick(){
@@ -130,6 +142,7 @@ public class NewQuoteBespokePaneController implements Initializable {
         } else {
             new CustomDialog().CustomDialog(Main.stage, "No activity selected to remove", "Select activity you want to remove before clicking the remove button.", new JFXButton("Ok"));
         }
+        nqpc.setPerPerson();
     }
 
     public void tranportAddButtonClick(){
@@ -138,6 +151,7 @@ public class NewQuoteBespokePaneController implements Initializable {
         if(x!=null) {
             transportListView.getItems().add(x);
         }
+        nqpc.setPerPerson();
     }
 
     public void tranportEditButtonClick(){
@@ -149,6 +163,7 @@ public class NewQuoteBespokePaneController implements Initializable {
         } else {
             new CustomDialog().CustomDialog(Main.stage, "No accommodation selected to edit", "Select accommodation you want to edit before clicking the edit button.", new JFXButton("Ok"));
         }
+        nqpc.setPerPerson();
     }
 
     public void transportRemoveButtonClick(){
@@ -157,6 +172,7 @@ public class NewQuoteBespokePaneController implements Initializable {
         } else {
             new CustomDialog().CustomDialog(Main.stage, "No transport selected to remove", "Select transport you want to remove before clicking the remove button.", new JFXButton("Ok"));
         }
+        nqpc.setPerPerson();
     }
 
     public TripPackage getCompletedPackage(){

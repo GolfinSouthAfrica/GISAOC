@@ -23,7 +23,7 @@ public class ConnectionHandler {
     public UserObservable user = new UserObservable(null);
     public ObservableList<Supplier> suppliers = FXCollections.observableArrayList();
     public ObservableList<Booking> bookings = FXCollections.observableArrayList();
-    public ObservableList<Mail> mails = FXCollections.observableArrayList();
+    //public ObservableList<Mail> mails = FXCollections.observableArrayList();
     public ObservableList<Login> logins = FXCollections.observableArrayList();
     public ObservableList<DataFile> documents = FXCollections.observableArrayList();
     public ObservableList<TripPackage> packages = FXCollections.observableArrayList();
@@ -33,6 +33,7 @@ public class ConnectionHandler {
     public ObservableList<ProductTransport> transport = FXCollections.observableArrayList();
     public ObservableList<ProductActivity> activities = FXCollections.observableArrayList();
     public ObservableList<Transaction> transactions = FXCollections.observableArrayList();
+    public ObservableList<Notification> notifications = FXCollections.observableArrayList();
     public volatile ObservableList<Object> outputQueue = FXCollections.observableArrayList();
     public volatile ObservableList<Object> inputQueue = FXCollections.observableArrayList();
     private Socket socket;
@@ -230,13 +231,34 @@ public class ConnectionHandler {
         return result;
     }
 
+    public int getLength() {
+        String result;
+        Object objectToRemove;
+        ReturnResult:
+        while (true) {
+            for (int i = 0; i < inputQueue.size(); i++) {
+                Object object = inputQueue.get(i);
+                if (object instanceof String) {
+                    String in = (String) object;
+                    if (in.startsWith("nbgs:")) {
+                        objectToRemove = object;
+                        result = in.substring(5);
+                        break ReturnResult;
+                    }
+                }
+            }
+        }
+        inputQueue.remove(objectToRemove);
+        return Integer.parseInt(result);
+    }
+
     public Boolean userInitialized() {
         return user.getUser() != null;
     }
 
-    public Boolean mailsInitialized() {
+    /*public Boolean mailsInitialized() {
         return mails.size() < 1;
-    }
+    }*/
 
     public void getMails(String category, String flag) {
         outputQueue.add("gm:" + category + ":" + flag);
@@ -267,13 +289,13 @@ public class ConnectionHandler {
                                 bookings.addAll(list);
                             }
                             System.out.println("Updated Bookings (" + bookings.size() + ")");
-                        } else if (!list.isEmpty() && list.get(0) instanceof Mail) {
+                        } /*else if (!list.isEmpty() && list.get(0) instanceof Mail) {
                             mails.clear();
                             if (!((Mail) list.get(0)).getMessage().equals("NoMails")) {
                                 mails.addAll(list);
                             }
                             System.out.println("Updated Mails (" + mails.size() + ")");
-                        } else if (!list.isEmpty() && list.get(0) instanceof Login) {
+                        }*/ else if (!list.isEmpty() && list.get(0) instanceof Login) {
                             logins.clear();
                             if (!((Login) list.get(0)).getLoginName().equals("NoLogins")) {
                                 logins.addAll(list);
@@ -323,19 +345,30 @@ public class ConnectionHandler {
                                 activities.addAll(list);
                             }
                             System.out.println("Updated Activities (" + activities.size() + ")");
-                        } else if (!list.isEmpty() && list.get(0) instanceof Mail) {
+                        }/* else if (!list.isEmpty() && list.get(0) instanceof Mail) {
                             mails.clear();
                             if (!((Mail) list.get(0)).getFromMailAddress().equals("NoMails")) {
                                 mails.addAll(list);
                             }
                             System.out.println("Updated Mails (" + mails.size() + ")");
                             gotMails.setValue(true);
-                        } else if (!list.isEmpty() && list.get(0) instanceof Transaction) {
+                        }*/ else if (!list.isEmpty() && list.get(0) instanceof Transaction) {
                             transactions.clear();
                             if (!((Transaction) list.get(0)).getTransactionType().equals("NoTransactions")) {
                                 transactions.addAll(list);
                             }
                             System.out.println("Updated Transactions (" + transactions.size() + ")");
+                        } else if (!list.isEmpty() && list.get(0) instanceof Notification) {
+                            notifications.clear();
+                            if (!((Notification) list.get(0)).getMessageHeader().equals("NoNotifications")) {
+                                notifications.addAll(list);
+                            }
+                            System.out.println("Updated Notifications (" + notifications.size() + ")");
+                            if (userInitialized()){
+                                for (Notification n:notifications) {
+                                    new CustomDialog().CustomDialog(Main.stage, n.getMessageHeader(), n.getMessageBody(), new JFXButton("Ok"));
+                                }
+                            }
                         }
                     } else {
                         inputQueue.add(input);

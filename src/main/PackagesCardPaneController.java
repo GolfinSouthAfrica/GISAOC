@@ -4,14 +4,13 @@ import javafx.beans.InvalidationListener;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Tooltip;
+import javafx.scene.control.*;
 import models.Supplier;
 import models.TripPackage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class PackagesCardPaneController implements Initializable {
@@ -66,8 +65,13 @@ public class PackagesCardPaneController implements Initializable {
     }
 
     public void removeButtonClick(){
-        //if (UserNotification.confirmationDialog(Main.stage, "Are you sure you want to remove " + tripPackage.getPackageName() + "?", "This will delete all not delete current conformed bookings of this package.")) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Remove Package");
+        alert.setHeaderText("Remove Package");
+        alert.setContentText("Are you sure you want to remove the package (" + tripPackage.getPackageName() + ")?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
             Main.connectionHandler.outputQueue.add("rp:" + tripPackage.getPackageID());
-        //}
+        }
     }
 }

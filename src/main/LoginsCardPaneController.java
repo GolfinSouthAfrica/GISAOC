@@ -4,13 +4,12 @@ import javafx.beans.InvalidationListener;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Tooltip;
+import javafx.scene.control.*;
 import models.Login;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class LoginsCardPaneController implements Initializable {
@@ -55,8 +54,13 @@ public class LoginsCardPaneController implements Initializable {
     }
 
     public void removeButtonClick(){
-        //if (UserNotification.confirmationDialog(Main.stage, "Are you sure you want to remove " + login.getLoginName() + "?", "This will no longer be saved on the system.")) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Remove Login");
+        alert.setHeaderText("Remove Login");
+        alert.setContentText("Are you sure you want to remove the login (" + login.getLoginName() + ")?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
             Main.connectionHandler.outputQueue.add("rl:" + login.getLoginID());
-        //}
+        }
     }
 }

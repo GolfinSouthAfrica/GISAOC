@@ -1,4 +1,5 @@
 package main;
+
 import javafx.fxml.FXMLLoader;
 
 import java.io.IOException;
@@ -19,7 +20,7 @@ public class HomePaneController {
 
     public void suppliersButtonClick(){
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("SuppliersPane.fxml"));
+        loader.setLocation(getClass().getResource("SuppliersSelectionPane.fxml"));
         try {
             Main.setStage(loader.load());
         } catch (IOException e) {
@@ -39,7 +40,7 @@ public class HomePaneController {
 
     public void mailButtonClick(){
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("MailPane.fxml"));
+        loader.setLocation(getClass().getResource("ProductsPane.fxml"));
         try {
             Main.setStage(loader.load());
         } catch (IOException e) {
@@ -98,4 +99,6 @@ public class HomePaneController {
             e.printStackTrace();
         }
     }
+
+
 }

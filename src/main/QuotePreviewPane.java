@@ -18,13 +18,11 @@ import java.io.File;
 public class QuotePreviewPane extends CustomDialogSkin {
 
     Booking booking;
-    String textMessage;
     int fileLength;
 
 
-    public QuotePreviewPane(Window parent, Booking booking, String textMessage, int fileLength) {
+    public QuotePreviewPane(Window parent, Booking booking, int fileLength) {
         this.booking = booking;
-        this.textMessage = textMessage;
         this.fileLength = fileLength;
         initOwner(parent);
 
@@ -57,26 +55,14 @@ public class QuotePreviewPane extends CustomDialogSkin {
         sendSave.setGraphic(new ImageView(new Image(Main.class.getResourceAsStream("../resources/Add.png"))));
         sendSave.getStyleClass().add("button");
         sendSave.setOnAction(event -> {
-            Main.connectionHandler.outputQueue.add("snd:Costing:" + booking.getGsNumber() + ":" + booking.getEmail() + ":" + booking.getClientName() + ":" + textMessage);
+            //Main.connectionHandler.outputQueue.add("snd:Costing:" + booking.getGsNumber() + ":" + booking.getEmail() + ":" + booking.getClientName());
             Main.quoteDone.setValue(true);
             closeAnimation();
         });
-        Text sendSaveLbl = new Text("Send & Save");
+        Text sendSaveLbl = new Text("Save");
         sendSaveLbl.getStyleClass().add("home-text");
         VBox button2 = new VBox(sendSave, sendSaveLbl);
         button2.setAlignment(Pos.CENTER);
-
-        Button sendNotSave = new Button();
-        sendNotSave.setGraphic(new ImageView(new Image(Main.class.getResourceAsStream("../resources/Add.png"))));
-        sendNotSave.getStyleClass().add("button");
-        sendNotSave.setOnAction(event -> {
-            Main.quoteDone.setValue(true);
-            closeAnimation();
-        });
-        Text sendNotSaveLbl = new Text("Send Without Saving");
-        sendNotSaveLbl.getStyleClass().add("home-text");
-        VBox button3 = new VBox(sendNotSave, sendNotSaveLbl);
-        button3.setAlignment(Pos.CENTER);
 
         Button back = new Button();
         back.setGraphic(new ImageView(new Image(Main.class.getResourceAsStream("../resources/Back.png"))));
@@ -89,7 +75,7 @@ public class QuotePreviewPane extends CustomDialogSkin {
         VBox button4 = new VBox(back, backLbl);
         button4.setAlignment(Pos.CENTER);
 
-        HBox top = new HBox(button1, button2, button3);
+        HBox top = new HBox(button1, button2);
         top.setAlignment(Pos.CENTER);
         top.setPrefWidth(600);
         top.setPrefHeight(200);

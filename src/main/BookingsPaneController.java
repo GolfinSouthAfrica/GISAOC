@@ -47,7 +47,7 @@ public class BookingsPaneController implements Initializable {
             }
         }
         if(!found) {
-            new CustomDialog().CustomDialog(Main.stage, "Not such Booking", "Could not found a booking with that data", new JFXButton("Ok"));
+            new CustomDialog().CustomDialog(Main.stage, "No such Booking", "Could not found a booking with that data", new JFXButton("Ok"));
         }
     }
 
@@ -85,7 +85,19 @@ public class BookingsPaneController implements Initializable {
         }
         BookingsListPaneController blpc = loader.getController();
         blpc.initData("Confirmed", "");
-}
+    }
+
+    public void archiveButtonClick(){
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("BookingsListPane.fxml"));
+        try {
+            Main.setStage(loader.load());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        BookingsListPaneController blpc = loader.getController();
+        blpc.initData("ArchiveComplete", "");
+    }
 
     public void backButtonClick(){
         FXMLLoader loader = new FXMLLoader();

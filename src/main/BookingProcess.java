@@ -45,7 +45,7 @@ public class BookingProcess extends CustomDialogSkin {
                     }
                 }
                 if(all) {
-                    Main.connectionHandler.outputQueue.add("bpn:" + booking.getGsNumber() + ":PendingBookingMade");
+                    Main.connectionHandler.outputQueue.add("bpn:" + booking.getGsNumber() + ":PendingBookingMade:" + booking.getArrival() + ":" + booking.getClientName());
                     currentProcess.setText("Current Process: PendingBookingMade");
                     this.booking.setProcess("PendingBookingMade");
                 }

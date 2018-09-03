@@ -3,54 +3,50 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" spacing="40.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.BookingsPaneController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" spacing="40.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.SuppliersSelectionPaneController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="111.0" prefWidth="800.0" spacing="10.0">
          <children>
             <Label styleClass="heading-text" stylesheets="@../resources/GISAStyle.css" text="Golf in South Africa" />
-            <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Bookings" />
+            <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Suppliers" />
          </children>
       </VBox>
-      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="600.0" spacing="20.0">
-         <children>
-            <TextField fx:id="searchTxf" styleClass="products-searchfield" stylesheets="@../resources/GISAStyle.css" />
-            <Button mnemonicParsing="false" onAction="#searchButtonClick" styleClass="dialog-button" stylesheets="@../resources/GISAStyle.css" text="Search" />
-         </children>
-      </HBox>
       <HBox alignment="CENTER" prefHeight="200.0" prefWidth="1100.0" spacing="30.0">
          <children>
             <StackPane prefHeight="203.0" prefWidth="233.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
                <children>
-                  <ImageView fitHeight="201.0" fitWidth="231.0" onMouseClicked="#quotesButtonClick" pickOnBounds="true" preserveRatio="true" />
-                  <Label onMouseClicked="#quotesButtonClick" styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Quotes" />
+                  <ImageView fitHeight="201.0" fitWidth="231.0" onMouseClicked="#accommodationButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onMouseClicked="#accommodationButtonClick" styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Accommodation" />
                </children>
             </StackPane>
             <StackPane prefHeight="218.0" prefWidth="232.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
                <children>
-                  <ImageView fitHeight="200.0" fitWidth="230.0" onMouseClicked="#pendingButtonClick" pickOnBounds="true" preserveRatio="true" />
-                  <Label onMouseClicked="#pendingButtonClick" styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Pending" />
+                  <ImageView fitHeight="200.0" fitWidth="230.0" onMouseClicked="#golfButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onMouseClicked="#golfButtonClick" styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Golf" />
                </children>
             </StackPane>
             <StackPane prefHeight="200.0" prefWidth="230.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
                <children>
-                  <ImageView fitHeight="200.0" fitWidth="230.0" onMouseClicked="#confirmedButtonClick" pickOnBounds="true" preserveRatio="true" />
-                  <Label onMouseClicked="#confirmedButtonClick" styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Confirmed" />
+                  <ImageView fitHeight="200.0" fitWidth="230.0" onMouseClicked="#transportButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onMouseClicked="#transportButtonClick" styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Transport" />
                </children>
             </StackPane>
             <StackPane prefHeight="200.0" prefWidth="230.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
                <children>
-                  <ImageView fitHeight="200.0" fitWidth="230.0" onMouseClicked="#archiveButtonClick" pickOnBounds="true" preserveRatio="true" />
-                  <Label onMouseClicked="#archiveButtonClick" styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Archive" />
+                  <ImageView fitHeight="200.0" fitWidth="230.0" onMouseClicked="#activitiesButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onMouseClicked="#activitiesButtonClick" styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Activities" />
                </children>
             </StackPane>
          </children>
+         <VBox.margin>
+            <Insets top="75.0" />
+         </VBox.margin>
       </HBox>
       <HBox alignment="BOTTOM_RIGHT" prefHeight="194.0" prefWidth="1100.0" spacing="30.0">
          <children>

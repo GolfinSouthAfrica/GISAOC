@@ -23,6 +23,7 @@ public class NewSupplierPaneController implements Initializable {
     @FXML TextField coOrdinatesTxf;
     private Supplier supplier;
     private String lastPane;
+    private String category;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -35,14 +36,14 @@ public class NewSupplierPaneController implements Initializable {
         lastPane = "SuppliersPane";
     }
 
-    public void initData(Supplier supplier, String lastPane){
+    public void initData(Supplier supplier, String lastPane, String category){
         this.supplier = supplier;
         this.lastPane = lastPane;
+        this.category = category;
         supplierNameTxf.setText(supplier.getSupplierName());
         categoryCmb.getSelectionModel().select(supplier.getCategory());
         provinceCmb.getSelectionModel().select(supplier.getProvince());
         addressTxf.setText(supplier.getAddress());
-        coOrdinatesTxf.setText(supplier.getCoOrdinates());
     }
 
     public void addButtonClick(){
@@ -52,9 +53,9 @@ public class NewSupplierPaneController implements Initializable {
                     if (!addressTxf.getText().matches("")) {
                         if (!addressTxf.getText().matches("")) {
                             if (supplier == null) {
-                                supplier = new Supplier(-1, supplierNameTxf.getText(), categoryCmb.getSelectionModel().getSelectedItem().toString(), provinceCmb.getSelectionModel().getSelectedItem().toString(), addressTxf.getText(), coOrdinatesTxf.getText(), null);
+                                supplier = new Supplier(-1, supplierNameTxf.getText(), categoryCmb.getSelectionModel().getSelectedItem().toString(), provinceCmb.getSelectionModel().getSelectedItem().toString(), addressTxf.getText(), null);
                             } else {
-                                supplier = new Supplier(supplier.getSupplierNumber(), supplierNameTxf.getText(), categoryCmb.getSelectionModel().getSelectedItem().toString(), provinceCmb.getSelectionModel().getSelectedItem().toString(), addressTxf.getText(), coOrdinatesTxf.getText(), supplier.getContactDetails());
+                                supplier = new Supplier(supplier.getSupplierNumber(), supplierNameTxf.getText(), categoryCmb.getSelectionModel().getSelectedItem().toString(), provinceCmb.getSelectionModel().getSelectedItem().toString(), addressTxf.getText(), supplier.getContactDetails());
                             }
                             Main.connectionHandler.outputQueue.add(supplier);
                             FXMLLoader loader = new FXMLLoader();
@@ -65,9 +66,11 @@ public class NewSupplierPaneController implements Initializable {
                                 e.printStackTrace();
                             }
                             if(lastPane.matches("ViewSuppliersPane")){
-                                System.out.println(supplier.getSupplierName());
                                 ViewSuppliersPaneController vspc = loader.getController();
-                                vspc.initData(supplier);
+                                vspc.initData(supplier, category);
+                            } else if (lastPane.matches("SuppliersPane")){
+                                SuppliersPaneController spc = loader.getController();
+                                spc.initData(category);
                             }
                         } else {
                             new CustomDialog().CustomDialog(Main.stage,"Co Ordinates not entered", "Enter Co Ordinates before adding supplier.", new JFXButton("Ok"));
@@ -94,5 +97,7 @@ public class NewSupplierPaneController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        SuppliersPaneController spc = loader.getController();
+        spc.initData(category);
     }
 }

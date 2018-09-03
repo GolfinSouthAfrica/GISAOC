@@ -1,10 +1,9 @@
 package main;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.beans.InvalidationListener;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Tooltip;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.DirectoryChooser;
@@ -14,6 +13,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
+import java.util.Optional;
 
 public class DocumentCardPaneController {
 
@@ -47,14 +47,19 @@ public class DocumentCardPaneController {
     }
 
     public void removeButtonClick(){
-        //boolean rc = UserNotification.confirmationDialog(Main.stage, "Delete Document", "Are you sure you want to delete Document: " + dataFile.getFileName() + "?");
-        //if (rc) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Remove Document");
+        alert.setHeaderText("Remove Document");
+        alert.setContentText("Are you sure you want to remove the document (" + dataFile.getFileName() + ")?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
             Main.connectionHandler.outputQueue.add("rd:" + dataFile.getFileName() + dataFile.getFileExtension());
-        //}TODO confirm dialog
+        }
     }
 
     public void sendButtonClick(){//TODO test
-        new EmailDialog(Main.stage, dataFile.getFileType(), dataFile.getFileName()).showDialog();
+        //new EmailDialog(Main.stage, dataFile.getFileType(), dataFile.getFileName()).showDialog();
+        new CustomDialog().CustomDialog(Main.stage,"Not Yet Implemented", "Future Development", new JFXButton("Ok"));
     }
 
     public void exportButtonClick(){

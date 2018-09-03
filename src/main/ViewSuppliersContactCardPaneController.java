@@ -1,5 +1,6 @@
 package main;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -28,20 +29,21 @@ public class ViewSuppliersContactCardPaneController implements Initializable {
     @FXML Button removeBtn;
     private ContactDetails cd;
     private Supplier supplier;
+    private String category;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
 
-    public void initData(ContactDetails cd, Supplier supplier){
+    public void initData(ContactDetails cd, Supplier supplier, String category){
         this.cd = cd;
         this.supplier = supplier;
+        this.category = category;
         contactNameLbl.setText(cd.getPersonName());
         positionLbl.setText(cd.getPosition());
         contactNumberLbl.setText(cd.getNumber());
         emailHL.setText(cd.getEmail());
-        dateAddedLbl.setText(cd.getDateAdded());
         editBtn.setTooltip(new Tooltip("Edit"));
         removeBtn.setTooltip(new Tooltip("Remove"));
     }
@@ -55,7 +57,7 @@ public class ViewSuppliersContactCardPaneController implements Initializable {
             e.printStackTrace();
         }
         NewSupplierContactPaneController nscpc = loader.getController();
-        nscpc.initEditData(cd, supplier);
+        nscpc.initEditData(cd, supplier, category);
     }
 
     public void removeButtonClick(){
@@ -66,6 +68,7 @@ public class ViewSuppliersContactCardPaneController implements Initializable {
 
     public void emailHLClicked(){
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(new StringSelection(emailHL.getText()), null);
+        new CustomDialog().CustomDialog(Main.stage,"Copied", "Mail Address Copied to Clipboard.", new JFXButton("Ok"));
     }
 
 }

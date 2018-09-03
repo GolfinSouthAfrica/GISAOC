@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Window;
 import javafx.util.StringConverter;
 import models.*;
@@ -31,6 +32,9 @@ public class BespokePackageSelectDialog extends CustomDialogSkin {
         headingText.getStyleClass().add("secondaryHeadingText");
         Text provinceLbl = new Text("Province:");
         provinceLbl.getStyleClass().add("tertiaryHeadingText");
+        provinceLbl.setWrappingWidth(60);
+        provinceLbl.setStrokeWidth(60);
+        provinceLbl.setTextAlignment(TextAlignment.RIGHT);
         provinceCmb = new ComboBox();
         provinceCmb.getItems().clear();
         provinceCmb.getItems().addAll("Select Province", "All", "Western Cape", "Eastern Cape", "Northern Cape", "Gauteng", "Kwa-Zulu Natal", "North West", "Mpumalanga", "Limpopo", "Free-State", "South Africa", "World");
@@ -40,7 +44,7 @@ public class BespokePackageSelectDialog extends CustomDialogSkin {
         provinceCmb.setStyle("-fx-font-size: 15");
         DatePicker dateDP = new DatePicker();
         dateDP.setConverter(new StringConverter<LocalDate>(){
-            private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yy-MM-dd");
             @Override
             public String toString(LocalDate localDate){
                 if(localDate==null)
@@ -62,8 +66,13 @@ public class BespokePackageSelectDialog extends CustomDialogSkin {
                 productListView.getItems().clear();
             }
         });
+        dateDP.setPrefWidth(200);
+        dateDP.setPrefHeight(25);
         Text supplierLbl = new Text("Supplier:");
         supplierLbl.getStyleClass().add("tertiaryHeadingText");
+        supplierLbl.setWrappingWidth(60);
+        supplierLbl.setStrokeWidth(60);
+        supplierLbl.setTextAlignment(TextAlignment.RIGHT);
         supplierCmb = new ComboBox();
         supplierCmb.getItems().add("Select Province First");
         supplierCmb.getSelectionModel().select("Select Province First");
@@ -82,12 +91,29 @@ public class BespokePackageSelectDialog extends CustomDialogSkin {
         });
         Text dateLbl = new Text("Date:");
         dateLbl.getStyleClass().add("tertiaryHeadingText");
+        dateLbl.setWrappingWidth(60);
+        dateLbl.setStrokeWidth(60);
+        dateLbl.setTextAlignment(TextAlignment.RIGHT);
         Text productLbl = new Text("Products:");
         productLbl.getStyleClass().add("tertiaryHeadingText");
         productListView = new ListView();
         productListView.getStyleClass().add("dialog-products-ListView");
-        Text rackLbl = new Text("Rack: R");
+        Text stoLbl = new Text("STO Rate: R");
+        stoLbl.getStyleClass().add("tertiaryHeadingText");
+        stoLbl.setWrappingWidth(80);
+        stoLbl.setStrokeWidth(80);
+        stoLbl.setTextAlignment(TextAlignment.RIGHT);
+        TextField stoTxf = new TextField();
+        stoTxf.setPrefWidth(120);
+        stoTxf.setPrefHeight(30);
+        stoTxf.setStyle("-fx-font-size: 15");
+        HBox stoHbox = new HBox(stoLbl, stoTxf);
+        stoHbox.setAlignment(Pos.CENTER);
+        Text rackLbl = new Text("Asking Client: R");
         rackLbl.getStyleClass().add("tertiaryHeadingText");
+        rackLbl.setWrappingWidth(80);
+        rackLbl.setStrokeWidth(80);
+        rackLbl.setTextAlignment(TextAlignment.RIGHT);
         TextField rackTxf = new TextField();
         rackTxf.setPrefWidth(120);
         rackTxf.setPrefHeight(30);
@@ -99,16 +125,24 @@ public class BespokePackageSelectDialog extends CustomDialogSkin {
                 try {
                     if (category.matches("Accommodation")) {
                         Double x = (Double.parseDouble(((ProductAccommodation) productListView.getSelectionModel().getSelectedItem()).getPrice()) / (100 - Double.parseDouble(((ProductAccommodation) productListView.getSelectionModel().getSelectedItem()).getCommission())) * 100);
+                        int y = Integer.parseInt(((ProductAccommodation) productListView.getSelectionModel().getSelectedItem()).getPrice());
                         rackTxf.setText((Math.round(x / 10f) * 10) + 10 + "");
+                        stoTxf.setText(y + "");
                     } else if (category.matches("Golf")) {
                         Double x = (Double.parseDouble(((ProductGolf) productListView.getSelectionModel().getSelectedItem()).getPrice()) / (100 - Double.parseDouble(((ProductGolf) productListView.getSelectionModel().getSelectedItem()).getCommission())) * 100);
+                        int y = Integer.parseInt(((ProductGolf) productListView.getSelectionModel().getSelectedItem()).getPrice());
                         rackTxf.setText((Math.round(x / 10f) * 10) + 10 + "");
+                        stoTxf.setText(y + "");
                     } else if (category.matches("Transport")) {
                         Double x = (Double.parseDouble(((ProductTransport) productListView.getSelectionModel().getSelectedItem()).getPrice()) / (100 - Double.parseDouble(((ProductTransport) productListView.getSelectionModel().getSelectedItem()).getCommission())) * 100);
+                        int y = Integer.parseInt(((ProductTransport) productListView.getSelectionModel().getSelectedItem()).getPrice());
                         rackTxf.setText((Math.round(x / 10f) * 10) + 10 + "");
+                        stoTxf.setText(y + "");
                     } else if (category.matches("Activity")) {
                         Double x = (Double.parseDouble(((ProductActivity) productListView.getSelectionModel().getSelectedItem()).getPrice()) / (100 - Double.parseDouble(((ProductActivity) productListView.getSelectionModel().getSelectedItem()).getCommission())) * 100);
+                        int y = Integer.parseInt(((ProductActivity) productListView.getSelectionModel().getSelectedItem()).getPrice());
                         rackTxf.setText((Math.round(x / 10f) * 10) + 10 + "");
+                        stoTxf.setText(y + "");
                     }
                 } catch (NumberFormatException ex) {
 
@@ -167,7 +201,7 @@ public class BespokePackageSelectDialog extends CustomDialogSkin {
                             if (category.matches("Accommodation")) {
                                 if (Integer.parseInt(rackTxf.getText()) > Integer.parseInt(((ProductAccommodation) productListView.getSelectionModel().getSelectedItem()).getPrice())) {
                                     ProductAccommodation x = (ProductAccommodation) productListView.getSelectionModel().getSelectedItem();
-                                    selectedProduct[0] = new BookingAccommodation(-1, x.getSupplierName(), x.getProvince(), x.getProductName(), Integer.toString(x.getSleeps()), dateDP.getValue().toString(), (int) nightsRoundsCmb.getSelectionModel().getSelectedItem(), (int) quantityCmb.getSelectionModel().getSelectedItem(),  Integer.parseInt(x.getPrice()) + 0.00, Integer.parseInt(rackTxf.getText()) + 0.00, addToCmb.getSelectionModel().getSelectedItem().toString(), 0, 0.0);
+                                    selectedProduct[0] = new BookingAccommodation(-1, x.getSupplierName(), x.getProvince(), x.getProductName(), Integer.toString(x.getSleeps()), dateDP.getValue().toString(), (int) nightsRoundsCmb.getSelectionModel().getSelectedItem(), (int) quantityCmb.getSelectionModel().getSelectedItem(),  Integer.parseInt(stoTxf.getText()) + 0.00, Integer.parseInt(rackTxf.getText()) + 0.00, addToCmb.getSelectionModel().getSelectedItem().toString(), 0, 0.0);
                                     //TODO Arrival Date in popup
                                     this.closeAnimation();
                                 } else {
@@ -176,7 +210,7 @@ public class BespokePackageSelectDialog extends CustomDialogSkin {
                             } else if (category.matches("Golf")) {
                                 if (Integer.parseInt(rackTxf.getText()) > Integer.parseInt(((ProductGolf) selectedProduct[0]).getPrice())) {
                                     ProductGolf x = (ProductGolf) productListView.getSelectionModel().getSelectedItem();
-                                    selectedProduct[0] = new BookingGolf(-1, x.getSupplierName(), x.getProvince(), x.getProductName(), null,(int) quantityCmb.getSelectionModel().getSelectedItem(), (int) nightsRoundsCmb.getSelectionModel().getSelectedItem(), Integer.parseInt(x.getPrice()) + 0.00, Integer.parseInt(rackTxf.getText()) + 0.00, addToCmb.getSelectionModel().getSelectedItem().toString(),0, 0.0);
+                                    selectedProduct[0] = new BookingGolf(-1, x.getSupplierName(), x.getProvince(), x.getProductName(), null,(int) quantityCmb.getSelectionModel().getSelectedItem(), (int) nightsRoundsCmb.getSelectionModel().getSelectedItem(), Integer.parseInt(stoTxf.getText()) + 0.00, Integer.parseInt(rackTxf.getText()) + 0.00, addToCmb.getSelectionModel().getSelectedItem().toString(),0, 0.0);
                                     //TODO
                                     this.closeAnimation();
                                 } else {
@@ -185,7 +219,7 @@ public class BespokePackageSelectDialog extends CustomDialogSkin {
                             } else if (category.matches("Transport")) {
                                 if (Integer.parseInt(rackTxf.getText()) > Integer.parseInt(((ProductTransport) selectedProduct[0]).getPrice())) {
                                     ProductTransport x = (ProductTransport) productListView.getSelectionModel().getSelectedItem();
-                                    selectedProduct[0] = new BookingTransport(-1, x.getSupplierName(), x.getProvince(), x.getProductName(), dateDP.getValue().toString(), (int) quantityCmb.getSelectionModel().getSelectedItem(), "", "",Integer.parseInt(x.getPrice()) + 0.00, Integer.parseInt(rackTxf.getText()) + 0.00, addToCmb.getSelectionModel().getSelectedItem().toString(),  0, 0.0);
+                                    selectedProduct[0] = new BookingTransport(-1, x.getSupplierName(), x.getProvince(), x.getProductName(), dateDP.getValue().toString(), (int) quantityCmb.getSelectionModel().getSelectedItem(), "", "",Integer.parseInt(stoTxf.getText()) + 0.00, Integer.parseInt(rackTxf.getText()) + 0.00, addToCmb.getSelectionModel().getSelectedItem().toString(),  0, 0.0);
                                     //TODO
                                     this.closeAnimation();
                                 } else {
@@ -194,7 +228,7 @@ public class BespokePackageSelectDialog extends CustomDialogSkin {
                             } else if (category.matches("Activity")) {
                                 if (Integer.parseInt(rackTxf.getText()) > Integer.parseInt(((ProductActivity) selectedProduct[0]).getPrice())) {
                                     ProductActivity x = (ProductActivity) productListView.getSelectionModel().getSelectedItem();
-                                    selectedProduct[0] = new BookingActivity(-1, x.getSupplierName(), x.getProvince(), x.getProductName(), dateDP.getValue().toString(), (int) quantityCmb.getSelectionModel().getSelectedItem(), Integer.parseInt(x.getPrice()) + 0.00, Integer.parseInt(rackTxf.getText()) + 0.00, addToCmb.getSelectionModel().getSelectedItem().toString(), 0, 0.0);
+                                    selectedProduct[0] = new BookingActivity(-1, x.getSupplierName(), x.getProvince(), x.getProductName(), dateDP.getValue().toString(), (int) quantityCmb.getSelectionModel().getSelectedItem(), Integer.parseInt(stoTxf.getText()) + 0.00, Integer.parseInt(rackTxf.getText()) + 0.00, addToCmb.getSelectionModel().getSelectedItem().toString(), 0, 0.0);
                                     //TODO
                                     this.closeAnimation();
                                 } else {
@@ -285,7 +319,7 @@ public class BespokePackageSelectDialog extends CustomDialogSkin {
                 }
             }
         }
-        VBox settingsInnerPane = new VBox(headingText, province, supplier, dateBox, products, rackHbox, cmbSelection, addToSelection, buttons);
+        VBox settingsInnerPane = new VBox(headingText, province, supplier, dateBox, products, stoHbox, rackHbox, cmbSelection, addToSelection, buttons);
         settingsInnerPane.getChildren().addAll();
         settingsInnerPane.setSpacing(15);
         settingsInnerPane.setPadding(new Insets(20));
@@ -309,31 +343,41 @@ public class BespokePackageSelectDialog extends CustomDialogSkin {
         List<String>suppliers = new ArrayList<>();
         if(category.matches("Accommodation")) {
             for (Supplier s : Main.connectionHandler.suppliers) {
-                if(s.getProvince().matches(province)) {
-                    suppliers.add(s.getSupplierName());
+                if(s.getProvince().matches(province) || province.matches("All")) {
+                    if(s.getCategory().matches(category)) {
+                        if(!suppliers.contains(s.getSupplierName())) {
+                            suppliers.add(s.getSupplierName());
+                        }
+                    }
                 }
             }
         } else if(category.matches("Golf")) {
-            for (ProductGolf p : Main.connectionHandler.golf) {
-                for (Supplier s : Main.connectionHandler.suppliers) {
-                    if(s.getProvince().matches(province)) {
-                        suppliers.add(s.getSupplierName());
+            for (Supplier s : Main.connectionHandler.suppliers) {
+                if(s.getProvince().matches(province) || province.matches("All")) {
+                    if(s.getCategory().matches(category)) {
+                        if(!suppliers.contains(s.getSupplierName())) {
+                            suppliers.add(s.getSupplierName());
+                        }
                     }
                 }
             }
         } else if(category.matches("Transport")) {
-            for (ProductTransport p : Main.connectionHandler.transport) {
-                for (Supplier s : Main.connectionHandler.suppliers) {
-                    if(s.getProvince().matches(province)) {
-                        suppliers.add(s.getSupplierName());
+            for (Supplier s : Main.connectionHandler.suppliers) {
+                if(s.getProvince().matches(province) || province.matches("All")) {
+                    if(s.getCategory().matches(category)) {
+                        if(!suppliers.contains(s.getSupplierName())) {
+                            suppliers.add(s.getSupplierName());
+                        }
                     }
                 }
             }
         } else if(category.matches("Activity")) {
-            for (ProductActivity p : Main.connectionHandler.activities) {
-                for (Supplier s : Main.connectionHandler.suppliers) {
-                    if(s.getProvince().matches(province)) {
-                        suppliers.add(s.getSupplierName());
+            for (Supplier s : Main.connectionHandler.suppliers) {
+                if(s.getProvince().matches(province) || province.matches("All")) {
+                    if(s.getCategory().matches(category)) {
+                        if(!suppliers.contains(s.getSupplierName())) {
+                            suppliers.add(s.getSupplierName());
+                        }
                     }
                 }
             }

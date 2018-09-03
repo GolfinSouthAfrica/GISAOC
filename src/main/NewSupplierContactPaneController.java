@@ -24,23 +24,27 @@ public class NewSupplierContactPaneController implements Initializable {
     @FXML TextField emailTxf;
     private ContactDetails cd;
     private Supplier supplier;
+    private String category;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
 
-    public void initData(Supplier supplier){
+    public void initData(Supplier supplier, String category){
         Main.connectionHandler.suppliers.addListener((InvalidationListener) e -> {
             this.supplier = supplier;
+            this.category = category;
         });
         this.supplier = supplier;
+        this.category = category;
     }
 
-    public void initEditData(ContactDetails cd, Supplier supplier){
+    public void initEditData(ContactDetails cd, Supplier supplier, String category){
         Main.connectionHandler.suppliers.addListener((InvalidationListener) e -> {
             this.supplier = supplier;
             this.cd = cd;
+            this.category = category;
             contactNameLblTxf.setText(cd.getPersonName());
             positionTxf.setText(cd.getPosition());
             numberTxf.setText(cd.getNumber());
@@ -48,6 +52,7 @@ public class NewSupplierContactPaneController implements Initializable {
         });
         this.cd = cd;
         this.supplier = supplier;
+        this.category = category;
         contactNameLblTxf.setText(cd.getPersonName());
         positionTxf.setText(cd.getPosition());
         numberTxf.setText(cd.getNumber());
@@ -73,6 +78,8 @@ public class NewSupplierContactPaneController implements Initializable {
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
+                        SuppliersPaneController spc = loader.getController();
+                        spc.initData(category);
                     } else {
                         new CustomDialog().CustomDialog(Main.stage,"Email not entered", "Enter Email before adding Contact.", new JFXButton("Ok"));
                     }
@@ -96,7 +103,7 @@ public class NewSupplierContactPaneController implements Initializable {
             e.printStackTrace();
         }
         ViewSuppliersPaneController vspc = loader.getController();
-        vspc.initData(supplier);
+        vspc.initData(supplier, category);
     }
 
 }

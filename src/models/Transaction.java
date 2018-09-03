@@ -1,6 +1,8 @@
 package models;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 
 public class Transaction implements Serializable {
 
@@ -48,5 +50,10 @@ public class Transaction implements Serializable {
 
     public String getTransactionDate() {
         return transactionDate;
+    }
+
+    @Override
+    public String toString(){
+        return transactionType + " (R" + amount + ") on " + transactionDate + " Reference: " + reference;
     }
 }

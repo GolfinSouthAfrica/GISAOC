@@ -21,7 +21,7 @@
          <children>
             <Label fx:id="arrivalDateLbl" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="2018-09-12" />
             <Label fx:id="contactNumberLbl" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="0710834355" />
-            <Hyperlink fx:id="emailHL" style="-fx-text-fill: #1a6331;" text="pietpompies@gmail.com" />
+            <Hyperlink fx:id="emailHL" onAction="#emailHLClicked" style="-fx-text-fill: #1a6331;" text="pietpompies@gmail.com" />
          </children>
       </VBox>
       <HBox alignment="CENTER" prefHeight="80.0" prefWidth="420.0">
@@ -72,19 +72,6 @@
                         <ImageView>
                            <image>
                               <Image url="@../resources/ProcessSmall.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-               </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="110.0">
-               <children>
-                  <Button fx:id="mailsBtn" mnemonicParsing="false" onAction="#mailsButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
-                     <graphic>
-                        <ImageView>
-                           <image>
-                              <Image url="@../resources/SendSmall.png" />
                            </image>
                         </ImageView>
                      </graphic>

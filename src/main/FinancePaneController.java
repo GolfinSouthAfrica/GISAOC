@@ -7,15 +7,13 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TabPane;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import models.Transaction;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class FinancePaneController implements Initializable {
@@ -199,15 +197,50 @@ public class FinancePaneController implements Initializable {
 
     public void removeTransactionButtonClick(){
         if(tabs.getSelectionModel().getSelectedItem().getText().matches("Money Came In") && moneyCameInTV.getSelectionModel().getSelectedItem() != null){
-            Main.connectionHandler.outputQueue.add("rtr:" + ((Transaction)moneyCameInTV.getSelectionModel().getSelectedItem()).getID() + ":" + ((Transaction)moneyCameInTV.getSelectionModel().getSelectedItem()).getGsNumber());
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Remove Transaction");
+            alert.setHeaderText("Remove Transaction");
+            alert.setContentText("Are you sure you want to remove the transaction (" + ((Transaction)moneyCameInTV.getSelectionModel().getSelectedItem()).getReference() + ")?");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK){
+                Main.connectionHandler.outputQueue.add("rtr:" + ((Transaction)moneyCameInTV.getSelectionModel().getSelectedItem()).getID() + ":" + ((Transaction)moneyCameInTV.getSelectionModel().getSelectedItem()).getGsNumber());
+            }
         } else if (tabs.getSelectionModel().getSelectedItem().getText().matches("Money Paid Out") && moneyPaidOutTV.getSelectionModel().getSelectedItem() != null){
-            Main.connectionHandler.outputQueue.add("rtr:" + ((Transaction)moneyPaidOutTV.getSelectionModel().getSelectedItem()).getID() + ":" + ((Transaction)moneyPaidOutTV.getSelectionModel().getSelectedItem()).getGsNumber());
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Remove Transaction");
+            alert.setHeaderText("Remove Transaction");
+            alert.setContentText("Are you sure you want to remove the transaction (" + ((Transaction)moneyPaidOutTV.getSelectionModel().getSelectedItem()).getReference() + ")?");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK){
+                Main.connectionHandler.outputQueue.add("rtr:" + ((Transaction)moneyPaidOutTV.getSelectionModel().getSelectedItem()).getID() + ":" + ((Transaction)moneyPaidOutTV.getSelectionModel().getSelectedItem()).getGsNumber());
+            }
         } else if (tabs.getSelectionModel().getSelectedItem().getText().matches("Expenses") && expensesTV.getSelectionModel().getSelectedItem() != null){
-            Main.connectionHandler.outputQueue.add("rtr:" + ((Transaction)expensesTV.getSelectionModel().getSelectedItem()).getID() + ":" + ((Transaction)expensesTV.getSelectionModel().getSelectedItem()).getGsNumber());
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Remove Transaction");
+            alert.setHeaderText("Remove Transaction");
+            alert.setContentText("Are you sure you want to remove the transaction (" + ((Transaction)expensesTV.getSelectionModel().getSelectedItem()).getReference() + ")?");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK){
+                Main.connectionHandler.outputQueue.add("rtr:" + ((Transaction)expensesTV.getSelectionModel().getSelectedItem()).getID() + ":" + ((Transaction)expensesTV.getSelectionModel().getSelectedItem()).getGsNumber());
+            }
         } else if (tabs.getSelectionModel().getSelectedItem().getText().matches("Suppliers Paid") && suppliersPaidTV.getSelectionModel().getSelectedItem() != null){
-            Main.connectionHandler.outputQueue.add("rtr:" + ((Transaction)suppliersPaidTV.getSelectionModel().getSelectedItem()).getID() + ":" + ((Transaction)suppliersPaidTV.getSelectionModel().getSelectedItem()).getGsNumber());
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Remove Transaction");
+            alert.setHeaderText("Remove Transaction");
+            alert.setContentText("Are you sure you want to remove the transaction (" + ((Transaction)suppliersPaidTV.getSelectionModel().getSelectedItem()).getReference() + ")?");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK){
+                Main.connectionHandler.outputQueue.add("rtr:" + ((Transaction)suppliersPaidTV.getSelectionModel().getSelectedItem()).getID() + ":" + ((Transaction)suppliersPaidTV.getSelectionModel().getSelectedItem()).getGsNumber());
+            }
         } else if (tabs.getSelectionModel().getSelectedItem().getText().matches("Search") && searchTV.getSelectionModel().getSelectedItem() != null){
-            Main.connectionHandler.outputQueue.add("rtr:" + ((Transaction)searchTV.getSelectionModel().getSelectedItem()).getID() + ":" + ((Transaction)searchTV.getSelectionModel().getSelectedItem()).getGsNumber());
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Remove Transaction");
+            alert.setHeaderText("Remove Transaction");
+            alert.setContentText("Are you sure you want to remove the transaction (" + ((Transaction)searchTV.getSelectionModel().getSelectedItem()).getReference() + ")?");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK){
+                Main.connectionHandler.outputQueue.add("rtr:" + ((Transaction)searchTV.getSelectionModel().getSelectedItem()).getID() + ":" + ((Transaction)searchTV.getSelectionModel().getSelectedItem()).getGsNumber());
+            }
         } else {
             new CustomDialog().CustomDialog(Main.stage, "No Transaction Selected", "Select the transaction you want to remove first", new JFXButton("Ok"));
         }

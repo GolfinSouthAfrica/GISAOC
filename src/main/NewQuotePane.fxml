@@ -16,27 +16,33 @@
    <children>
       <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <VBox fx:id="emailFromVBox" alignment="CENTER" prefHeight="215.0" prefWidth="360.0">
+            <VBox prefHeight="192.0" prefWidth="1037.0">
                <children>
-                  <Label fx:id="emailFromLbl" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Mail From ():">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </Label>
-                  <TextArea fx:id="emailFromTxa" disable="true" editable="false" prefHeight="101.0" prefWidth="150.0" />
-               </children>
-               <HBox.margin>
-                  <Insets left="20.0" right="10.0" />
-               </HBox.margin>
-            </VBox>
-            <VBox prefHeight="105.0" prefWidth="1000.0">
-               <children>
-                  <VBox alignment="TOP_CENTER" prefHeight="215.0" prefWidth="729.0">
+                  <VBox alignment="TOP_CENTER" prefHeight="192.0" prefWidth="1047.0">
                      <children>
-                        <Label styleClass="mainHeadingText" stylesheets="@../resources/GISAStyle.css" text="Golf in South Africa" />
-                        <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="New Qoute" />
-                        <HBox alignment="CENTER" prefHeight="74.0" prefWidth="1105.0" spacing="50.0">
+                        <Label styleClass="mainHeadingText" stylesheets="@../resources/GISAStyle.css" text="Golf in South Africa">
+                           <VBox.margin>
+                              <Insets left="250.0" />
+                           </VBox.margin></Label>
+                        <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="New Qoute">
+                           <VBox.margin>
+                              <Insets left="250.0" />
+                           </VBox.margin></Label>
+                        <HBox alignment="CENTER" prefHeight="125.0" prefWidth="1048.0" spacing="30.0">
                            <children>
+                              <VBox fx:id="emailFromVBox" alignment="BOTTOM_CENTER" prefHeight="125.0" prefWidth="183.0">
+                                 <children>
+                                    <Label fx:id="emailFromLbl" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Notes:">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </Label>
+                                    <TextArea fx:id="notesTxa" prefHeight="113.0" prefWidth="215.0" />
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="20.0" right="10.0" />
+                                 </HBox.margin>
+                              </VBox>
                               <VBox prefHeight="100.0" prefWidth="300.0" spacing="10.0">
                                  <children>
                                     <HBox alignment="CENTER_RIGHT" prefHeight="28.0" prefWidth="100.0" spacing="20.0">
@@ -87,45 +93,11 @@
                            </VBox.margin>
                         </HBox>
                      </children>
-                     <padding>
-                        <Insets left="-250.0" />
-                     </padding>
                   </VBox>
                </children>
-            </VBox>
-         </children>
-      </HBox>
-      <HBox prefHeight="133.0" prefWidth="1100.0">
-         <children>
-            <VBox alignment="CENTER" prefHeight="153.0" prefWidth="691.0" spacing="10.0">
-               <children>
-                  <Label styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Message" />
-                  <TextArea fx:id="messageTxa" minHeight="115.0" prefHeight="115.0" prefWidth="590.0" stylesheets="@../resources/GISAStyle.css" text="Testing">
-                     <VBox.margin>
-                        <Insets left="50.0" />
-                     </VBox.margin>
-                  </TextArea>
-               </children>
-            </VBox>
-            <VBox prefHeight="153.0" prefWidth="511.0">
-               <children>
-                  <HBox alignment="CENTER" prefHeight="75.0" prefWidth="460.0">
-                     <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="90.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Golfers Sharing:" />
-                        <ComboBox fx:id="golfersSharingCmb" prefHeight="38.0" prefWidth="90.0" />
-                        <Label alignment="CENTER" prefHeight="15.0" prefWidth="107.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Non-Golfers Sharing:" />
-                        <ComboBox fx:id="nonGolfersSharingCmb" prefHeight="38.0" prefWidth="90.0" />
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER" prefHeight="75.0" prefWidth="460.0">
-                     <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="90.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Golfers Single:" />
-                        <ComboBox fx:id="golfersSingleCmb" prefHeight="38.0" prefWidth="90.0" />
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="110.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Non-Golfers Single:" />
-                        <ComboBox fx:id="nonGolfersSingleCmb" prefHeight="38.0" prefWidth="90.0" />
-                     </children>
-                  </HBox>
-               </children>
+               <HBox.margin>
+                  <Insets right="250.0" />
+               </HBox.margin>
             </VBox>
          </children>
       </HBox>
@@ -152,6 +124,110 @@
          <padding>
             <Insets bottom="10.0" />
          </padding>
+      </HBox>
+      <HBox prefHeight="133.0" prefWidth="1100.0">
+         <children>
+            <VBox prefHeight="133.0" prefWidth="452.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="75.0" prefWidth="460.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="90.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Golfers Sharing:" />
+                        <ComboBox fx:id="golfersSharingCmb" prefHeight="38.0" prefWidth="90.0" />
+                        <Label alignment="CENTER" prefHeight="15.0" prefWidth="107.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Non-Golfers Sharing:" />
+                        <ComboBox fx:id="nonGolfersSharingCmb" prefHeight="38.0" prefWidth="90.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="67.0" prefWidth="475.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="90.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Golfers Single:" />
+                        <ComboBox fx:id="golfersSingleCmb" prefHeight="38.0" prefWidth="90.0" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="110.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Non-Golfers Single:" />
+                        <ComboBox fx:id="nonGolfersSingleCmb" prefHeight="38.0" prefWidth="90.0" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="133.0" prefWidth="609.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="67.0" prefWidth="594.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="15.0" prefWidth="90.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Golfers Sharing:" />
+                        <VBox alignment="CENTER" prefHeight="67.0" prefWidth="190.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="18.0" prefWidth="150.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="75.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Actual Price:" />
+                                    <Label fx:id="golfersSharingActualPriceLbl" alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="120.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="R 000 000 000" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="30.0" prefWidth="191.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="75.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Asking Price:" />
+                                    <TextField fx:id="golfersSharingAskingPriceTxf" alignment="CENTER" styleClass="quoteAskingPriceTxf" stylesheets="@../resources/GISAStyle.css" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <Label alignment="CENTER_RIGHT" prefHeight="15.0" prefWidth="107.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Non-Golfers Sharing:" />
+                        <VBox alignment="CENTER" prefHeight="67.0" prefWidth="190.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="18.0" prefWidth="150.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="75.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Actual Price:" />
+                                    <Label fx:id="nonGolfersSharingActualPriceLbl" alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="120.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="R 000 000 000" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="18.0" prefWidth="150.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="75.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Asking Price:" />
+                                    <TextField fx:id="nonGolfersSharingAskingPriceTxf" alignment="CENTER" styleClass="quoteAskingPriceTxf" stylesheets="@../resources/GISAStyle.css" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="75.0" prefWidth="460.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="15.0" prefWidth="90.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Golfers Single:" />
+                        <VBox alignment="CENTER" prefHeight="67.0" prefWidth="190.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="18.0" prefWidth="150.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="75.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Actual Price:" />
+                                    <Label fx:id="golfersSingleActualPriceLbl" alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="120.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="R 000 000 000" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="18.0" prefWidth="150.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="75.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Asking Price:" />
+                                    <TextField fx:id="golfersSingleAskingPriceTxf" alignment="CENTER" styleClass="quoteAskingPriceTxf" stylesheets="@../resources/GISAStyle.css" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="15.0" prefWidth="110.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Non-Golfers Single:" />
+                        <VBox alignment="CENTER" prefHeight="67.0" prefWidth="190.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="18.0" prefWidth="150.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="75.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Actual Price:" />
+                                    <Label fx:id="nonGolfersSingleActualPriceLbl" alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="120.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="R 000 000 000" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="18.0" prefWidth="150.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="75.0" styleClass="tertiaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Asking Price:" />
+                                    <TextField fx:id="nonGolfersSingleAskingPriceTxf" alignment="CENTER" styleClass="quoteAskingPriceTxf" stylesheets="@../resources/GISAStyle.css" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="300.0">
          <children>

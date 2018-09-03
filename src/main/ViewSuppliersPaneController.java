@@ -1,7 +1,6 @@
 package main;
 
 import javafx.application.Platform;
-import javafx.beans.InvalidationListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -9,15 +8,16 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import models.ContactDetails;
-import models.DataFile;
-import models.Supplier;
+import models.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ViewSuppliersPaneController implements Initializable {
@@ -26,24 +26,26 @@ public class ViewSuppliersPaneController implements Initializable {
     @FXML Label provinceTxf;
     @FXML Label categoryTxf;
     @FXML Label addressTxf;
-    @FXML Label coOrdinatesTxf;
     @FXML ScrollPane contactsScrollPane;
     @FXML VBox contactsList;
+    @FXML ListView productsListView;
+    @FXML ListView pricesListView;
     private Supplier supplier;
+    private String category;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
 
-    public void initData(Supplier supplier){
+    public void initData(Supplier supplier, String category){
         this.supplier = supplier;
+        this.category = category;
         Main.connectionHandler.suppliers.addListener((ListChangeListener<Supplier>) c -> {
             supplierNameTxf.setText(supplier.getSupplierName());
             categoryTxf.setText(supplier.getCategory());
             provinceTxf.setText(supplier.getProvince());
             addressTxf.setText(supplier.getAddress());
-            coOrdinatesTxf.setText(supplier.getCoOrdinates());
             if(!supplier.getContactDetails().isEmpty()){
                 populateContacts();
             } else {
@@ -54,12 +56,42 @@ public class ViewSuppliersPaneController implements Initializable {
         categoryTxf.setText(supplier.getCategory());
         provinceTxf.setText(supplier.getProvince());
         addressTxf.setText(supplier.getAddress());
-        coOrdinatesTxf.setText(supplier.getCoOrdinates());
         if(!supplier.getContactDetails().isEmpty()){
             populateContacts();
         } else {
             Platform.runLater(() -> contactsList.getChildren().clear());
         }
+        populateProducts();
+        productsListView.setOnMouseClicked(e -> {
+            if(productsListView.getSelectionModel().getSelectedItem() != null){
+                if (category.matches("Accommodation")) {
+                    ProductAccommodation p = (ProductAccommodation) productsListView.getSelectionModel().getSelectedItem();
+                    pricesListView.getItems().clear();
+                    for (String[] s : p.getPrices()) {
+                        pricesListView.getItems().add("Valid: " + s[0] + " - " + s[1] + " Price: R " + s[2]);
+                    }
+                } else if (category.matches("Golf")) {
+                    ProductGolf p = (ProductGolf) productsListView.getSelectionModel().getSelectedItem();
+                    pricesListView.getItems().clear();
+                    for (String[] s : p.getPrices()) {
+                        pricesListView.getItems().add("Valid: " + s[0] + " - " + s[1] + " Price: R " + s[2]);
+                    }
+                } else if (category.matches("Transport")) {
+                    ProductTransport p = (ProductTransport) productsListView.getSelectionModel().getSelectedItem();
+                    pricesListView.getItems().clear();
+                    for (String[] s : p.getPrices()) {
+                        pricesListView.getItems().add("Valid: " + s[0] + " - " + s[1] + " Price: R " + s[2]);
+                    }
+
+                } else if (category.matches("Activities")) {
+                    ProductActivity p = (ProductActivity) productsListView.getSelectionModel().getSelectedItem();
+                    pricesListView.getItems().clear();
+                    for (String[] s : p.getPrices()) {
+                        pricesListView.getItems().add("Valid: " + s[0] + " - " + s[1] + " Price: R " + s[2]);
+                    }
+                }
+            }
+        });
     }
 
     private void populateContacts(){
@@ -77,12 +109,52 @@ public class ViewSuppliersPaneController implements Initializable {
                         e.printStackTrace();
                     }
                     ViewSuppliersContactCardPaneController vsccpc = loader.getController();
-                    vsccpc.initData(cd, supplier);
+                    vsccpc.initData(cd, supplier, category);
                     contactCards.add(root);
                 }
                 Platform.runLater(() -> contactsList.getChildren().addAll(contactCards));
             }
         }
+    }
+
+    private void populateProducts(){
+        List<Product> products = new ArrayList<>();
+        if(category.matches("Accommodation")){
+            for (ProductAccommodation pa:Main.connectionHandler.accomodation){
+                if(pa.getSupplierName().matches(supplier.getSupplierName())) {
+                    pa.setDateSelected("All");
+                    products.add(pa);
+                }
+            }
+        }
+        if(category.matches("Golf")) {
+            for (ProductGolf pg:Main.connectionHandler.golf){
+                if(pg.getSupplierName().matches(supplier.getSupplierName())) {
+                    pg.setDateSelected("All");
+                    products.add(pg);
+                }
+            }
+        }
+        if(category.matches("Transport")) {
+            for (ProductTransport pt:Main.connectionHandler.transport){
+                if(pt.getSupplierName().matches(supplier.getSupplierName())) {
+                    pt.setDateSelected("All");
+                    products.add(pt);
+                }
+            }
+        }
+        if(category.matches("Activities")) {
+            for (ProductActivity pa:Main.connectionHandler.activities){
+                if(pa.getSupplierName().matches(supplier.getSupplierName())) {
+                    pa.setDateSelected("All");
+                    products.add(pa);
+                }
+            }
+        }
+        Platform.runLater(() -> {
+            productsListView.getItems().clear();
+            productsListView.getItems().addAll(products);
+        });
     }
 
     public void addButtonClick(){
@@ -94,7 +166,7 @@ public class ViewSuppliersPaneController implements Initializable {
             e.printStackTrace();
         }
         NewSupplierContactPaneController nscpc = loader.getController();
-        nscpc.initData(supplier);
+        nscpc.initData(supplier, category);
     }
 
     public void editButtonClick(){
@@ -106,7 +178,7 @@ public class ViewSuppliersPaneController implements Initializable {
             e.printStackTrace();
         }
         NewSupplierPaneController nspc = loader.getController();
-        nspc.initData(supplier, "ViewSuppliersPane");
+        nspc.initData(supplier, "ViewSuppliersPane", category);
     }
 
     public void backButtonClick(){
@@ -117,6 +189,8 @@ public class ViewSuppliersPaneController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        SuppliersPaneController spc = loader.getController();
+        spc.initData(category);
     }
 
 }

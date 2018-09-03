@@ -2,16 +2,14 @@ package main;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
-import javafx.scene.control.Tooltip;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import models.Supplier;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class SuppliersCardPaneController {
 
@@ -23,9 +21,11 @@ public class SuppliersCardPaneController {
     @FXML Button editBtn;
     @FXML Button removeBtn;
     private Supplier supplier;
+    private String category;
 
-    public void initData(Supplier supplier){
+    public void initData(Supplier supplier, String category){
         this.supplier = supplier;
+        this.category = category;
         supplierNameLbl.setText(supplier.getSupplierName());
         categoryLbl.setText(supplier.getCategory());
         provinceLbl.setText(supplier.getProvince());
@@ -44,7 +44,7 @@ public class SuppliersCardPaneController {
             e.printStackTrace();
         }
         ViewSuppliersPaneController vspc = loader.getController();
-        vspc.initData(supplier);
+        vspc.initData(supplier, category);
     }
 
     public void editButtonClick(){
@@ -56,12 +56,17 @@ public class SuppliersCardPaneController {
             e.printStackTrace();
         }
         NewSupplierPaneController nspc = loader.getController();
-        nspc.initData(supplier, "SuppliersPane");
+        nspc.initData(supplier, "SuppliersPane", category);
     }
 
     public void removeButtonClick(){
-        //if (UserNotification.confirmationDialog(Main.stage, "Are you sure you want to remove " + supplier.getSupplierName() + "?", "This will delete all associated products of the supplier as well.")) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Remove Package");
+        alert.setHeaderText("Remove Package");
+        alert.setContentText("Are you sure you want to remove the package (" + supplier.getSupplierName() + ")?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
             Main.connectionHandler.outputQueue.add("rs:" + supplier.getSupplierNumber());
-        //}
+        }
     }
 }

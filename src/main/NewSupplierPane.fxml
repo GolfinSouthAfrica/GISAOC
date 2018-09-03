@@ -44,12 +44,6 @@
                   <TextField fx:id="addressTxf" prefHeight="35.0" prefWidth="350.0" styleClass="new" stylesheets="@../resources/GISAStyle.css" />
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1100.0" spacing="10.0">
-               <children>
-                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="33.0" prefWidth="250.0" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Co-Ordinates:" />
-                  <TextField fx:id="coOrdinatesTxf" prefHeight="35.0" prefWidth="350.0" styleClass="new" stylesheets="@../resources/GISAStyle.css" />
-               </children>
-            </HBox>
          </children>
          <VBox.margin>
             <Insets top="80.0" />

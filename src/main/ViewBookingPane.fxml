@@ -18,109 +18,119 @@
             <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="View Booking" />
          </children>
       </VBox>
-      <VBox prefHeight="229.0" prefWidth="1100.0">
+      <VBox prefHeight="234.0" prefWidth="1100.0">
          <children>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1100.0" spacing="20.0">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
                <children>
-                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Client Name:" />
-                  <Label fx:id="clientNameLbl" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Piet Pompies">
-                     <HBox.margin>
-                        <Insets right="50.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="GSNumber:" />
-                  <Label fx:id="gsNumberLbl" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="GS000001" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1100.0" spacing="20.0">
-               <children>
-                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Contact Number" />
-                  <Label fx:id="contactNumberLbl" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="074 582 6589">
-                     <HBox.margin>
-                        <Insets right="50.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Email:" />
-                  <Hyperlink fx:id="emailHL" style="-fx-text-fill: #1a6331;" stylesheets="@../resources/GISAStyle.css" text="pietpompies@gmail.com" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1100.0" spacing="20.0">
-               <children>
-                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="People:" />
-                  <Label fx:id="peopleLbl" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Adult: 2 Children: 2">
+                  <Label alignment="CENTER_RIGHT" prefHeight="22.0" prefWidth="200.0" style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Client Name:" />
+                  <Label fx:id="clientNameLbl" alignment="CENTER" prefHeight="22.0" prefWidth="200.0" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Piet Pompies">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                   </Label>
-                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Booking Amount:" />
-                  <Label fx:id="bookingAmountLbl" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="R 1 000 000" />
+                  <Label alignment="CENTER_RIGHT" prefHeight="22.0" prefWidth="200.0" style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="GSNumber:" />
+                  <Label fx:id="gsNumberLbl" alignment="CENTER" prefHeight="22.0" prefWidth="280.0" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="GS000001" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1100.0" spacing="20.0">
                <children>
-                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Arrival:" />
-                  <Label fx:id="arrivalLbl" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="2018-06-28">
+                  <Label alignment="CENTER_RIGHT" prefHeight="22.0" prefWidth="201.0" style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Contact Number:" />
+                  <Label fx:id="contactNumberLbl" alignment="CENTER" prefHeight="22.0" prefWidth="200.0" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="074 582 6589">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                   </Label>
-                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Departure:" />
-                  <Label fx:id="departureLbl" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="2018-06-29" />
+                  <Label alignment="CENTER_RIGHT" prefHeight="22.0" prefWidth="200.0" style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Email:" />
+                  <Hyperlink fx:id="emailHL" alignment="CENTER" onAction="#emailHLClicked" prefHeight="29.0" prefWidth="280.0" style="-fx-text-fill: #1a6331;" stylesheets="@../resources/GISAStyle.css" text="pietpompies@gmail.com" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1100.0" spacing="20.0">
                <children>
-                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Consultant:" />
-                  <Label fx:id="consultantLbl" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Marle O'Reilly">
+                  <Label alignment="CENTER_RIGHT" prefHeight="22.0" prefWidth="200.0" style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Golfers:" />
+                  <Label fx:id="golfersLbl" alignment="CENTER" prefHeight="22.0" prefWidth="200.0" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="0">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                   </Label>
-                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Process:" />
-                  <Label fx:id="processLbl" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Quote" />
+                  <Label alignment="CENTER_RIGHT" prefHeight="22.0" prefWidth="200.0" style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Non-Golfers:" />
+                  <Label fx:id="nongolfersLbl" alignment="CENTER" prefHeight="22.0" prefWidth="281.0" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="0" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1100.0" spacing="20.0">
                <children>
-                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Full Deposit Paid:" />
-                  <Label fx:id="fullDepositPaidLbl" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="No">
+                  <Label alignment="CENTER_RIGHT" prefHeight="22.0" prefWidth="200.0" style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Arrival:" />
+                  <Label fx:id="arrivalLbl" alignment="CENTER" prefHeight="22.0" prefWidth="200.0" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="2018-06-28">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                   </Label>
-                  <Label style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Full Payment Paid:" />
-                  <Label fx:id="fullPaymentLbl" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="No" />
+                  <Label alignment="CENTER_RIGHT" prefHeight="22.0" prefWidth="200.0" style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Departure:" />
+                  <Label fx:id="departureLbl" alignment="CENTER" prefHeight="22.0" prefWidth="280.0" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="2018-06-29" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1100.0" spacing="20.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" prefHeight="22.0" prefWidth="200.0" style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Booking Amount:" />
+                  <Label fx:id="bookingAmountLbl" alignment="CENTER" prefHeight="22.0" prefWidth="200.0" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Marle O'Reilly">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" prefHeight="22.0" prefWidth="200.0" style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Process:" />
+                  <Label fx:id="processLbl" alignment="CENTER" prefHeight="22.0" prefWidth="280.0" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Quote" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1100.0" spacing="20.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" prefHeight="22.0" prefWidth="200.0" style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Full Deposit Paid:" />
+                  <Label fx:id="fullDepositPaidLbl" alignment="CENTER" prefHeight="22.0" prefWidth="200.0" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="No">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" prefHeight="22.0" prefWidth="200.0" style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Full Payment Paid:" />
+                  <Label fx:id="fullPaymentLbl" alignment="CENTER" prefHeight="22.0" prefWidth="280.0" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="No" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1100.0" spacing="20.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" prefHeight="22.0" prefWidth="200.0" style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Amount Outstanding:" />
+                  <Label fx:id="amountOutstandingLbl" alignment="CENTER" prefHeight="22.0" prefWidth="200.0" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="R 1 000 000">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" prefHeight="22.0" prefWidth="200.0" style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Amount To Be Paid:" />
+                  <Label fx:id="amountToBePaidLbl" alignment="CENTER" prefHeight="22.0" prefWidth="280.0" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="R 1 000 000" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1100.0" spacing="20.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" prefHeight="22.0" prefWidth="200.0" style="-fx-text-fill: #69aa7e;" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Notes:" />
+                  <Label fx:id="notesLbl" prefHeight="22.0" prefWidth="720.0" styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="R 1 000 000">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
                </children>
             </HBox>
          </children>
       </VBox>
       <HBox alignment="TOP_CENTER" prefHeight="223.0" prefWidth="1100.0" spacing="50.0">
          <children>
-            <VBox alignment="TOP_CENTER" prefHeight="202.0" prefWidth="230.0">
+            <VBox alignment="TOP_CENTER" prefHeight="223.0" prefWidth="500.0">
                <children>
-                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Accommodation:" />
-                  <ListView fx:id="accommodationListView" maxWidth="249.0" prefHeight="200.0" prefWidth="249.0" styleClass="bookingBespoke-listView" stylesheets="@../resources/GISAStyle.css" />
+                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Booking Includes:" />
+                  <ListView fx:id="bookingIncludesListView" maxWidth="497.0" prefHeight="200.0" prefWidth="497.0" styleClass="bookingView-listView" stylesheets="@../resources/GISAStyle.css" />
                </children>
             </VBox>
-            <VBox alignment="TOP_CENTER" prefHeight="202.0" prefWidth="230.0">
+            <VBox alignment="TOP_CENTER" prefHeight="223.0" prefWidth="500.0">
                <children>
-                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Golf:" />
-                  <ListView fx:id="golfListView" prefHeight="200.0" prefWidth="200.0" styleClass="bookingBespoke-listView" stylesheets="@../resources/GISAStyle.css" />
-               </children>
-            </VBox>
-            <VBox alignment="TOP_CENTER" prefHeight="202.0" prefWidth="230.0">
-               <children>
-                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Transport:" />
-                  <ListView fx:id="transportListView" prefHeight="200.0" prefWidth="200.0" styleClass="bookingBespoke-listView" stylesheets="@../resources/GISAStyle.css" />
-               </children>
-            </VBox>
-            <VBox alignment="TOP_CENTER" prefHeight="202.0" prefWidth="230.0">
-               <children>
-                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Activities:" />
-                  <ListView fx:id="activitiesListView" prefHeight="200.0" prefWidth="200.0" styleClass="bookingBespoke-listView" stylesheets="@../resources/GISAStyle.css" />
+                  <Label styleClass="secondaryHeadingText" stylesheets="@../resources/GISAStyle.css" text="Transactions:" />
+                  <ListView fx:id="transactionsListView" prefHeight="200.0" prefWidth="200.0" styleClass="bookingView-listView" stylesheets="@../resources/GISAStyle.css" />
                </children>
             </VBox>
          </children>
@@ -156,20 +166,6 @@
                      </graphic>
                   </Button>
                   <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Process" />
-               </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#mailsButtonClick" prefHeight="58.0" prefWidth="59.0" stylesheets="@../resources/GISAStyle.css">
-                     <graphic>
-                        <ImageView>
-                           <image>
-                              <Image url="@../resources/Send.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Label styleClass="home-text" stylesheets="@../resources/GISAStyle.css" text="Mails" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0">
