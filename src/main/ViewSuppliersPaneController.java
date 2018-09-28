@@ -41,17 +41,6 @@ public class ViewSuppliersPaneController implements Initializable {
     public void initData(Supplier supplier, String category){
         this.supplier = supplier;
         this.category = category;
-        Main.connectionHandler.suppliers.addListener((ListChangeListener<Supplier>) c -> {
-            supplierNameTxf.setText(supplier.getSupplierName());
-            categoryTxf.setText(supplier.getCategory());
-            provinceTxf.setText(supplier.getProvince());
-            addressTxf.setText(supplier.getAddress());
-            if(!supplier.getContactDetails().isEmpty()){
-                populateContacts();
-            } else {
-                Platform.runLater(() -> contactsList.getChildren().clear());
-            }
-        });
         supplierNameTxf.setText(supplier.getSupplierName());
         categoryTxf.setText(supplier.getCategory());
         provinceTxf.setText(supplier.getProvince());
@@ -96,24 +85,22 @@ public class ViewSuppliersPaneController implements Initializable {
 
     private void populateContacts(){
         Platform.runLater(() -> contactsList.getChildren().clear());
-        if(!Main.connectionHandler.suppliers.isEmpty()) {
-            ObservableList<HBox> contactCards = FXCollections.observableArrayList();
-            if (!supplier.getContactDetails().isEmpty()) {
-                for (ContactDetails cd : supplier.getContactDetails()) {
-                    FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("ViewSuppliersContactCardPane.fxml"));
-                    HBox root = null;
-                    try {
-                        root = loader.load();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    ViewSuppliersContactCardPaneController vsccpc = loader.getController();
-                    vsccpc.initData(cd, supplier, category);
-                    contactCards.add(root);
+        ObservableList<HBox> contactCards = FXCollections.observableArrayList();
+        if (!supplier.getContactDetails().isEmpty()) {
+            for (ContactDetails cd : supplier.getContactDetails()) {
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("ViewSuppliersContactCardPane.fxml"));
+                HBox root = null;
+                try {
+                    root = loader.load();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-                Platform.runLater(() -> contactsList.getChildren().addAll(contactCards));
+                ViewSuppliersContactCardPaneController vsccpc = loader.getController();
+                vsccpc.initData(cd, supplier, category);
+                contactCards.add(root);
             }
+            Platform.runLater(() -> contactsList.getChildren().addAll(contactCards));
         }
     }
 

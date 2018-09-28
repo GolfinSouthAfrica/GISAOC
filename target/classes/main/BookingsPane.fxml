@@ -44,6 +44,12 @@
                   <Label onMouseClicked="#confirmedButtonClick" styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Confirmed" />
                </children>
             </StackPane>
+            <StackPane prefHeight="200.0" prefWidth="230.0" styleClass="home-button" stylesheets="@../resources/GISAStyle.css">
+               <children>
+                  <ImageView fitHeight="200.0" fitWidth="230.0" onMouseClicked="#archiveButtonClick" pickOnBounds="true" preserveRatio="true" />
+                  <Label onMouseClicked="#archiveButtonClick" styleClass="home-button-text" stylesheets="@../resources/GISAStyle.css" text="Archive" />
+               </children>
+            </StackPane>
          </children>
       </HBox>
       <HBox alignment="BOTTOM_RIGHT" prefHeight="194.0" prefWidth="1100.0" spacing="30.0">

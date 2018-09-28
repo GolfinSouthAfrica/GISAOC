@@ -34,15 +34,6 @@ public class ViewPackagePaneController implements Initializable {
     }
 
     public void initData(TripPackage tripPackage){
-        Main.connectionHandler.suppliers.addListener((InvalidationListener) e -> {
-            this.tripPackage = tripPackage;
-            packageNameLbl.setText(tripPackage.getPackageName());
-            provinceLbl.setText(tripPackage.getProvince());
-            categoryLbl.setText(tripPackage.getCategory());
-            expiryDateLbl.setText(tripPackage.getExpiryDate());
-            totalAmountLbl.setText("R " + tripPackage.getTotalPackageAmount());
-            populateLists();
-        });
         this.tripPackage = tripPackage;
         packageNameLbl.setText(tripPackage.getPackageName());
         provinceLbl.setText(tripPackage.getProvince());

@@ -61,11 +61,29 @@ public class BookingProcess extends CustomDialogSkin {
                 new CustomDialog().CustomDialog(Main.stage, "Go to the Finance Pane", "Go to the Finance Pane and add the client transaction to take booking to next process.", new JFXButton("Ok"));
             }
         });
+        Button cancelBooking = new Button("Previous");
+        cancelBooking.setOnAction(actionEvent -> {
+            if(this.booking.getProcess().matches("Quote")){
+                new CustomDialog().CustomDialog(Main.stage, "No Booking Made", "No Bookings Have Been Made.", new JFXButton("Ok"));
+            } else if(this.booking.getProcess().matches("PendingBookingMade")){
+                Main.connectionHandler.outputQueue.add("bpp:" + booking.getGsNumber() + ":Quote:" + booking.getArrival() + ":" + booking.getClientName());
+                currentProcess.setText("Current Process: Quote");
+                this.booking.setProcess("Quote");
+            } else if(this.booking.getProcess().matches("PendingDepositRecieved")) {
+                new CustomDialog().CustomDialog(Main.stage, "Go to the Finance Pane", "Go to the Finance Pane and remove the client transactions to cancel bookings.", new JFXButton("Ok"));
+            } else if(this.booking.getProcess().matches("PendingDepositPaid")){
+                new CustomDialog().CustomDialog(Main.stage, "Go to the Finance Pane", "Go to the Finance Pane and remove the client transactions to cancel bookings.", new JFXButton("Ok"));
+            } else if(this.booking.getProcess().matches("PendingFullRecieved")){
+                new CustomDialog().CustomDialog(Main.stage, "Go to the Finance Pane", "Go to the Finance Pane and remove the client transactions to cancel bookings.", new JFXButton("Ok"));
+            } else if(this.booking.getProcess().matches("ConfirmedFullPaid")){
+                new CustomDialog().CustomDialog(Main.stage, "Go to the Finance Pane", "Go to the Finance Pane and remove the client transactions to cancel bookings.", new JFXButton("Ok"));
+            }
+        });
         Button done = new Button("Done");
         done.setOnAction(actionEvent -> {
             this.closeAnimation();
         });
-        VBox bookingProcess = new VBox(headingText, currentProcess, nextProcess, done);
+        VBox bookingProcess = new VBox(headingText, currentProcess, nextProcess, cancelBooking, done);
         bookingProcess.getChildren().addAll();
         bookingProcess.setSpacing(15);
         bookingProcess.setPadding(new Insets(20));
@@ -78,7 +96,7 @@ public class BookingProcess extends CustomDialogSkin {
         bookingProcess.setMaxSize(350, 350);
         bookingProcess.setMinSize(250, 250);
         VBox settingsPane = new VBox(bookingProcess);
-        setWidth(350);
+        setWidth(450);
         settingsPane.setAlignment(Pos.CENTER);
         getDialogPane().setContent(settingsPane);
         showDialog();

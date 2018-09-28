@@ -57,11 +57,6 @@ public class DocumentCardPaneController {
         }
     }
 
-    public void sendButtonClick(){//TODO test
-        //new EmailDialog(Main.stage, dataFile.getFileType(), dataFile.getFileName()).showDialog();
-        new CustomDialog().CustomDialog(Main.stage,"Not Yet Implemented", "Future Development", new JFXButton("Ok"));
-    }
-
     public void exportButtonClick(){
         DirectoryChooser dc = new DirectoryChooser();
         dc.setTitle("Choose Directory to export to..");

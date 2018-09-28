@@ -7,68 +7,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/ProductsPane.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/ProductsPaneController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/SuppliersSelectionPaneController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/models/Notification.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/MailDisplayPane.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/MailDisplayPaneController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/MailListPane.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/MailListPaneController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/MailPaneController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/MailSecondPane.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/MailSecondPaneController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/models/Mail.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/main/MailPane.fxml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/ConnectionHandler$FileDownloader.class" afterPath="$PROJECT_DIR$/target/classes/main/ConnectionHandler$FileDownloader.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/ConnectionHandler$InputProcessor.class" afterPath="$PROJECT_DIR$/target/classes/main/ConnectionHandler$InputProcessor.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/ConnectionHandler$OutputProcessor.class" afterPath="$PROJECT_DIR$/target/classes/main/ConnectionHandler$OutputProcessor.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/ConnectionHandler.class" afterPath="$PROJECT_DIR$/target/classes/main/ConnectionHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/HomePaneController.class" afterPath="$PROJECT_DIR$/target/classes/main/HomePaneController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/models/Supplier.class" afterPath="$PROJECT_DIR$/target/classes/models/Supplier.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/LoginPaneController.class" afterPath="$PROJECT_DIR$/target/classes/main/LoginPaneController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/BespokePackageSelectDialog.java" afterPath="$PROJECT_DIR$/src/main/BespokePackageSelectDialog.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/BookingProcess.java" afterPath="$PROJECT_DIR$/src/main/BookingProcess.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/BookingsCardPane.fxml" afterPath="$PROJECT_DIR$/src/main/BookingsCardPane.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/BookingsCardPaneController.java" afterPath="$PROJECT_DIR$/src/main/BookingsCardPaneController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/BookingsPane.fxml" afterPath="$PROJECT_DIR$/src/main/BookingsPane.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/BookingsPaneController.java" afterPath="$PROJECT_DIR$/src/main/BookingsPaneController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/ConnectionHandler.java" afterPath="$PROJECT_DIR$/src/main/ConnectionHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/DocumentCardPane.fxml" afterPath="$PROJECT_DIR$/src/main/DocumentCardPane.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/DocumentCardPaneController.java" afterPath="$PROJECT_DIR$/src/main/DocumentCardPaneController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/FinanceAddTransaction.fxml" afterPath="$PROJECT_DIR$/src/main/FinanceAddTransaction.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/FinancePaneController.java" afterPath="$PROJECT_DIR$/src/main/FinancePaneController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/HomePane.fxml" afterPath="$PROJECT_DIR$/src/main/HomePane.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/HomePaneController.java" afterPath="$PROJECT_DIR$/src/main/HomePaneController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/LoginsCardPaneController.java" afterPath="$PROJECT_DIR$/src/main/LoginsCardPaneController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/NewPackagePane.fxml" afterPath="$PROJECT_DIR$/src/main/NewPackagePane.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/NewQuoteBespokePaneController.java" afterPath="$PROJECT_DIR$/src/main/NewQuoteBespokePaneController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/NewQuotePane.fxml" afterPath="$PROJECT_DIR$/src/main/NewQuotePane.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/NewQuotePaneController.java" afterPath="$PROJECT_DIR$/src/main/NewQuotePaneController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/LoginPaneController.java" afterPath="$PROJECT_DIR$/src/main/LoginPaneController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/NewSupplierContactPaneController.java" afterPath="$PROJECT_DIR$/src/main/NewSupplierContactPaneController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/NewSupplierPane.fxml" afterPath="$PROJECT_DIR$/src/main/NewSupplierPane.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/NewSupplierPaneController.java" afterPath="$PROJECT_DIR$/src/main/NewSupplierPaneController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/PackagesCardPaneController.java" afterPath="$PROJECT_DIR$/src/main/PackagesCardPaneController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/QuotePreviewPane.java" afterPath="$PROJECT_DIR$/src/main/QuotePreviewPane.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/SuppliersCardPaneController.java" afterPath="$PROJECT_DIR$/src/main/SuppliersCardPaneController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/ProductsPaneController.java" afterPath="$PROJECT_DIR$/src/main/ProductsPaneController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/SuppliersPaneController.java" afterPath="$PROJECT_DIR$/src/main/SuppliersPaneController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/ViewBookingPane.fxml" afterPath="$PROJECT_DIR$/src/main/ViewBookingPane.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/ViewBookingPaneController.java" afterPath="$PROJECT_DIR$/src/main/ViewBookingPaneController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/ViewSuppliersContactCardPane.fxml" afterPath="$PROJECT_DIR$/src/main/ViewSuppliersContactCardPane.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/ViewSuppliersContactCardPaneController.java" afterPath="$PROJECT_DIR$/src/main/ViewSuppliersContactCardPaneController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/ViewSuppliersPane.fxml" afterPath="$PROJECT_DIR$/src/main/ViewSuppliersPane.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/ViewPackagePaneController.java" afterPath="$PROJECT_DIR$/src/main/ViewPackagePaneController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/ViewSuppliersPaneController.java" afterPath="$PROJECT_DIR$/src/main/ViewSuppliersPaneController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/Booking.java" afterPath="$PROJECT_DIR$/src/models/Booking.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/ProductAccommodation.java" afterPath="$PROJECT_DIR$/src/models/ProductAccommodation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/ProductActivity.java" afterPath="$PROJECT_DIR$/src/models/ProductActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/ProductGolf.java" afterPath="$PROJECT_DIR$/src/models/ProductGolf.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/ProductTransport.java" afterPath="$PROJECT_DIR$/src/models/ProductTransport.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/Supplier.java" afterPath="$PROJECT_DIR$/src/models/Supplier.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/Transaction.java" afterPath="$PROJECT_DIR$/src/models/Transaction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/TripPackage.java" afterPath="$PROJECT_DIR$/src/models/TripPackage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/GISAStyle.css" afterPath="$PROJECT_DIR$/src/resources/GISAStyle.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/HomePane.fxml" afterPath="$PROJECT_DIR$/target/classes/main/HomePane.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/resources/GISAStyle.css" afterPath="$PROJECT_DIR$/target/classes/resources/GISAStyle.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/MailPane.fxml" afterPath="$PROJECT_DIR$/src/main/SuppliersSelectionPane.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/BookingsPane.fxml" afterPath="$PROJECT_DIR$/target/classes/main/BookingsPane.fxml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -135,8 +92,8 @@
       <file leaf-file-name="BespokePackageSelectDialog.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/BespokePackageSelectDialog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="379" column="25" lean-forward="false" selection-start-line="379" selection-start-column="25" selection-end-line="379" selection-end-column="25" />
+            <state relative-caret-position="5984">
+              <caret line="368" column="52" lean-forward="false" selection-start-line="368" selection-start-column="52" selection-end-line="368" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -144,21 +101,96 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NewSupplierPaneController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/NewSupplierPaneController.java">
+      <file leaf-file-name="ViewSuppliersPaneController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/ViewSuppliersPaneController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="78" column="48" lean-forward="false" selection-start-line="78" selection-start-column="48" selection-end-line="78" selection-end-column="48" />
+            <state relative-caret-position="1360">
+              <caret line="98" column="34" lean-forward="false" selection-start-line="98" selection-start-column="34" selection-end-line="98" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SuppliersPaneController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/SuppliersPaneController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1683">
+              <caret line="118" column="12" lean-forward="false" selection-start-line="118" selection-start-column="12" selection-end-line="118" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SuppliersPaneController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/SuppliersPaneController.java">
+      <file leaf-file-name="ConnectionHandler.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/ConnectionHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-51">
-              <caret line="111" column="83" lean-forward="true" selection-start-line="111" selection-start-column="83" selection-end-line="111" selection-end-column="83" />
+            <state relative-caret-position="68">
+              <caret line="107" column="23" lean-forward="true" selection-start-line="107" selection-start-column="23" selection-end-line="107" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BookingsListPaneController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/BookingsListPaneController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1156">
+              <caret line="86" column="12" lean-forward="false" selection-start-line="86" selection-start-column="12" selection-end-line="86" selection-end-column="72" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BookingsCardPaneController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/BookingsCardPaneController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1241">
+              <caret line="89" column="22" lean-forward="false" selection-start-line="89" selection-start-column="22" selection-end-line="89" selection-end-column="22" />
+              <folding>
+                <element signature="e#2933#2934#0" expanded="true" />
+                <element signature="e#3005#3006#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BookingProcess.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/BookingProcess.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="952">
+              <caret line="63" column="51" lean-forward="false" selection-start-line="63" selection-start-column="51" selection-end-line="63" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomDialogSkin.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/CustomDialogSkin.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DocumentCardPaneController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/DocumentCardPaneController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="748">
+              <caret line="57" column="5" lean-forward="false" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginPaneController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/LoginPaneController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1054">
+              <caret line="78" column="74" lean-forward="false" selection-start-line="78" selection-start-column="74" selection-end-line="78" selection-end-column="74" />
               <folding />
             </state>
           </provider>
@@ -175,10 +207,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>fx-font-s</find>
-      <find>Comparator</find>
-      <find>Date</find>
-      <find>date</find>
       <find>booking-Dat</find>
       <find>secon</find>
       <find>getT</find>
@@ -205,6 +233,10 @@
       <find>productsL</find>
       <find>supplierCmb.getItems().add(&quot;A</find>
       <find>newPacka</find>
+      <find>suppliers</find>
+      <find>.ex</find>
+      <find>Cust</find>
+      <find>Aler</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -223,8 +255,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/PackagesPaneController.java" />
-        <option value="$PROJECT_DIR$/src/models/BookingTransport.java" />
         <option value="$PROJECT_DIR$/src/models/BookingAccommodation.java" />
         <option value="$PROJECT_DIR$/src/models/BookingActivity.java" />
         <option value="$PROJECT_DIR$/src/main/BookingProvisionalMade.java" />
@@ -245,12 +275,10 @@
         <option value="$PROJECT_DIR$/src/models/TripPackage.java" />
         <option value="$PROJECT_DIR$/src/models/Transaction.java" />
         <option value="$PROJECT_DIR$/src/main/CustomDialog.java" />
-        <option value="$PROJECT_DIR$/src/main/DocumentCardPaneController.java" />
         <option value="$PROJECT_DIR$/src/main/FinancePaneController.java" />
         <option value="$PROJECT_DIR$/src/main/LoginsCardPaneController.java" />
         <option value="$PROJECT_DIR$/src/main/PackagesCardPaneController.java" />
         <option value="$PROJECT_DIR$/src/models/Supplier.java" />
-        <option value="$PROJECT_DIR$/src/main/BookingProcess.java" />
         <option value="$PROJECT_DIR$/src/main/SuppliersSelectionPane.fxml" />
         <option value="$PROJECT_DIR$/src/main/SuppliersSelectionPaneController.java" />
         <option value="$PROJECT_DIR$/src/main/SuppliersCardPaneController.java" />
@@ -263,17 +291,21 @@
         <option value="$PROJECT_DIR$/src/models/ProductTransport.java" />
         <option value="$PROJECT_DIR$/src/main/BookingsPaneController.java" />
         <option value="$PROJECT_DIR$/src/models/Notification.java" />
-        <option value="$PROJECT_DIR$/src/main/ViewBookingPaneController.java" />
-        <option value="$PROJECT_DIR$/src/main/ConnectionHandler.java" />
         <option value="$PROJECT_DIR$/src/main/HomePaneController.java" />
-        <option value="$PROJECT_DIR$/src/main/NewSupplierContactPaneController.java" />
         <option value="$PROJECT_DIR$/src/main/ViewSuppliersContactCardPaneController.java" />
-        <option value="$PROJECT_DIR$/src/main/ViewSuppliersPaneController.java" />
         <option value="$PROJECT_DIR$/src/resources/GISAStyle.css" />
-        <option value="$PROJECT_DIR$/src/main/ProductsPaneController.java" />
-        <option value="$PROJECT_DIR$/src/main/BespokePackageSelectDialog.java" />
         <option value="$PROJECT_DIR$/src/main/NewSupplierPaneController.java" />
+        <option value="$PROJECT_DIR$/src/main/ViewBookingPaneController.java" />
+        <option value="$PROJECT_DIR$/src/main/NewSupplierContactPaneController.java" />
+        <option value="$PROJECT_DIR$/src/main/ProductsPaneController.java" />
+        <option value="$PROJECT_DIR$/src/main/ViewPackagePaneController.java" />
+        <option value="$PROJECT_DIR$/src/main/BespokePackageSelectDialog.java" />
+        <option value="$PROJECT_DIR$/src/main/ViewSuppliersPaneController.java" />
         <option value="$PROJECT_DIR$/src/main/SuppliersPaneController.java" />
+        <option value="$PROJECT_DIR$/src/main/LoginPaneController.java" />
+        <option value="$PROJECT_DIR$/src/main/DocumentCardPaneController.java" />
+        <option value="$PROJECT_DIR$/src/main/BookingProcess.java" />
+        <option value="$PROJECT_DIR$/src/main/ConnectionHandler.java" />
       </list>
     </option>
   </component>
@@ -285,9 +317,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="953" />
-    <option name="width" value="974" />
-    <option name="height" value="1047" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1296" />
+    <option name="height" value="1000" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
@@ -347,10 +380,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -549,7 +582,11 @@
       <workItem from="1535904591137" duration="61000" />
       <workItem from="1535908313373" duration="213000" />
       <workItem from="1535908591848" duration="4000" />
-      <workItem from="1535908761220" duration="32339000" />
+      <workItem from="1535908761220" duration="32390000" />
+      <workItem from="1536006112022" duration="36000" />
+      <workItem from="1536082286777" duration="8708000" />
+      <workItem from="1536431680730" duration="599000" />
+      <workItem from="1537626250762" duration="1590000" />
     </task>
     <task id="LOCAL-00001" summary="Updated 27-06-2018 80%">
       <created>1530134201447</created>
@@ -593,11 +630,18 @@
       <option name="project" value="LOCAL" />
       <updated>1532381054372</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Final Version 1.0">
+      <created>1536006052608</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1536006052608</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="360969000" />
+    <option name="totallyTimeSpent" value="371953000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -622,11 +666,10 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21606949" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18230277" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1913646" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -642,6 +685,7 @@
       <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -658,7 +702,8 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <MESSAGE value="Updated 27-06-2018 80%" />
     <MESSAGE value="Updated 29-06-2018 90%" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated 29-06-2018 90%" />
+    <MESSAGE value="Final Version 1.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final Version 1.0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -671,30 +716,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_141/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="1770" column="0" lean-forward="false" selection-start-line="1770" selection-start-column="0" selection-end-line="1770" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/SuppliersPane.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/ViewPackagePaneController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="22" column="26" lean-forward="false" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/NewPackagePaneController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3264">
@@ -772,19 +793,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/DocumentCardPaneController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="61" column="8" lean-forward="false" selection-start-line="61" selection-start-column="8" selection-end-line="61" selection-end-column="117" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/Supplier.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="23" column="4" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -826,16 +838,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/SuppliersSelectionPaneController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="50" column="29" lean-forward="false" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/SuppliersCardPaneController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="694">
@@ -844,26 +846,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/BookingProcess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51">
-          <caret line="47" column="169" lean-forward="false" selection-start-line="47" selection-start-column="169" selection-end-line="47" selection-end-column="169" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/QuotePreviewPane.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
           <caret line="57" column="14" lean-forward="false" selection-start-line="57" selection-start-column="14" selection-end-line="57" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/BookingsCardPaneController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="74" column="22" lean-forward="false" selection-start-line="74" selection-start-column="22" selection-end-line="74" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -880,7 +866,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="383">
           <caret line="71" column="8" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -888,7 +873,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="73" column="15" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -896,7 +880,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-187">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -904,7 +887,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -923,32 +905,11 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/BookingsListPaneController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="90" column="35" lean-forward="false" selection-start-line="90" selection-start-column="35" selection-end-line="90" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/BookingsPaneController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="49" column="12" lean-forward="false" selection-start-line="49" selection-start-column="12" selection-end-line="49" selection-end-column="140" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/ViewBookingPaneController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="127" column="55" lean-forward="false" selection-start-line="127" selection-start-column="55" selection-end-line="127" selection-end-column="55" />
-          <folding>
-            <element signature="e#6790#6791#0" expanded="false" />
-            <element signature="e#6862#6863#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -995,25 +956,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/CustomDialogSkin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/ProductsPaneController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="214" column="48" lean-forward="false" selection-start-line="214" selection-start-column="48" selection-end-line="214" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1029,58 +971,153 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
           <caret line="45" column="13" lean-forward="true" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/NewSupplierPaneController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1043">
+          <caret line="78" column="48" lean-forward="false" selection-start-line="78" selection-start-column="48" selection-end-line="78" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/ViewSuppliersPaneController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/SuppliersSelectionPaneController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="107" column="38" lean-forward="false" selection-start-line="107" selection-start-column="38" selection-end-line="107" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="173">
+          <caret line="50" column="29" lean-forward="false" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/ViewBookingPaneController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="46" column="30" lean-forward="false" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/NewSupplierContactPaneController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="69" column="120" lean-forward="false" selection-start-line="69" selection-start-column="120" selection-end-line="69" selection-end-column="120" />
+        <state relative-caret-position="-306">
+          <caret line="33" column="61" lean-forward="false" selection-start-line="33" selection-start-column="61" selection-end-line="33" selection-end-column="61" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/ConnectionHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/ProductsPaneController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="366" column="51" lean-forward="true" selection-start-line="366" selection-start-column="51" selection-end-line="366" selection-end-column="51" />
+        <state relative-caret-position="191">
+          <caret line="209" column="64" lean-forward="false" selection-start-line="209" selection-start-column="64" selection-end-line="209" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/ViewPackagePaneController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="35" column="50" lean-forward="false" selection-start-line="35" selection-start-column="50" selection-end-line="35" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/BespokePackageSelectDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="379" column="25" lean-forward="false" selection-start-line="379" selection-start-column="25" selection-end-line="379" selection-end-column="25" />
+        <state relative-caret-position="5984">
+          <caret line="368" column="52" lean-forward="false" selection-start-line="368" selection-start-column="52" selection-end-line="368" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/NewSupplierPaneController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/ViewSuppliersPaneController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="78" column="48" lean-forward="false" selection-start-line="78" selection-start-column="48" selection-end-line="78" selection-end-column="48" />
-          <folding />
+        <state relative-caret-position="1360">
+          <caret line="98" column="34" lean-forward="false" selection-start-line="98" selection-start-column="34" selection-end-line="98" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/SuppliersPaneController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51">
-          <caret line="111" column="83" lean-forward="true" selection-start-line="111" selection-start-column="83" selection-end-line="111" selection-end-column="83" />
+        <state relative-caret-position="1683">
+          <caret line="118" column="12" lean-forward="false" selection-start-line="118" selection-start-column="12" selection-end-line="118" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/LoginPaneController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1054">
+          <caret line="78" column="74" lean-forward="false" selection-start-line="78" selection-start-column="74" selection-end-line="78" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/DocumentCardPane.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-306">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/DocumentCardPaneController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="57" column="5" lean-forward="false" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/BookingsCardPaneController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1241">
+          <caret line="89" column="22" lean-forward="false" selection-start-line="89" selection-start-column="22" selection-end-line="89" selection-end-column="22" />
+          <folding>
+            <element signature="e#2933#2934#0" expanded="true" />
+            <element signature="e#3005#3006#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/BookingProcess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="952">
+          <caret line="63" column="51" lean-forward="false" selection-start-line="63" selection-start-column="51" selection-end-line="63" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/CustomDialogSkin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/BookingsListPaneController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1156">
+          <caret line="86" column="12" lean-forward="false" selection-start-line="86" selection-start-column="12" selection-end-line="86" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/ConnectionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="107" column="23" lean-forward="true" selection-start-line="107" selection-start-column="23" selection-end-line="107" selection-end-column="23" />
           <folding />
         </state>
       </provider>

@@ -35,15 +35,6 @@
                     </ImageView>
                 </graphic>
             </Button>
-            <Button fx:id="sendBtn" mnemonicParsing="false" onAction="#sendButtonClick" prefHeight="58.0" prefWidth="59.0">
-                <graphic>
-                    <ImageView>
-                        <image>
-                            <Image url="@../resources/SendSmall.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
-            </Button>
             <Button fx:id="exportBtn" mnemonicParsing="false" onAction="#exportButtonClick" prefHeight="58.0" prefWidth="59.0">
                 <graphic>
                     <ImageView>

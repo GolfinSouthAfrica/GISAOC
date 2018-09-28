@@ -127,36 +127,49 @@ public class ProductsPaneController implements Initializable {
 
     private List<String>getSuppliers(){
         List<String>suppliers = new ArrayList<>();
-        if(categoryCmb.getSelectionModel().getSelectedItem().toString().matches("Accommodation") || categoryCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
-            for (Supplier s : Main.connectionHandler.suppliers) {
+        if(categoryCmb.getSelectionModel().getSelectedItem().toString().matches("Accommodation")) {
+            for (Supplier s : Main.connectionHandler.supplieraccommodation) {
                 if(s.getProvince().matches(provinceCmb.getSelectionModel().getSelectedItem().toString()) || provinceCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
-                    if(s.getCategory().matches(categoryCmb.getSelectionModel().getSelectedItem().toString()) || categoryCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
-                        suppliers.add(s.getSupplierName());
-                    }
+                    suppliers.add(s.getSupplierName());
                 }
             }
-        } else if(categoryCmb.getSelectionModel().getSelectedItem().toString().matches("Golf") || categoryCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
-            for (Supplier s : Main.connectionHandler.suppliers) {
+        } else if(categoryCmb.getSelectionModel().getSelectedItem().toString().matches("Golf")) {
+            for (Supplier s : Main.connectionHandler.suppliergolf) {
                 if(s.getProvince().matches(provinceCmb.getSelectionModel().getSelectedItem().toString()) || provinceCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
-                    if(s.getCategory().matches(categoryCmb.getSelectionModel().getSelectedItem().toString()) || categoryCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
-                        suppliers.add(s.getSupplierName());
-                    }
+                    suppliers.add(s.getSupplierName());
                 }
             }
-        } else if(categoryCmb.getSelectionModel().getSelectedItem().toString().matches("Transport") || categoryCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
-            for (Supplier s : Main.connectionHandler.suppliers) {
+        } else if(categoryCmb.getSelectionModel().getSelectedItem().toString().matches("Transport")) {
+            for (Supplier s : Main.connectionHandler.suppliertransport) {
                 if(s.getProvince().matches(provinceCmb.getSelectionModel().getSelectedItem().toString()) || provinceCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
-                    if(s.getCategory().matches(categoryCmb.getSelectionModel().getSelectedItem().toString()) || categoryCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
-                        suppliers.add(s.getSupplierName());
-                    }
+                    suppliers.add(s.getSupplierName());
                 }
             }
-        } else if(categoryCmb.getSelectionModel().getSelectedItem().toString().matches("Activity") || categoryCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
-            for (Supplier s : Main.connectionHandler.suppliers) {
+        } else if(categoryCmb.getSelectionModel().getSelectedItem().toString().matches("Activity")) {
+            for (Supplier s : Main.connectionHandler.supplieractivities) {
                 if(s.getProvince().matches(provinceCmb.getSelectionModel().getSelectedItem().toString()) || provinceCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
-                    if(s.getCategory().matches(categoryCmb.getSelectionModel().getSelectedItem().toString()) || categoryCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
-                        suppliers.add(s.getSupplierName());
-                    }
+                    suppliers.add(s.getSupplierName());
+                }
+            }
+        } else if (categoryCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
+            for (Supplier s : Main.connectionHandler.supplieraccommodation) {
+                if(s.getProvince().matches(provinceCmb.getSelectionModel().getSelectedItem().toString()) || provinceCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
+                    suppliers.add(s.getSupplierName());
+                }
+            }
+            for (Supplier s : Main.connectionHandler.suppliergolf) {
+                if(s.getProvince().matches(provinceCmb.getSelectionModel().getSelectedItem().toString()) || provinceCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
+                    suppliers.add(s.getSupplierName());
+                }
+            }
+            for (Supplier s : Main.connectionHandler.suppliertransport) {
+                if(s.getProvince().matches(provinceCmb.getSelectionModel().getSelectedItem().toString()) || provinceCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
+                    suppliers.add(s.getSupplierName());
+                }
+            }
+            for (Supplier s : Main.connectionHandler.supplieractivities) {
+                if(s.getProvince().matches(provinceCmb.getSelectionModel().getSelectedItem().toString()) || provinceCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
+                    suppliers.add(s.getSupplierName());
                 }
             }
         }
@@ -169,44 +182,64 @@ public class ProductsPaneController implements Initializable {
                 supplierCmb.getItems().clear();
                 ObservableList<String> suppliers = FXCollections.observableArrayList();
                 if (!searchTxf.getText().matches("")) {
-                    if (categoryCmb.getSelectionModel().getSelectedItem().toString().matches("Accommodation") || categoryCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
-                        for (Supplier s : Main.connectionHandler.suppliers) {
+                    if (categoryCmb.getSelectionModel().getSelectedItem().toString().matches("Accommodation")) {
+                        for (Supplier s : Main.connectionHandler.supplieraccommodation) {
                             if (s.getProvince().matches(provinceCmb.getSelectionModel().getSelectedItem().toString()) || provinceCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
-                                if (s.getCategory().matches(categoryCmb.getSelectionModel().getSelectedItem().toString()) || categoryCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
-                                    System.out.println(s.getSupplierName());
-                                    if(s.getSupplierName().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getCategory().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getCategory().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getProvince().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getAddress().toLowerCase().contains(searchTxf.getText().toLowerCase())) {
-                                        suppliers.add(s.getSupplierName());
-                                    }
+                                if(s.getSupplierName().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getCategory().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getCategory().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getProvince().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getAddress().toLowerCase().contains(searchTxf.getText().toLowerCase())) {
+                                    suppliers.add(s.getSupplierName());
                                 }
                             }
                         }
-                    } else if (categoryCmb.getSelectionModel().getSelectedItem().toString().matches("Golf") || categoryCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
-                        for (Supplier s : Main.connectionHandler.suppliers) {
+                    } else if (categoryCmb.getSelectionModel().getSelectedItem().toString().matches("Golf")) {
+                        for (Supplier s : Main.connectionHandler.suppliergolf) {
                             if (s.getProvince().matches(provinceCmb.getSelectionModel().getSelectedItem().toString()) || provinceCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
-                                if (s.getCategory().matches(categoryCmb.getSelectionModel().getSelectedItem().toString()) || categoryCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
-                                    if(s.getSupplierName().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getCategory().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getCategory().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getProvince().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getAddress().toLowerCase().contains(searchTxf.getText().toLowerCase())) {
-                                        suppliers.add(s.getSupplierName());
-                                    }
+                                if(s.getSupplierName().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getCategory().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getCategory().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getProvince().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getAddress().toLowerCase().contains(searchTxf.getText().toLowerCase())) {
+                                    suppliers.add(s.getSupplierName());
                                 }
                             }
                         }
-                    } else if (categoryCmb.getSelectionModel().getSelectedItem().toString().matches("Transport") || categoryCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
-                        for (Supplier s : Main.connectionHandler.suppliers) {
+                    } else if (categoryCmb.getSelectionModel().getSelectedItem().toString().matches("Transport")) {
+                        for (Supplier s : Main.connectionHandler.suppliertransport) {
                             if (s.getProvince().matches(provinceCmb.getSelectionModel().getSelectedItem().toString()) || provinceCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
-                                if (s.getCategory().matches(categoryCmb.getSelectionModel().getSelectedItem().toString()) || categoryCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
-                                    if(s.getSupplierName().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getCategory().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getCategory().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getProvince().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getAddress().toLowerCase().contains(searchTxf.getText().toLowerCase())) {
-                                        suppliers.add(s.getSupplierName());
-                                    }
+                                if(s.getSupplierName().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getCategory().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getCategory().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getProvince().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getAddress().toLowerCase().contains(searchTxf.getText().toLowerCase())) {
+                                    suppliers.add(s.getSupplierName());
                                 }
                             }
                         }
-                    } else if (categoryCmb.getSelectionModel().getSelectedItem().toString().matches("Activity") || categoryCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
-                        for (Supplier s : Main.connectionHandler.suppliers) {
+                    } else if (categoryCmb.getSelectionModel().getSelectedItem().toString().matches("Activities")) {
+                        for (Supplier s : Main.connectionHandler.supplieractivities) {
                             if (s.getProvince().matches(provinceCmb.getSelectionModel().getSelectedItem().toString()) || provinceCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
-                                if (s.getCategory().matches(categoryCmb.getSelectionModel().getSelectedItem().toString()) || categoryCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
-                                    if(s.getSupplierName().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getCategory().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getCategory().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getProvince().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getAddress().toLowerCase().contains(searchTxf.getText().toLowerCase())) {
-                                        suppliers.add(s.getSupplierName());
-                                    }
+                                if(s.getSupplierName().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getCategory().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getCategory().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getProvince().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getAddress().toLowerCase().contains(searchTxf.getText().toLowerCase())) {
+                                    suppliers.add(s.getSupplierName());
+                                }
+                            }
+                        }
+                    } else if (categoryCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
+                        for (Supplier s : Main.connectionHandler.supplieraccommodation) {
+                            if (s.getProvince().matches(provinceCmb.getSelectionModel().getSelectedItem().toString()) || provinceCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
+                                if(s.getSupplierName().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getCategory().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getCategory().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getProvince().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getAddress().toLowerCase().contains(searchTxf.getText().toLowerCase())) {
+                                    suppliers.add(s.getSupplierName());
+                                }
+                            }
+                        }
+                        for (Supplier s : Main.connectionHandler.suppliergolf) {
+                            if (s.getProvince().matches(provinceCmb.getSelectionModel().getSelectedItem().toString()) || provinceCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
+                                if(s.getSupplierName().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getCategory().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getCategory().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getProvince().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getAddress().toLowerCase().contains(searchTxf.getText().toLowerCase())) {
+                                    suppliers.add(s.getSupplierName());
+                                }
+                            }
+                        }
+                        for (Supplier s : Main.connectionHandler.suppliertransport) {
+                            if (s.getProvince().matches(provinceCmb.getSelectionModel().getSelectedItem().toString()) || provinceCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
+                                if(s.getSupplierName().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getCategory().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getCategory().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getProvince().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getAddress().toLowerCase().contains(searchTxf.getText().toLowerCase())) {
+                                    suppliers.add(s.getSupplierName());
+                                }
+                            }
+                        }
+                        for (Supplier s : Main.connectionHandler.supplieractivities) {
+                            if (s.getProvince().matches(provinceCmb.getSelectionModel().getSelectedItem().toString()) || provinceCmb.getSelectionModel().getSelectedItem().toString().matches("All")) {
+                                if(s.getSupplierName().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getCategory().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getCategory().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getProvince().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getAddress().toLowerCase().contains(searchTxf.getText().toLowerCase())) {
+                                    suppliers.add(s.getSupplierName());
                                 }
                             }
                         }

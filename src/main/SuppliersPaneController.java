@@ -16,6 +16,7 @@ import models.Supplier;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -38,7 +39,19 @@ public class SuppliersPaneController implements Initializable{
             populateSuppliers(sortBy.getSelectionModel().getSelectedItem().toString(), category);
         });
         populateSuppliers(sortBy.getSelectionModel().getSelectedItem().toString(), category);
-        Main.connectionHandler.suppliers.addListener((InvalidationListener) e -> {
+        Main.connectionHandler.supplieraccommodation.addListener((InvalidationListener) e -> {
+            populateSuppliers("", category);
+            sortBy.getSelectionModel().select(0);
+        });
+        Main.connectionHandler.suppliergolf.addListener((InvalidationListener) e -> {
+            populateSuppliers("", category);
+            sortBy.getSelectionModel().select(0);
+        });
+        Main.connectionHandler.suppliertransport.addListener((InvalidationListener) e -> {
+            populateSuppliers("", category);
+            sortBy.getSelectionModel().select(0);
+        });
+        Main.connectionHandler.supplieractivities.addListener((InvalidationListener) e -> {
             populateSuppliers("", category);
             sortBy.getSelectionModel().select(0);
         });
@@ -53,74 +66,102 @@ public class SuppliersPaneController implements Initializable{
             populateSuppliers(sortBy.getSelectionModel().getSelectedItem().toString(), category);
         });
         populateSuppliers(sortBy.getSelectionModel().getSelectedItem().toString(), category);
-        Main.connectionHandler.suppliers.addListener((InvalidationListener) e -> {
+        Main.connectionHandler.supplieraccommodation.addListener((InvalidationListener) e -> {
+            populateSuppliers("", category);
+            sortBy.getSelectionModel().select(0);
+        });
+        Main.connectionHandler.suppliergolf.addListener((InvalidationListener) e -> {
+            populateSuppliers("", category);
+            sortBy.getSelectionModel().select(0);
+        });
+        Main.connectionHandler.suppliertransport.addListener((InvalidationListener) e -> {
+            populateSuppliers("", category);
+            sortBy.getSelectionModel().select(0);
+        });
+        Main.connectionHandler.supplieractivities.addListener((InvalidationListener) e -> {
             populateSuppliers("", category);
             sortBy.getSelectionModel().select(0);
         });
     }
 
+
     private void populateSuppliers(String sort, String category){
-        if(!Main.connectionHandler.packages.isEmpty()) {
-            ObservableList<HBox> supplierCards = FXCollections.observableArrayList();
-            List<Supplier> temp = Main.connectionHandler.suppliers;
-            if(temp.size() > 1) {
-                if (sort.matches("Name-Ascend")) {
-                    temp.sort(Comparator.comparing(Supplier::getSupplierName));
-                } else if (sort.matches("Name-Descend")) {
-                    temp.sort(Comparator.comparing(Supplier::getSupplierName).reversed());
-                } else if (sort.matches("Province-Ascend")) {
-                    temp.sort(Comparator.comparing(Supplier::getSupplierName));
-                    temp.sort(Comparator.comparing(Supplier::getProvince));
-                } else if (sort.matches("Province-Descend")) {
-                    temp.sort(Comparator.comparing(Supplier::getSupplierName).reversed());
-                    temp.sort(Comparator.comparing(Supplier::getProvince).reversed());
-                } else if (sort.matches("Category-Ascend")) {
-                    temp.sort(Comparator.comparing(Supplier::getSupplierName));
-                    temp.sort(Comparator.comparing(Supplier::getProvince));
-                    temp.sort(Comparator.comparing(Supplier::getCategory));
-                } else if (sort.matches("Category-Descend")) {
-                    temp.sort(Comparator.comparing(Supplier::getSupplierName).reversed());
-                    temp.sort(Comparator.comparing(Supplier::getProvince).reversed());
-                    temp.sort(Comparator.comparing(Supplier::getCategory).reversed());
-                }
+        ObservableList<HBox> supplierCards = FXCollections.observableArrayList();
+        List<Supplier> temp = new ArrayList<>();
+        if(category.matches("Accommodation")) {
+            temp.addAll(Main.connectionHandler.supplieraccommodation);
+        } else if(category.matches("Golf")) {
+            temp.addAll(Main.connectionHandler.suppliergolf);
+        } else if(category.matches("Transport")) {
+            temp.addAll(Main.connectionHandler.suppliertransport);
+        } else if(category.matches("Activities")) {
+            temp.addAll(Main.connectionHandler.supplieractivities);
             }
-            for (Supplier s : Main.connectionHandler.suppliers) {
-                if(s.getCategory().matches(category)) {
-                    FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("SuppliersCardPane.fxml"));
-                    HBox root = null;
-                    try {
-                        root = loader.load();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    SuppliersCardPaneController scc = loader.getController();
-                    scc.initData(s, category);
-                    supplierCards.add(root);
+        if(temp.size() > 1) {
+            if (sort.matches("Name-Ascend")) {
+                temp.sort(Comparator.comparing(Supplier::getSupplierName));
+            } else if (sort.matches("Name-Descend")) {
+                temp.sort(Comparator.comparing(Supplier::getSupplierName).reversed());
+            } else if (sort.matches("Province-Ascend")) {
+                temp.sort(Comparator.comparing(Supplier::getSupplierName));
+                temp.sort(Comparator.comparing(Supplier::getProvince));
+            } else if (sort.matches("Province-Descend")) {
+                temp.sort(Comparator.comparing(Supplier::getSupplierName).reversed());
+                temp.sort(Comparator.comparing(Supplier::getProvince).reversed());
+            } else if (sort.matches("Category-Ascend")) {
+                temp.sort(Comparator.comparing(Supplier::getSupplierName));
+                temp.sort(Comparator.comparing(Supplier::getProvince));
+                temp.sort(Comparator.comparing(Supplier::getCategory));
+            } else if (sort.matches("Category-Descend")) {
+                temp.sort(Comparator.comparing(Supplier::getSupplierName).reversed());
+                temp.sort(Comparator.comparing(Supplier::getProvince).reversed());
+                temp.sort(Comparator.comparing(Supplier::getCategory).reversed());
+            }
+        }
+        for (Supplier s : temp) {
+            FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("SuppliersCardPane.fxml"));
+                HBox root = null;
+                try {
+                    root = loader.load();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
+                SuppliersCardPaneController scc = loader.getController();
+                scc.initData(s, category);
+                supplierCards.add(root);
             }
             Platform.runLater(() -> {
                 suppliersList.getChildren().clear();
                 suppliersList.getChildren().addAll(supplierCards);
             });
-        } else {
-            Platform.runLater(() -> suppliersList.getChildren().clear());
-        }
     }
 
     public void searchButtonClick(){
         ObservableList<Supplier> displayList = FXCollections.observableArrayList();
         if (!searchTxf.getText().matches("")) {
-            for (Supplier s: Main.connectionHandler.suppliers) {
-                if(s.getCategory().matches(category)) {
+            if(category.matches("Accommodation")) {
+                for (Supplier s : Main.connectionHandler.supplieraccommodation) {
                     if (s.getSupplierName().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getProvince().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getCategory().toLowerCase().contains(searchTxf.getText().toLowerCase()) || s.getAddress().toLowerCase().contains(searchTxf.getText().toLowerCase())) {
                         displayList.add(s);
                     }
                 }
             }
         } else {
-            for (Supplier s: Main.connectionHandler.suppliers) {
-                if(s.getCategory().matches(category)){
+            if(category.matches("Accommodation")) {
+                for (Supplier s: Main.connectionHandler.supplieraccommodation) {
+                    displayList.add(s);
+                }
+            } else if(category.matches("Golf")) {
+                for (Supplier s: Main.connectionHandler.suppliergolf) {
+                    displayList.add(s);
+                }
+            } else if(category.matches("Transport")) {
+                for (Supplier s: Main.connectionHandler.suppliertransport) {
+                    displayList.add(s);
+                }
+            } else if(category.matches("Activities")) {
+                for (Supplier s: Main.connectionHandler.supplieractivities) {
                     displayList.add(s);
                 }
             }

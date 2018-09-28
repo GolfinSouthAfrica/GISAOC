@@ -1,10 +1,10 @@
 package main;
 
-import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
 import models.*;
 
 import java.io.*;
@@ -21,7 +21,10 @@ public class ConnectionHandler {
     public static String LOCAL_ADDRESS = "127.0.0.1";
     public static String INTERNET_ADDRESS = "127.0.0.1";
     public UserObservable user = new UserObservable(null);
-    public ObservableList<Supplier> suppliers = FXCollections.observableArrayList();
+    public ObservableList<Supplier> supplieraccommodation = FXCollections.observableArrayList();
+    public ObservableList<Supplier> suppliergolf = FXCollections.observableArrayList();
+    public ObservableList<Supplier> suppliertransport = FXCollections.observableArrayList();
+    public ObservableList<Supplier> supplieractivities = FXCollections.observableArrayList();
     public ObservableList<Booking> bookings = FXCollections.observableArrayList();
     //public ObservableList<Mail> mails = FXCollections.observableArrayList();
     public ObservableList<Login> logins = FXCollections.observableArrayList();
@@ -36,6 +39,9 @@ public class ConnectionHandler {
     public ObservableList<Notification> notifications = FXCollections.observableArrayList();
     public volatile ObservableList<Object> outputQueue = FXCollections.observableArrayList();
     public volatile ObservableList<Object> inputQueue = FXCollections.observableArrayList();
+    private String connectionType = "local";
+    private String username = "";
+    private String password = "";
     private Socket socket;
     private ObjectOutputStream objectOutputStream;
     private ObjectInputStream objectInputStream;
@@ -44,12 +50,6 @@ public class ConnectionHandler {
 
     public ConnectionHandler() {
         try {
-            FileReader fr = new FileReader(new File("G:/My Drive/e. Office/OfficeAppServerData/GolfInSouthAfricaOfficeServerIP.txt"));
-            BufferedReader br = new BufferedReader(fr);
-            LOCAL_ADDRESS = br.readLine().substring(17);
-            INTERNET_ADDRESS = br.readLine().substring(20);
-            br.close();
-            fr.close();
             connect();
         } catch (Exception e) {
             e.printStackTrace();
@@ -58,9 +58,9 @@ public class ConnectionHandler {
 
     //<editor-fold desc="Connection">
     private void connect() {
-        if (!connectLocal()) {
-            if (!connectInternet()) {
-                new CustomDialog().CustomDialog(Main.stage, "Connection Error", "Failed to connect to GISA Office Server! (\" + LOCAL_ADDRESS + \")\\nPlease check your network connection and try again!", new JFXButton("Ok"));
+        if (!connectLocal(false)) {
+            if (!connectInternet(false)) {
+                Platform.runLater(() -> new Alert(Alert.AlertType.INFORMATION, "Failed to connect to GISA Office Server! (" + LOCAL_ADDRESS + "). Please check your network connection and try again!)").showAndWait());
                 System.out.println("Exiting..");
                 System.exit(0);
             }
@@ -71,22 +71,60 @@ public class ConnectionHandler {
         unreadMails.addAll(0, 0, 0, 0);
     }
 
-    private Boolean connectLocal() {
+    private void reconnect() {
+        if(connectionType.matches("local")){
+            boolean connect = true;
+            while (connect) {
+                if(connectLocal(true)){
+                    new InputProcessor().start();
+                    new OutputProcessor().start();
+                    if (authorise(username, password)) {
+                        connect = false;
+                    }
+                }
+            }
+        } else {
+            boolean connect = true;
+            while (connect) {
+                if(connectInternet(true)){
+                    new InputProcessor().start();
+                    new OutputProcessor().start();
+                    if (authorise(username, password)) {
+                        connect = false;
+                    }
+                }
+            }
+        }
+    }
+
+    private Boolean connectLocal(Boolean reconnect) {
         System.out.println("Trying to connect to local server...");
         try {
+            FileReader fr = new FileReader(new File("G:/My Drive/e. Office/OfficeAppServerData/GolfInSouthAfricaOfficeServerIP.txt"));
+            BufferedReader br = new BufferedReader(fr);
+            LOCAL_ADDRESS = br.readLine().substring(17);
+            INTERNET_ADDRESS = br.readLine().substring(20);
+            br.close();
+            fr.close();
             socket = new Socket();
             socket.connect(new InetSocketAddress(LOCAL_ADDRESS, PORT), 1000);
             objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
             objectInputStream = new ObjectInputStream(socket.getInputStream());
             System.out.println("Socket is connected");
+            System.out.println(LOCAL_ADDRESS);
+            connectionType = "local";
+            if (reconnect) {
+                Platform.runLater(() -> new Alert(Alert.AlertType.INFORMATION, "Connection Restored. Your connection is back online.").showAndWait());
+            }
             return true;
         } catch (Exception ex) {
             System.out.println("Could not connect to local server");
+            Platform.runLater(() -> new Alert(Alert.AlertType.INFORMATION, "Failed to connect to GISA Office Server! (" + LOCAL_ADDRESS + "). Please check your network connection and try again!)").showAndWait());
         }
         return false;
     }
 
-    private Boolean connectInternet() {
+    private Boolean connectInternet(Boolean reconnect) {
         System.out.println("Trying to connect to internet server...");
         try {
             socket = new Socket();
@@ -94,9 +132,15 @@ public class ConnectionHandler {
             objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
             objectInputStream = new ObjectInputStream(socket.getInputStream());
             System.out.println("Socket is connected");
+            System.out.println(INTERNET_ADDRESS);
+            connectionType = "internet";
+            if (reconnect) {
+                Platform.runLater(() -> new Alert(Alert.AlertType.INFORMATION, "Connection Restored. Your connection is back online.").showAndWait());
+            }
             return true;
         } catch (Exception ex) {
             System.out.println("Could not connect to internet server");
+            Platform.runLater(() -> new Alert(Alert.AlertType.INFORMATION, "Failed to connect to GISA Office Server! (" + LOCAL_ADDRESS + "). Please check your network connection and try again!)").showAndWait());
         }
         return false;
     }
@@ -129,6 +173,11 @@ public class ConnectionHandler {
     public void logOut() {
         sendData("lgt:");
         logOut = true;
+    }
+
+    public void setDetails(String s1, String s2){
+        username = s1;
+        password = s2;
     }
 
     public double getTotalAmountTrip (TripPackage trip) {
@@ -182,9 +231,11 @@ public class ConnectionHandler {
             return input;
         } catch (Exception ex) {
             ex.printStackTrace();
-            if (!logOut) {
+            /*if (!logOut) {
                 System.exit(0);
-            }
+            }*/
+            Platform.runLater(() -> new Alert(Alert.AlertType.INFORMATION, "Connection Lost. Reconnecting...").showAndWait());
+            reconnect();
         }
         return null;
     }
@@ -277,12 +328,29 @@ public class ConnectionHandler {
                     } else if (input instanceof List<?>) {
                         List list = (List) input;
                         if (!list.isEmpty() && list.get(0) instanceof Supplier) {
+                            supplieraccommodation.clear();;
+                            suppliergolf.clear();
+                            suppliertransport.clear();
+                            supplieractivities.clear();
                             if (((Supplier) list.get(0)).getSupplierNumber() != -10) {
-                                suppliers.addAll(list);
+                                for(Supplier supplier: ((List<Supplier>) list)){
+                                    if(supplier.getCategory().matches("Accommodation")){
+                                        supplieraccommodation.add(supplier);
+                                    } else if (supplier.getCategory().matches("Golf")){
+                                        suppliergolf.add(supplier);
+                                    } else if (supplier.getCategory().matches("Transport")) {
+                                        suppliertransport.add(supplier);
+                                    } else if (supplier.getCategory().matches("Activity")) {
+                                        supplieractivities.add(supplier);
+                                    }
+                                }
                             } else {
-                                suppliers.clear();
+                                supplieraccommodation.clear();;
+                                suppliergolf.clear();
+                                suppliertransport.clear();
+                                supplieractivities.clear();
                             }
-                            System.out.println("Updated Suppliers (" + suppliers.size() + ")");
+                            System.out.println("Updated Suppliers (" + ((List<Supplier>) list).size() + ")");
                         } else if (!list.isEmpty() && list.get(0) instanceof Booking) {
                             bookings.clear();
                             if (!((Booking) list.get(0)).getClientName().equals("NoBookings")) {
@@ -366,7 +434,7 @@ public class ConnectionHandler {
                             System.out.println("Updated Notifications (" + notifications.size() + ")");
                             if (userInitialized()){
                                 for (Notification n:notifications) {
-                                    new CustomDialog().CustomDialog(Main.stage, n.getMessageHeader(), n.getMessageBody(), new JFXButton("Ok"));
+                                    Platform.runLater(() -> new Alert(Alert.AlertType.INFORMATION, n.getMessageHeader() + "\n" + n.getMessageBody()).showAndWait());
                                 }
                             }
                         }

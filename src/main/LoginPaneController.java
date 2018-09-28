@@ -73,6 +73,7 @@ public class LoginPaneController implements Initializable {
             loginThread.start();
             waitingForAuthorisation.addListener(al -> {
                 if (authoriseResult.getValue()) {
+                    Main.connectionHandler.setDetails(emailTxf.getText(), passwordTxf.getText());
                     Platform.runLater(() -> {
                         loader = new FXMLLoader();
                         loader.setLocation(getClass().getResource("HomePane.fxml"));

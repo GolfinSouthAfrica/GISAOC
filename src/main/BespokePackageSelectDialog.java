@@ -342,42 +342,34 @@ public class BespokePackageSelectDialog extends CustomDialogSkin {
     private List<String>getSuppliers(String category, String province){
         List<String>suppliers = new ArrayList<>();
         if(category.matches("Accommodation")) {
-            for (Supplier s : Main.connectionHandler.suppliers) {
-                if(s.getProvince().matches(province) || province.matches("All")) {
-                    if(s.getCategory().matches(category)) {
-                        if(!suppliers.contains(s.getSupplierName())) {
-                            suppliers.add(s.getSupplierName());
-                        }
+            for (Supplier s : Main.connectionHandler.supplieraccommodation) {
+                if (s.getProvince().matches(province) || province.matches("All")) {
+                    if (!suppliers.contains(s.getSupplierName())) {
+                        suppliers.add(s.getSupplierName());
                     }
                 }
             }
         } else if(category.matches("Golf")) {
-            for (Supplier s : Main.connectionHandler.suppliers) {
+            for (Supplier s : Main.connectionHandler.suppliergolf) {
                 if(s.getProvince().matches(province) || province.matches("All")) {
-                    if(s.getCategory().matches(category)) {
-                        if(!suppliers.contains(s.getSupplierName())) {
-                            suppliers.add(s.getSupplierName());
-                        }
+                    if(!suppliers.contains(s.getSupplierName())) {
+                        suppliers.add(s.getSupplierName());
                     }
                 }
             }
         } else if(category.matches("Transport")) {
-            for (Supplier s : Main.connectionHandler.suppliers) {
+            for (Supplier s : Main.connectionHandler.suppliertransport) {
                 if(s.getProvince().matches(province) || province.matches("All")) {
-                    if(s.getCategory().matches(category)) {
-                        if(!suppliers.contains(s.getSupplierName())) {
-                            suppliers.add(s.getSupplierName());
-                        }
+                    if(!suppliers.contains(s.getSupplierName())) {
+                        suppliers.add(s.getSupplierName());
                     }
                 }
             }
         } else if(category.matches("Activity")) {
-            for (Supplier s : Main.connectionHandler.suppliers) {
+            for (Supplier s : Main.connectionHandler.supplieractivities) {
                 if(s.getProvince().matches(province) || province.matches("All")) {
-                    if(s.getCategory().matches(category)) {
-                        if(!suppliers.contains(s.getSupplierName())) {
-                            suppliers.add(s.getSupplierName());
-                        }
+                    if(!suppliers.contains(s.getSupplierName())) {
+                        suppliers.add(s.getSupplierName());
                     }
                 }
             }

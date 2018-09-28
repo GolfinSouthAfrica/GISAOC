@@ -32,24 +32,11 @@ public class NewSupplierContactPaneController implements Initializable {
     }
 
     public void initData(Supplier supplier, String category){
-        Main.connectionHandler.suppliers.addListener((InvalidationListener) e -> {
-            this.supplier = supplier;
-            this.category = category;
-        });
         this.supplier = supplier;
         this.category = category;
     }
 
     public void initEditData(ContactDetails cd, Supplier supplier, String category){
-        Main.connectionHandler.suppliers.addListener((InvalidationListener) e -> {
-            this.supplier = supplier;
-            this.cd = cd;
-            this.category = category;
-            contactNameLblTxf.setText(cd.getPersonName());
-            positionTxf.setText(cd.getPosition());
-            numberTxf.setText(cd.getNumber());
-            emailTxf.setText(cd.getEmail());
-        });
         this.cd = cd;
         this.supplier = supplier;
         this.category = category;

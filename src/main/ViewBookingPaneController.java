@@ -44,42 +44,32 @@ public class ViewBookingPaneController implements Initializable {
     }
 
     public void initData(Booking booking, String process){
-        Main.connectionHandler.suppliers.addListener((InvalidationListener) e -> {
+        Main.connectionHandler.supplieraccommodation.addListener((InvalidationListener) e -> {
             this.process = process;
             this.booking = booking;
-            clientNameLbl.setText(booking.getClientName());
-            gsNumberLbl.setText("GS" + booking.getGsNumber());
-            contactNumberLbl.setText(booking.getContactNumber());
-            emailHL.setText(booking.getEmail());
-            golfersLbl.setText("" + (booking.getGolfersSharing() + booking.getGolfersSingle()));
-            nongolfersLbl.setText("" + (booking.getNongolfersSharing() + booking.getNongolfersSingle()));
-            bookingAmountLbl.setText("R " + booking.getBookingAmount());
-            arrivalLbl.setText(booking.getArrival());
-            departureLbl.setText(booking.getDeparture());
-            notesLbl.setText(booking.getNotes());
-            processLbl.setText(booking.getProcess());
-            if(booking.getDepositPaid() == 1){
-                fullDepositPaidLbl.setText("Yes");
-            } else {
-                fullDepositPaidLbl.setText("No");
-            }
-            if (booking.getFullPaid() == 1){
-                fullPaymentLbl.setText("Yes");
-            } else {
-                fullPaymentLbl.setText("No");
-            }
-            amountOutstandingLbl.setText("R " + getAmountOutstanding());
-            amountToBePaidLbl.setText("R " + getAmountToBePaid());
-            bookingIncludesListView.getItems().clear();
-            bookingIncludesListView.getItems().addAll(booking.getBookingAccommodation());
-            bookingIncludesListView.getItems().addAll(booking.getBookingGolf());
-            bookingIncludesListView.getItems().addAll(booking.getBookingTransport());
-            bookingIncludesListView.getItems().addAll(booking.getBookingActivities());
-            transactionsListView.getItems().clear();
-            transactionsListView.getItems().addAll(booking.getTransactions());
+            setBooking();
+        });
+        Main.connectionHandler.suppliergolf.addListener((InvalidationListener) e -> {
+            this.process = process;
+            this.booking = booking;
+            setBooking();
+        });
+        Main.connectionHandler.suppliertransport.addListener((InvalidationListener) e -> {
+            this.process = process;
+            this.booking = booking;
+            setBooking();
+        });
+        Main.connectionHandler.supplieractivities.addListener((InvalidationListener) e -> {
+            this.process = process;
+            this.booking = booking;
+            setBooking();
         });
         this.process = process;
         this.booking = booking;
+        setBooking();
+    }
+
+    private void setBooking(){
         clientNameLbl.setText(booking.getClientName());
         gsNumberLbl.setText("GS" + booking.getGsNumber());
         contactNumberLbl.setText(booking.getContactNumber());
